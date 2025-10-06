@@ -1,0 +1,28 @@
+---
+sidebar: sidebar 
+permalink: task-uninstalling.html 
+keywords: uninstall, uninstall data broker, remove data broker 
+summary: 'Se necessario, eseguire uno script di disinstallazione per rimuovere il broker dati, nonché i pacchetti e le directory creati durante l"installazione del broker dati.' 
+---
+= Disinstallare il broker di dati per NetApp Copy and Sync
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Se necessario, eseguire uno script di disinstallazione per rimuovere il broker dati e i pacchetti e le directory creati per NetApp Copy and Sync durante l'installazione del broker dati.
+
+.Passi
+. Accedi all'host del broker dati.
+. Passare alla directory del broker dati: `/opt/netapp/databroker`
+. Eseguire i seguenti comandi:
++
+`chmod +x uninstaller-DataBroker.sh`
+`./uninstaller-DataBroker.sh`
+
+. Premere 'y' per confermare la disinstallazione.
+

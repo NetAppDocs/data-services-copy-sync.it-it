@@ -1,0 +1,176 @@
+---
+sidebar: sidebar 
+permalink: task-installing-gcp.html 
+keywords: data broker, install, gcp, google, networking, permissions, regions, install data broker in gcp, install in gcp, deploy in gcp, deploy data broker in gcp, install data broker in google, install in google, deploy in google, deploy data broker in google, networking requirements, port, ports, 443, port 443, ntp, network time protocol, gcp data broker, service account 
+summary: 'Quando crei un nuovo broker di dati, scegli l"opzione Google Cloud Data Broker per distribuire il software del broker di dati su una nuova istanza di macchina virtuale in una VPC.  NetApp Copy and Sync ti guida attraverso il processo di installazione, ma i requisiti e i passaggi vengono ripetuti in questa pagina per aiutarti a preparare l"installazione.' 
+---
+= Crea un nuovo broker di dati in Google Cloud per NetApp Copy and Sync
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Quando crei un nuovo gruppo di broker di dati per NetApp Copy and Sync, scegli Google Cloud Platform per distribuire il software del broker di dati su una nuova istanza di macchina virtuale in una VPC di Google Cloud.  NetApp Copy and Sync ti guida attraverso il processo di installazione, ma i requisiti e i passaggi vengono ripetuti in questa pagina per aiutarti a preparare l'installazione.
+
+Hai anche la possibilità di installare il data broker su un host Linux esistente nel cloud o nella tua sede. link:task-installing-linux.html["Saperne di più"] .
+
+
+
+== Regioni Google Cloud supportate
+
+Sono supportate tutte le regioni.
+
+
+
+== Privilegi di root
+
+Il software del broker di dati viene eseguito automaticamente come root sull'host Linux.  L'esecuzione come root è un requisito per le operazioni del broker di dati.  Ad esempio, per accumulare azioni.
+
+
+
+== Requisiti di rete
+
+* Il broker di dati necessita di una connessione Internet in uscita per poter interrogare Copy and Sync per le attività sulla porta 443.
++
+Quando Copy and Sync distribuisce il broker di dati in Google Cloud, crea un gruppo di sicurezza che abilita la comunicazione in uscita richiesta.
+
++
+Se è necessario limitare la connettività in uscita, vederelink:reference-networking.html["l'elenco degli endpoint contattati dal broker di dati"] .
+
+* NetApp consiglia di configurare l'origine, la destinazione e il broker di dati per utilizzare un servizio Network Time Protocol (NTP).  La differenza di tempo tra i tre componenti non deve superare i 5 minuti.
+
+
+
+
+== Autorizzazioni necessarie per distribuire il broker di dati in Google Cloud
+
+Assicurarsi che l'utente di Google Cloud che distribuisce il broker di dati disponga delle seguenti autorizzazioni:
+
+[source, yaml]
+----
+- compute.networks.list
+- compute.regions.list
+- deploymentmanager.deployments.create
+- deploymentmanager.deployments.delete
+- deploymentmanager.operations.get
+- iam.serviceAccounts.list
+----
+
+
+== Autorizzazioni richieste per l'account di servizio
+
+Quando si distribuisce il broker di dati, è necessario selezionare un account di servizio che disponga delle seguenti autorizzazioni:
+
+[source, yaml]
+----
+- logging.logEntries.create
+- resourcemanager.projects.get
+- storage.buckets.get
+- storage.buckets.list
+- storage.objects.create
+- storage.objects.delete
+- storage.objects.get
+- storage.objects.getIamPolicy
+- storage.objects.list
+- storage.objects.setIamPolicy
+- storage.objects.update
+- iam.serviceAccounts.signJwt
+- pubsub.subscriptions.consume
+- pubsub.subscriptions.create
+- pubsub.subscriptions.delete
+- pubsub.subscriptions.list
+- pubsub.topics.attachSubscription
+- pubsub.topics.create
+- pubsub.topics.delete
+- pubsub.topics.list
+- pubsub.topics.setIamPolicy
+- storage.buckets.update
+- cloudkms.cryptoKeys.list
+- cloudkms.keyRings.list
+----
+Note:
+
+. L'autorizzazione "iam.serviceAccounts.signJwt" è richiesta solo se si prevede di configurare il broker di dati per utilizzare un vault HashiCorp esterno.
+. Le autorizzazioni "pubsub.*" e "storage.buckets.update" sono necessarie solo se si prevede di abilitare l'impostazione Sincronizzazione continua su una relazione di sincronizzazione da Google Cloud Storage a un'altra posizione di archiviazione cloud. link:task-creating-relationships.html#settings["Scopri di più sull'opzione Sincronizzazione continua"] .
+. Le autorizzazioni "cloudkms.cryptoKeys.list" e "cloudkms.keyRings.list" sono necessarie solo se si prevede di utilizzare una chiave KMS gestita dal cliente su un bucket Google Cloud Storage di destinazione.
+
+
+
+
+== Creare il broker di dati
+
+Esistono diversi modi per creare un nuovo broker di dati.  Questi passaggi descrivono come installare un broker di dati in Google Cloud quando si crea una relazione di sincronizzazione.
+
+.Passi
+. link:task-login-copyandsync.html["Accedi a Copia e Sincronizza"] .
+. Seleziona *Crea nuova sincronizzazione*.
+. Nella pagina *Definisci relazione di sincronizzazione*, scegli un'origine e una destinazione e seleziona *Continua*.
++
+Completa i passaggi fino a raggiungere la pagina *Data Broker Group*.
+
+. Nella pagina *Gruppo Data Broker*, seleziona *Crea Data Broker* e poi seleziona *Google Cloud Platform*.
++
+image:screenshot-google.png["Uno screenshot della pagina Data Broker che consente di scegliere tra un data broker AWS, Azure, Google Cloud e On-Prem."]
+
+. Inserisci un nome per il broker di dati e seleziona *Continua*.
+. Se richiesto, accedi con il tuo account Google.
++
+Il modulo è di proprietà e ospitato da Google. Le tue credenziali non vengono fornite a NetApp.
+
+. Seleziona un progetto e un account di servizio, quindi scegli una posizione per il broker di dati, specificando se desideri abilitare o disabilitare un indirizzo IP pubblico.
++
+Se non si abilita un indirizzo IP pubblico, nel passaggio successivo sarà necessario definire un server proxy.
+
++
+image:screenshot_data_broker_gcp.png["Uno screenshot che mostra le informazioni necessarie per distribuire un data broker in Google Cloud."]
+
+. Specificare una configurazione proxy, se è necessario un proxy per l'accesso a Internet nella VPC.
++
+Se è necessario un proxy per l'accesso a Internet, il proxy deve trovarsi in Google Cloud e utilizzare lo stesso account di servizio del broker di dati.
+
+. Una volta che il broker di dati è disponibile, seleziona *Continua* in Copia e sincronizza.
++
+L'implementazione dell'istanza richiede circa 5-10 minuti.  È possibile monitorare l'avanzamento tramite Copia e sincronizzazione, che si aggiorna automaticamente quando l'istanza è disponibile.
+
+. Completare le pagine della procedura guidata per creare la nuova relazione di sincronizzazione.
+
+
+.Risultato
+Hai distribuito un data broker in Google Cloud e creato una nuova relazione di sincronizzazione.  È possibile utilizzare questo broker di dati con relazioni di sincronizzazione aggiuntive.
+
+
+
+== Fornire autorizzazioni per utilizzare i bucket in altri progetti Google Cloud
+
+Quando crei una relazione di sincronizzazione e scegli Google Cloud Storage come origine o destinazione, Copia e sincronizzazione ti consente di scegliere tra i bucket che l'account di servizio del broker di dati è autorizzato a utilizzare.  Per impostazione predefinita, sono inclusi i bucket che si trovano nello _stesso_ progetto dell'account del servizio Data Broker.  Ma puoi scegliere bucket da _altri_ progetti se fornisci le autorizzazioni richieste.
+
+.Passi
+. Apri la console di Google Cloud Platform e carica il servizio Cloud Storage.
+. Seleziona il nome del bucket che desideri utilizzare come origine o destinazione in una relazione di sincronizzazione.
+. Selezionare *Autorizzazioni*.
+. Selezionare *Aggiungi*.
+. Immettere il nome dell'account di servizio del broker di dati.
+. Seleziona un ruolo che fornisca<<Autorizzazioni richieste per l'account di servizio,gli stessi permessi mostrati sopra>> .
+. Seleziona *Salva*.
+
+
+.Risultato
+Quando imposti una relazione di sincronizzazione, ora puoi scegliere quel bucket come origine o destinazione nella relazione di sincronizzazione.
+
+
+
+== Dettagli sull'istanza VM del broker dati
+
+Copia e sincronizzazione crea un broker di dati in Google Cloud utilizzando la seguente configurazione.
+
+Compatibilità con Node.js:: v21.2.0
+Tipo di macchina:: n2-standard-4
+vCPU:: 4
+Memoria RAM:: 15 GB
+Sistema operativo:: Rocky Linux 9,0
+Dimensioni e tipo di disco:: HDD da 20 GB pd-standard
+

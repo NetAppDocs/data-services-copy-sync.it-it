@@ -1,0 +1,224 @@
+---
+sidebar: sidebar 
+permalink: task-installing-azure.html 
+keywords: data broker, install, azure, networking, permissions, regions, install data broker in azure, install in azure, deploy in azure, deploy data broker in azure, networking requirements, port, ports, 443, port 443, ntp, network time protocol, azure data broker 
+summary: 'Quando si crea un nuovo broker di dati, scegliere l"opzione Azure Data Broker per distribuire il software del broker di dati su una nuova macchina virtuale in una rete virtuale.  NetApp Copy and Sync ti guida attraverso il processo di installazione, ma i requisiti e i passaggi vengono ripetuti in questa pagina per aiutarti a preparare l"installazione.' 
+---
+= Crea un nuovo broker di dati in Azure per NetApp Copy and Sync
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Quando si crea un nuovo gruppo di broker di dati per NetApp Copy and Sync, scegliere Microsoft Azure per distribuire il software del broker di dati su una nuova macchina virtuale in una rete virtuale.  NetApp Copy and Sync ti guida attraverso il processo di installazione, ma i requisiti e i passaggi vengono ripetuti in questa pagina per aiutarti a preparare l'installazione.
+
+Hai anche la possibilità di installare il data broker su un host Linux esistente nel cloud o nella tua sede. link:task-installing-linux.html["Saperne di più"] .
+
+
+
+== Regioni di Azure supportate
+
+Sono supportate tutte le regioni, ad eccezione di Cina, Governo degli Stati Uniti e Dipartimento della Difesa degli Stati Uniti.
+
+
+
+== Privilegi di root
+
+Il software del broker di dati viene eseguito automaticamente come root sull'host Linux.  L'esecuzione come root è un requisito per le operazioni del broker di dati.  Ad esempio, per accumulare azioni.
+
+
+
+== Requisiti di rete
+
+* Il broker di dati necessita di una connessione Internet in uscita per poter interrogare il servizio Copia e sincronizzazione per le attività sulla porta 443.
++
+Quando Copy and Sync distribuisce il broker di dati in Azure, crea un gruppo di sicurezza che abilita la comunicazione in uscita richiesta.
+
++
+Se è necessario limitare la connettività in uscita, vederelink:reference-networking.html["l'elenco degli endpoint contattati dal broker di dati"] .
+
+* NetApp consiglia di configurare l'origine, la destinazione e il broker di dati per utilizzare un servizio Network Time Protocol (NTP).  La differenza di tempo tra i tre componenti non deve superare i 5 minuti.
+
+
+
+
+== Autorizzazioni necessarie per distribuire il broker di dati in Azure
+
+Assicurarsi che l'account utente di Azure utilizzato per distribuire il broker dati disponga delle seguenti autorizzazioni:
+
+[source, json]
+----
+{
+    "Name": "Azure Data Broker",
+    "Actions": [
+					"Microsoft.Resources/subscriptions/read",
+                    "Microsoft.Resources/deployments/operationstatuses/read",
+                    "Microsoft.Resources/subscriptions/locations/read",
+                    "Microsoft.Network/networkInterfaces/read",
+                    "Microsoft.Network/virtualNetworks/subnets/read",
+                    "Microsoft.Resources/subscriptions/resourceGroups/write",
+                    "Microsoft.Resources/subscriptions/resourceGroups/delete",
+                    "Microsoft.Resources/deployments/write",
+                    "Microsoft.Resources/deployments/validate/action",
+                    "Microsoft.Resources/deployments/operationStatuses/read",
+                    "Microsoft.Resources/deployments/cancel/action",
+                    "Microsoft.Compute/virtualMachines/read",
+                    "Microsoft.Compute/virtualMachines/delete",
+                    "Microsoft.Compute/disks/delete",
+                    "Microsoft.Network/networkInterfaces/delete",
+                    "Microsoft.Network/publicIPAddresses/delete",
+                    "Microsoft.Network/networkSecurityGroups/securityRules/delete",
+                    "Microsoft.Resources/subscriptions/resourceGroups/write",
+                    "Microsoft.Compute/virtualMachines/delete",
+                    "Microsoft.Network/networkSecurityGroups/write",
+                    "Microsoft.Network/networkSecurityGroups/join/action",
+                    "Microsoft.Compute/disks/write",
+                    "Microsoft.Network/networkInterfaces/write",
+                    "Microsoft.Network/virtualNetworks/read",
+                    "Microsoft.Network/publicIPAddresses/write",
+                    "Microsoft.Compute/virtualMachines/write",
+                    "Microsoft.Compute/virtualMachines/extensions/write",
+                    "Microsoft.Resources/deployments/read",
+                    "Microsoft.Network/networkSecurityGroups/read",
+                    "Microsoft.Network/publicIPAddresses/read",
+                    "Microsoft.Network/virtualNetworks/subnets/join/action",
+                    "Microsoft.Network/publicIPAddresses/join/action",
+                    "Microsoft.Network/networkInterfaces/join/action",
+                    "Microsoft.Storage/storageAccounts/read",
+                    "Microsoft.EventGrid/systemTopics/eventSubscriptions/write",
+                    "Microsoft.EventGrid/systemTopics/eventSubscriptions/read",
+                    "Microsoft.EventGrid/systemTopics/eventSubscriptions/delete",
+                    "Microsoft.EventGrid/systemTopics/eventSubscriptions/getFullUrl/action",
+                    "Microsoft.EventGrid/systemTopics/eventSubscriptions/getDeliveryAttributes/action",
+                    "Microsoft.EventGrid/systemTopics/read",
+                    "Microsoft.EventGrid/systemTopics/write",
+                    "Microsoft.EventGrid/systemTopics/delete",
+                    "Microsoft.EventGrid/eventSubscriptions/write",
+                    "Microsoft.Storage/storageAccounts/write"
+                    "Microsoft.MarketplaceOrdering/offertypes/publishers/offers/plans/agreements/read"
+                    "Microsoft.MarketplaceOrdering/offertypes/publishers/offers/plans/agreements/write"
+                    "Microsoft.Network/networkSecurityGroups/securityRules/read",
+        	        "Microsoft.Network/networkSecurityGroups/read",
+----
+....
+    ],
+    "NotActions": [],
+    "AssignableScopes": [],
+    "Description": "Azure Data Broker",
+    "IsCustom": "true"
+}
+....
+Nota:
+
+. Le seguenti autorizzazioni sono necessarie solo se si prevede di abilitare https://docs.netapp.com/us-en/bluexp-copy-sync/task-creating-relationships.html#settings["Impostazione di sincronizzazione continua"] su una relazione di sincronizzazione da Azure a un'altra posizione di archiviazione cloud:
++
+** 'Microsoft.Storage/storageAccounts/read',
+** 'Microsoft.EventGrid/systemTopics/eventSubscriptions/write',
+** 'Microsoft.EventGrid/systemTopics/eventSubscriptions/read',
+** 'Microsoft.EventGrid/systemTopics/eventSubscriptions/delete',
+** 'Microsoft.EventGrid/systemTopics/eventSubscriptions/getFullUrl/action',
+** 'Microsoft.EventGrid/systemTopics/eventSubscriptions/getDeliveryAttributes/action',
+** 'Microsoft.EventGrid/systemTopics/read',
+** 'Microsoft.EventGrid/systemTopics/write',
+** 'Microsoft.EventGrid/systemTopics/delete',
+** 'Microsoft.EventGrid/eventSubscriptions/write',
+** 'Microsoft.Storage/storageAccounts/write'
+
+
++
+Inoltre, l'ambito assegnabile deve essere impostato sull'ambito della sottoscrizione e *non* sull'ambito del gruppo di risorse se si prevede di implementare la sincronizzazione continua in Azure.
+
+. Le seguenti autorizzazioni sono necessarie solo se si intende scegliere una propria sicurezza per la creazione del broker di dati:
++
+** "Microsoft.Network/networkSecurityGroups/securityRules/read"
+** "Microsoft.Network/networkSecurityGroups/read"
+
+
+
+
+
+
+== Metodo di autenticazione
+
+Quando distribuisci il broker di dati, dovrai scegliere un metodo di autenticazione per la macchina virtuale: una password o una coppia di chiavi pubblica-privata SSH.
+
+Per assistenza nella creazione di una coppia di chiavi, fare riferimento a https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys["Documentazione di Azure: creare e utilizzare una coppia di chiavi pubblica-privata SSH per le VM Linux in Azure"^] .
+
+
+
+== Creare il broker di dati
+
+Esistono diversi modi per creare un nuovo broker di dati.  In questa procedura viene descritto come installare un broker di dati in Azure quando si crea una relazione di sincronizzazione.
+
+.Passi
+. link:task-login-copyandsync.html["Accedi a Copia e Sincronizza"] .
+. Seleziona *Crea nuova sincronizzazione*.
+. Nella pagina *Definisci relazione di sincronizzazione*, scegli un'origine e una destinazione e seleziona *Continua*.
++
+Completa i passaggi fino a raggiungere la pagina *Data Broker Group*.
+
+. Nella pagina *Gruppo Data Broker*, seleziona *Crea Data Broker* e poi seleziona *Microsoft Azure*.
++
+image:screenshot-azure.png["Uno screenshot della pagina Data Broker che consente di scegliere tra un data broker AWS, Azure, Google Cloud e On-Prem."]
+
+. Inserisci un nome per il broker di dati e seleziona *Continua*.
+. Se richiesto, accedi al tuo account Microsoft.  Se non ti viene richiesto, seleziona *Accedi ad Azure*.
++
+Il modulo è di proprietà e ospitato da Microsoft. Le tue credenziali non vengono fornite a NetApp.
+
+. Selezionare una posizione per il broker di dati e immettere i dettagli di base sulla macchina virtuale.
++
+image:screenshot_azure_data_broker.png["Uno screenshot della pagina di distribuzione di Azure che mostra i seguenti campi: Sottoscrizione, Regione di Azure, VNet, Subnet, Nome VM, Nome utente, Metodo di autenticazione e Gruppo di risorse."]
+
++
+
+NOTE: Se si prevede di implementare una relazione di sincronizzazione continua, è necessario assegnare un ruolo personalizzato al broker di dati.  Questa operazione può essere eseguita anche manualmente dopo la creazione del broker.
+
+. Specificare una configurazione proxy, se è necessario un proxy per l'accesso a Internet nella rete virtuale.
+. Selezionare *Continua*. Se desideri aggiungere autorizzazioni S3 al tuo data broker, inserisci le tue chiavi di accesso e segrete AWS.
+. Selezionare *Continua* e tenere aperta la pagina fino al completamento della distribuzione.
++
+Il processo può durare fino a 7 minuti.
+
+. In Copia e sincronizzazione, seleziona *Continua* una volta che il broker di dati è disponibile.
+. Completare le pagine della procedura guidata per creare la nuova relazione di sincronizzazione.
+
+
+.Risultato
+Hai distribuito un broker di dati in Azure e creato una nuova relazione di sincronizzazione.  È possibile utilizzare questo broker di dati con relazioni di sincronizzazione aggiuntive.
+
+.Ricevi un messaggio che richiede il consenso dell'amministratore?
+****
+Se Microsoft ti avvisa che è necessaria l'approvazione dell'amministratore perché Copia e sincronizzazione necessita dell'autorizzazione per accedere alle risorse della tua organizzazione per tuo conto, hai due opzioni:
+
+. Chiedi all'amministratore AD di fornirti la seguente autorizzazione:
++
+In Azure, vai su *Centro di amministrazione > Azure AD > Utenti e gruppi > Impostazioni utente* e abilita *Gli utenti possono consentire alle app di accedere ai dati aziendali per loro conto*.
+
+. Chiedi all'amministratore di AD di fornire il consenso per tuo conto a *CloudSync-AzureDataBrokerCreator* utilizzando il seguente URL (questo è l'endpoint del consenso dell'amministratore):
++
+\ https://login.microsoftonline.com/ {INSERISCI QUI IL TUO ID TENANT}/v2.0/adminconsent?client_id=8ee4ca3a-bafa-4831-97cc-5a38923cab85&redirect_uri= https://cloudsync.netapp.com&scope=https://management.azure.com/user_impersonationhttps://graph.microsoft.com/User.Read
+
++
+Come mostrato nell'URL, l'URL della nostra app è https://cloudsync.netapp.com e l'ID client dell'applicazione è 8ee4ca3a-bafa-4831-97cc-5a38923cab85.
+
+
+
+****
+
+
+== Dettagli sulla VM del broker di dati
+
+Copia e sincronizzazione crea un broker di dati in Azure utilizzando la seguente configurazione.
+
+Compatibilità con Node.js:: v21.2.0
+Tipo VM:: Standard DS4 v2
+vCPU:: 8
+Memoria RAM:: 28 GB
+Sistema operativo:: Rocky Linux 9,0
+Dimensioni e tipo di disco:: SSD Premium da 64 GB
+

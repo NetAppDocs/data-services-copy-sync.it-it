@@ -1,0 +1,9 @@
+= Correzioni di bug
+:allow-uri-read: 
+
+
+
+
+=== Correzioni di bug
+
+Abbiamo aggiornato Copia e sincronizzazione e il broker dati per correggere alcuni bug.  La nuova versione del broker dati è 1.0.53.

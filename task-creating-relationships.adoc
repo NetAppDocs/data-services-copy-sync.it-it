@@ -1,0 +1,262 @@
+---
+sidebar: sidebar 
+permalink: task-creating-relationships.html 
+keywords: sync, relationship, create, tags, settings, create a relationship, creating relationships, bucket setup, tags, bluexp, copy and sync 
+summary: 'Quando si crea una relazione di sincronizzazione, NetApp Copy and Sync copia i file dall"origine alla destinazione.  Dopo la copia iniziale, il servizio sincronizza tutti i dati modificati ogni 24 ore.' 
+---
+= Crea relazioni di sincronizzazione in NetApp Copy and Sync
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Quando si crea una relazione di sincronizzazione, NetApp Copy and Sync copia i file dall'origine alla destinazione.  Dopo la copia iniziale, la funzione Copia e sincronizzazione sincronizza tutti i dati modificati ogni 24 ore.
+
+Prima di poter creare alcuni tipi di relazioni di sincronizzazione, è necessario creare un sistema nella console NetApp .
+
+
+
+== Creare relazioni di sincronizzazione per tipi specifici di sistemi
+
+Se si desidera creare relazioni di sincronizzazione per uno qualsiasi dei seguenti elementi, è necessario prima creare o scoprire il sistema:
+
+* Amazon FSx per ONTAP
+* Azure NetApp Files
+* Cloud Volumes ONTAP
+* Cluster ONTAP on-prem
+
+
+.Passi
+. link:task-login-copyandsync.html["Accedi a Copia e Sincronizza"] .
+. Creare o scoprire il sistema.
++
+** https://docs.netapp.com/us-en/bluexp-fsx-ontap/start/task-getting-started-fsx.html["Creare un sistema Amazon FSx per ONTAP"^]
+** https://docs.netapp.com/us-en/bluexp-azure-netapp-files/task-quick-start.html["Configurazione e individuazione Azure NetApp Files"^]
+** https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-deploying-otc-aws.html["Avvio di Cloud Volumes ONTAP in AWS"^]
+** https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-deploying-otc-azure.html["Avvio di Cloud Volumes ONTAP in Azure"^]
+** https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-deploying-gcp.html["Avvio di Cloud Volumes ONTAP in Google Cloud"^]
+** https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-adding-systems.html["Aggiunta di sistemi Cloud Volumes ONTAP esistenti"^]
+** https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Alla scoperta dei cluster ONTAP"^]
+
+
+. Selezionare *Pagina Sistemi*.
+. Seleziona un sistema che corrisponda a uno dei tipi elencati sopra.
+. Selezionare il menu azioni accanto a Sincronizza.
++
+image:screenshot_sync_we.gif["Uno screenshot che mostra le azioni disponibili dal menu Sincronizzazione dopo aver selezionato un sistema."]
+
+. Selezionare *Sincronizza dati da questa posizione* o *Sincronizza dati con questa posizione* e seguire le istruzioni per impostare la relazione di sincronizzazione.
+
+
+
+
+== Creare altri tipi di relazioni di sincronizzazione
+
+Utilizzare questi passaggi per sincronizzare i dati da o verso un tipo di archiviazione supportato diverso da Amazon FSx for ONTAP, Azure NetApp Files, Cloud Volumes ONTAP o cluster ONTAP locali.  I passaggi seguenti forniscono un esempio che mostra come impostare una relazione di sincronizzazione da un server NFS a un bucket S3.
+
+. Nella console NetApp , seleziona *Sincronizza*.
+. Nella pagina *Definisci relazione di sincronizzazione*, seleziona un'origine e una destinazione.
++
+I passaggi seguenti forniscono un esempio di come creare una relazione di sincronizzazione da un server NFS a un bucket S3.
+
++
+image:screenshot_nfs_to_s3.png["Uno screenshot che mostra NFS come origine e S3 come destinazione in una nuova relazione di sincronizzazione."]
+
+. Nella pagina *Server NFS*, immettere l'indirizzo IP o il nome di dominio completo del server NFS che si desidera sincronizzare con AWS.
+. Nella pagina *Data Broker Group*, seguire le istruzioni per creare una macchina virtuale del data broker in AWS, Azure o Google Cloud Platform oppure per installare il software del data broker su un host Linux esistente.
++
+Per maggiori dettagli consultare le seguenti pagine:
+
++
+** link:task-installing-aws.html["Creare un broker di dati in AWS"]
+** link:task-installing-azure.html["Creare un broker di dati in Azure"]
+** link:task-installing-gcp.html["Creare un broker di dati in Google Cloud"]
+** link:task-installing-linux.html["Installazione del data broker su un host Linux"]
+
+
+. Dopo aver installato il broker di dati, seleziona *Continua*.
++
+image:screenshot-data-broker-group.png["Questa schermata mostra un'istanza distribuita correttamente.  L'interfaccia mostra i dettagli sull'istanza, inclusa la rete AWS."]
+
+. [[filter]]Nella pagina *Directory*, seleziona una directory o una sottodirectory di primo livello.
++
+Se Copia e sincronizzazione non riesce a recuperare le esportazioni, selezionare *Aggiungi esportazione manualmente* e immettere il nome di un'esportazione NFS.
+
++
+
+NOTE: Se si desidera sincronizzare più di una directory sul server NFS, è necessario creare ulteriori relazioni di sincronizzazione al termine dell'operazione.
+
+. Nella pagina *AWS S3 Bucket*, seleziona un bucket:
++
+** Esegui il drill-down per selezionare una cartella esistente all'interno del bucket o per selezionare una nuova cartella creata all'interno del bucket.
+** Seleziona *Aggiungi all'elenco* per selezionare un bucket S3 non associato al tuo account AWS. link:reference-requirements.html#s3["È necessario applicare autorizzazioni specifiche al bucket S3"] .
+
+
+. Nella pagina *Configurazione bucket*, configura il bucket:
++
+** Scegli se abilitare la crittografia del bucket S3 e quindi seleziona una chiave AWS KMS, inserisci l'ARN di una chiave KMS o seleziona la crittografia AES-256.
+** Selezionare una classe di archiviazione S3. link:reference-supported-relationships.html#storage-classes["Visualizza le classi di archiviazione supportate"] .
++
+image:screenshot_bucket_setup.gif["Questa schermata mostra la pagina Configurazione bucket che consente di scegliere Sì o No per la crittografia e di selezionare una classe di archiviazione S3 specifica per i dati sincronizzati."]
+
+
+
+. [[impostazioni]]Nella pagina *Impostazioni*, definisci come i file e le cartelle di origine vengono sincronizzati e mantenuti nella posizione di destinazione:
++
+Programma:: Scegli una pianificazione ricorrente per le sincronizzazioni future oppure disattiva la pianificazione della sincronizzazione.  È possibile pianificare una relazione per sincronizzare i dati anche ogni minuto.
+Timeout di sincronizzazione:: Definisci se Copia e sincronizzazione deve annullare una sincronizzazione dei dati se la sincronizzazione non è stata completata entro il numero specificato di minuti, ore o giorni.
+Notifiche:: Consente di scegliere se ricevere notifiche di copia e sincronizzazione nel Centro notifiche della console NetApp .  È possibile abilitare le notifiche per le sincronizzazioni dei dati riuscite, non riuscite e annullate.
+Nuovi tentativi:: Definisci il numero di volte in cui Copia e sincronizzazione devono riprovare a sincronizzare un file prima di saltarlo.
+Sincronizzazione continua:: Dopo la sincronizzazione iniziale dei dati, Copy and Sync ascolta le modifiche nel bucket S3 di origine o nel bucket Google Cloud Storage e sincronizza continuamente tutte le modifiche con la destinazione non appena si verificano.  Non è necessario ripetere la scansione della sorgente a intervalli programmati.
++
+--
+Questa impostazione è disponibile solo quando si crea una relazione di sincronizzazione e quando si sincronizzano i dati da un bucket S3 o Google Cloud Storage ad Azure Blob Storage, CIFS, Google Cloud Storage, IBM Cloud Object Storage, NFS, S3 e StorageGRID *oppure* da Azure Blob Storage ad Azure Blob Storage, CIFS, Google Cloud Storage, IBM Cloud Object Storage, NFS e StorageGRID.
+
+Se si attiva questa impostazione, verranno influenzate anche altre funzionalità come segue:
+
+** La pianificazione della sincronizzazione è disabilitata.
+** Le seguenti impostazioni vengono ripristinate ai valori predefiniti: Timeout sincronizzazione, File modificati di recente e Data di modifica.
+** Se S3 è l'origine, il filtro per dimensione sarà attivo solo sugli eventi di copia (non sugli eventi di eliminazione).
+** Dopo aver creato la relazione, puoi solo accelerarla o eliminarla.  Non è possibile interrompere le sincronizzazioni, modificare le impostazioni o visualizzare i report.
++
+È possibile creare una relazione di sincronizzazione continua con un bucket esterno.  Per farlo, segui questi passaggi:
+
++
+... Vai alla console Google Cloud per il progetto del bucket esterno.
+... Vai su *Cloud Storage > Impostazioni > Account del servizio di archiviazione cloud*.
+... Aggiorna il file local.json:
++
+[source, json]
+----
+{
+"protocols": {
+    "gcp": {
+        "storage-account-email": <storage account email>
+}
+}
+}
+----
+... Riavviare il broker di dati:
++
+.... sudo pm2 stop all
+.... sudo pm2 avvia tutto
+
+
+... Creare una relazione di sincronizzazione continua con il bucket esterno pertinente.
++
+
+NOTE: Un broker di dati utilizzato per creare una relazione di sincronizzazione continua con un bucket esterno non sarà in grado di creare un'altra relazione di sincronizzazione continua con un bucket nel suo progetto.
+
+
+
+
+
+--
+Confronta per:: Scegliere se Copia e Sincronizzazione debbano confrontare determinati attributi per determinare se un file o una directory sono stati modificati e devono essere sincronizzati di nuovo.
++
+--
+Anche se deselezioni questi attributi, Copia e sincronizzazione confronta comunque l'origine con la destinazione controllando i percorsi, le dimensioni dei file e i nomi dei file.  Se ci sono modifiche, sincronizza i file e le directory.
+
+È possibile scegliere di abilitare o disabilitare Copia e sincronizzazione per confrontare i seguenti attributi:
+
+** *mtime*: Ora dell'ultima modifica di un file.  Questo attributo non è valido per le directory.
+** *uid*, *gid* e *mode*: flag di autorizzazione per Linux.
+
+
+--
+Copia per oggetti:: Abilita questa opzione per copiare i metadati e i tag dell'archiviazione degli oggetti.  Se un utente modifica i metadati sulla sorgente, Copia e sincronizzazione copia questo oggetto nella sincronizzazione successiva, ma se un utente modifica i tag sulla sorgente (e non i dati stessi), Copia e sincronizzazione non copia l'oggetto nella sincronizzazione successiva.
++
+--
+Non è possibile modificare questa opzione dopo aver creato la relazione.
+
+La copia dei tag è supportata con relazioni di sincronizzazione che includono Azure Blob o un endpoint compatibile con S3 (S3, StorageGRID o IBM Cloud Object Storage) come destinazione.
+
+La copia dei metadati è supportata con relazioni "cloud-to-cloud" tra uno qualsiasi dei seguenti endpoint:
+
+** AWS S3
+** Blob azzurro
+** Google Cloud Storage
+** IBM Cloud Object Storage
+** StorageGRID
+
+
+--
+File modificati di recente:: Scegli di escludere i file che sono stati modificati di recente prima della sincronizzazione pianificata.
+Elimina i file sulla sorgente:: Scegliere di eliminare i file dalla posizione di origine dopo che Copia e sincronizzazione ha copiato i file nella posizione di destinazione.  Questa opzione comporta il rischio di perdita di dati, poiché i file sorgente vengono eliminati dopo essere stati copiati.
++
+--
+Se si abilita questa opzione, è necessario modificare anche un parametro nel file local.json sul data broker.  Aprire il file e aggiornarlo come segue:
+
+[source, json]
+----
+{
+"workers":{
+"transferrer":{
+"delete-on-source": true
+}
+}
+}
+----
+Dopo aver aggiornato il file local.json, dovresti riavviare: `pm2 restart all` .
+
+--
+Elimina i file sul bersaglio:: Scegli di eliminare i file dalla posizione di destinazione, se sono stati eliminati dalla posizione di origine.  L'impostazione predefinita è di non eliminare mai i file dalla posizione di destinazione.
+Tipi di file:: Definisci i tipi di file da includere in ogni sincronizzazione: file, directory, collegamenti simbolici e collegamenti fisici.
++
+--
+
+NOTE: I collegamenti fisici sono disponibili solo per relazioni NFS-NFS non protette.  Gli utenti saranno limitati a un solo processo di scansione e a una sola scansione contemporanea e le scansioni dovranno essere eseguite da una directory radice.
+
+--
+Escludi estensioni di file:: Specificare l'espressione regolare o le estensioni dei file da escludere dalla sincronizzazione digitando l'estensione del file e premendo *Invio*.  Ad esempio, digitare _log_ o _.log_ per escludere i file *.log.  Per più estensioni non è necessario un separatore.  Il seguente video fornisce una breve dimostrazione:
++
+--
+.Escludere le estensioni dei file per una relazione di sincronizzazione
+video::7f957dbf-9215-41ea-a705-b24c010b2212[panopto]
+
+NOTE: Le espressioni regolari (regex) sono diverse dai caratteri jolly o dalle espressioni glob.  Questa funzionalità funziona *solo* con le espressioni regolari.
+
+--
+Escludi directory:: Specificare un massimo di 15 espressioni regolari o directory da escludere dalla sincronizzazione digitandone il nome o il percorso completo della directory e premendo *Invio*.  Le directory .copy-offload, .snapshot, ~snapshot sono escluse per impostazione predefinita.
++
+--
+
+NOTE: Le espressioni regolari (regex) sono diverse dai caratteri jolly o dalle espressioni glob.  Questa funzionalità funziona *solo* con le espressioni regolari.
+
+--
+Dimensione del file:: Scegli di sincronizzare tutti i file, indipendentemente dalle loro dimensioni, oppure solo i file che rientrano in un intervallo di dimensioni specifico.
+Data di modifica:: Seleziona tutti i file indipendentemente dalla data dell'ultima modifica, i file modificati dopo una data specifica, prima di una data specifica o in un intervallo di tempo.
+Data di creazione:: Quando l'origine è un server SMB, questa impostazione consente di sincronizzare i file creati dopo una data specifica, prima di una data specifica o in un intervallo di tempo specifico.
+ACL - Elenco di controllo degli accessi:: È possibile copiare solo gli ACL, solo i file o ACL e file da un server SMB abilitando un'impostazione quando si crea una relazione o dopo averla creata.
+
+
+. Nella pagina *Tag/Metadati*, scegli se salvare una coppia chiave-valore come tag su tutti i file trasferiti al bucket S3 oppure assegnare una coppia chiave-valore di metadati a tutti i file.
++
+image:screenshot_relationship_tags.png["Uno screenshot che mostra la pagina Tag/Metadati durante la creazione di una relazione di sincronizzazione con Amazon S3."]
+
++
+
+TIP: La stessa funzionalità è disponibile quando si sincronizzano i dati con StorageGRID e IBM Cloud Object Storage.  Per Azure e Google Cloud Storage è disponibile solo l'opzione metadati.
+
+. Esaminare i dettagli della relazione di sincronizzazione, quindi selezionare *Crea relazione*.
+
+
+*Risultato*
+
+Copia e sincronizzazione avvia la sincronizzazione dei dati tra l'origine e la destinazione.  Sono disponibili statistiche sulla sincronizzazione che indicano la durata della stessa, se si è interrotta e quanti file sono stati copiati, analizzati o eliminati.  Puoi quindi gestire il tuo https://docs.netapp.com/us-en/bluexp-copy-sync/task-managing-relationships.html["relazioni di sincronizzazione"] , https://docs.netapp.com/us-en/bluexp-copy-sync/task-managing-data-brokers.html["gestisci i tuoi broker di dati"] , O https://docs.netapp.com/us-en/bluexp-copy-sync/task-managing-reports.html#creating-reports["creare report per ottimizzare le prestazioni e la configurazione"] .
+
+
+
+== Crea relazioni di sincronizzazione da NetApp Data Classification
+
+Copia e sincronizzazione sono integrate con NetApp Data Classification.  Da NetApp Data Classification, puoi selezionare i file sorgente che desideri sincronizzare con una posizione di destinazione utilizzando Copia e sincronizzazione.
+
+Dopo aver avviato una sincronizzazione dei dati da NetApp Data Classification, tutte le informazioni di origine vengono contenute in un unico passaggio e richiedono solo l'inserimento di alcuni dettagli chiave.  Quindi scegli la posizione di destinazione per la nuova relazione di sincronizzazione.
+
+image:screenshot-sync-data-sense.png["Uno screenshot che mostra la pagina di integrazione di NetApp Data Classification visualizzata dopo aver avviato una nuova sincronizzazione direttamente da NetApp Data Classification."]
+
+https://docs.netapp.com/us-en/bluexp-classification/task-managing-highlights.html#copying-and-synchronizing-source-files-to-a-target-system["Scopri come avviare una relazione di sincronizzazione da NetApp Data Classification"^] .

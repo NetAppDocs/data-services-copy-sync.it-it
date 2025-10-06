@@ -1,0 +1,123 @@
+---
+sidebar: sidebar 
+permalink: reference-networking.html 
+keywords: networking, 443, port, ports, port 443, connections, connectivity, path, paths, vpn, copy and sync, netapp, bluexp, cloud sync,connectivity,data broker 
+summary: La rete per NetApp Copy and Sync include la connettività tra il gruppo di broker di dati e le posizioni di origine e di destinazione, nonché una connessione Internet in uscita dai broker di dati sulla porta 443. 
+---
+= Panoramica della rete per NetApp Copy and Sync
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+La rete per NetApp Copy and Sync include la connettività tra il gruppo di broker di dati e le posizioni di origine e di destinazione, nonché una connessione Internet in uscita dai broker di dati sulla porta 443.
+
+
+
+== Posizione del broker di dati
+
+Un gruppo di broker di dati è costituito da uno o più broker di dati installati nel cloud o presso la tua sede.
+
+
+
+=== Broker di dati nel cloud
+
+L'immagine seguente mostra un broker di dati in esecuzione nel cloud, in AWS, Google Cloud o Azure.  La sorgente e la destinazione possono trovarsi in qualsiasi posizione, purché ci sia una connessione al broker di dati.  Ad esempio, potresti avere una connessione VPN dal tuo data center al tuo provider cloud.
+
+
+NOTE: Quando Copy and Sync distribuisce il broker di dati in AWS, Azure o Google Cloud, crea un gruppo di sicurezza che abilita la comunicazione in uscita richiesta.
+
+image:diagram_networking_cloud2.png["Un diagramma che mostra Copy and Sync, il broker di dati in esecuzione nel cloud, e le connessioni all'origine e alla destinazione."]
+
+
+
+=== Broker di dati presso la tua sede
+
+L'immagine seguente mostra il broker di dati in esecuzione in locale in un data center.  Anche in questo caso, la sorgente e la destinazione possono trovarsi in qualsiasi posizione, purché ci sia una connessione al broker di dati.
+
+image:diagram_networking_onprem.png["Un diagramma che mostra Copia e sincronizzazione, il broker di dati in esecuzione in locale e le connessioni all'origine e alla destinazione."]
+
+
+
+== Requisiti di rete
+
+* L'origine e la destinazione devono disporre di una connessione di rete al gruppo del broker dati.
++
+Ad esempio, se un server NFS si trova nel tuo data center e un broker di dati si trova in AWS, allora hai bisogno di una connessione di rete (VPN o Direct Connect) dalla tua rete alla VPC.
+
+* Un broker di dati necessita di una connessione Internet in uscita per poter interrogare Copy and Sync per le attività sulla porta 443.
+* NetApp consiglia di configurare l'origine, la destinazione e i broker di dati per utilizzare un servizio NTP (Network Time Protocol).  La differenza di tempo tra i tre componenti non deve superare i 5 minuti.
+
+
+
+
+== Endpoint di rete
+
+Il broker di dati NetApp necessita di un accesso Internet in uscita sulla porta 443 per comunicare con Copy and Sync e per contattare alcuni altri servizi e repository.  Anche il browser web locale richiede l'accesso agli endpoint per determinate azioni.  Se è necessario limitare la connettività in uscita, fare riferimento al seguente elenco di endpoint durante la configurazione del firewall per il traffico in uscita.
+
+
+
+=== Endpoint del broker di dati
+
+Un broker di dati contatta i seguenti endpoint:
+
+[cols="38,62"]
+|===
+| Punti finali | Scopo 
+
+
+| \ https://olcentgbl.trafficmanager.net | Per contattare un repository per l'aggiornamento dei pacchetti CentOS per l'host del broker dati.  Questo endpoint viene contattato solo se si installa manualmente il broker di dati su un host CentOS. 
+
+
+| \ https://rpm.nodesource.com \ https://registry.npmjs.org \ https://nodejs.org: | Per contattare i repository per l'aggiornamento di Node.js, npm e altri pacchetti di terze parti utilizzati nello sviluppo. 
+
+
+| \ https://tgz.pm2.io | Per accedere a un repository per l'aggiornamento di PM2, un pacchetto di terze parti utilizzato per monitorare Copia e Sincronizzazione. 
+
+
+| \ https://sqs.us-east-1.amazonaws.com \ https://kinesis.us-east-1.amazonaws.com | Per contattare i servizi AWS utilizzati da Copy and Sync per le operazioni (accodamento dei file, registrazione delle azioni e distribuzione degli aggiornamenti al broker di dati). 
+
+
+| \ https://s3._region_.amazonaws.com Ad esempio: s3.us-east-2.amazonaws.com:443https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region["Consultare la documentazione AWS per un elenco degli endpoint S3"^] | Per contattare Amazon S3 quando una relazione di sincronizzazione include un bucket S3. 
+
+
+| \ https://s3.amazonaws.com/ | Quando si scaricano i log del broker di dati da Copia e sincronizzazione, il broker di dati comprime la propria directory dei log e carica i log in un bucket S3 predefinito nella regione us-east-1. 
+
+
+| \ https://storage.googleapis.com/ | Per contattare Google Cloud quando una relazione di sincronizzazione utilizza un bucket GCP. 
+
+
+| https://_storage-account_.blob.core.windows.net[]Se si utilizza Azure Data Lake Gen2:https://_storage-account_.dfs.core.windows.net[] Dove _storage-account_ è l'account di archiviazione di origine dell'utente. | Per aprire il proxy all'indirizzo dell'account di archiviazione di Azure di un utente. 
+
+
+| \ https://cf.cloudsync.netapp.com \ https://repo.cloudsync.netapp.com | Per contattare Copy and Sync. 
+
+
+| \ https://support.netapp.com | Per contattare l'assistenza NetApp quando si utilizza una licenza BYOL per le relazioni di sincronizzazione. 
+
+
+| \ https://fedoraproject.org | Per installare 7z sulla macchina virtuale del broker dati durante l'installazione e gli aggiornamenti.  7z è necessario per inviare messaggi AutoSupport al supporto tecnico NetApp . 
+
+
+| \ https://sts.amazonaws.com \ https://sts.us-east-1.amazonaws.com | Per verificare le credenziali AWS quando il broker di dati viene distribuito in AWS o quando viene distribuito nei tuoi locali e vengono fornite le credenziali AWS.  Il broker di dati contatta questo endpoint durante la distribuzione, quando viene aggiornato e quando viene riavviato. 
+
+
+| \ https://api.bluexp.netapp.com \ https://netapp-cloud-account.auth0.com | Per contattare NetApp Data Classification quando si utilizza la classificazione per selezionare i file di origine per una nuova relazione di sincronizzazione. 
+
+
+| \ https://pubsub.googleapis.com | Se si crea una relazione di sincronizzazione continua da un account di archiviazione Google. 
+
+
+| https://_storage-account_.queue.core.windows.net[]\ https://management.azure.com/subscriptions/ ${_subscriptionId_} /resourceGroups/${_resourceGroup_}/providers/Microsoft.EventGrid/* Dove _storage-account_ è l'account di archiviazione di origine dell'utente, _subscriptionid_ è l'ID della sottoscrizione di origine e _resourceGroup_ è il gruppo di risorse di origine. | Se si crea una relazione di sincronizzazione continua da un account di archiviazione di Azure. 
+|===
+
+
+=== Endpoint del browser Web
+
+Il tuo browser web ha bisogno di accedere al seguente endpoint per scaricare i registri a scopo di risoluzione dei problemi:
+
+logs.cloudsync.netapp.com:443

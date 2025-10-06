@@ -1,0 +1,33 @@
+---
+indexpage:
+  title: Documentazione NetApp Copy and Sync
+  summary: NetApp Copy and Sync è un servizio di replicazione e sincronizzazione cloud
+    per il trasferimento di dati NAS tra archivi di oggetti locali e cloud.
+  keywords: bluexp-family, documentation, cloud, copy and sync, cloud sync, netapp
+  lead: NetApp Copy and Sync è un servizio di replicazione e sincronizzazione cloud
+    per il trasferimento di dati NAS tra archivi di oggetti locali e cloud.
+  tiles:
+  - title: Iniziare
+    links:
+    - title: Panoramica di NetApp Copy and Sync
+      url: concept-cloud-sync.html
+    - title: Avvio rapido
+      url: task-quick-start.html
+    - title: Domande frequenti
+      url: faq.html
+  - title: Utilizzare NetApp Copy and Sync
+    links:
+    - title: Crea una relazione di sincronizzazione
+      url: task-creating-relationships.html
+    - title: Impostare la licenza
+      url: task-licensing.html
+    - title: Gestire gruppi di broker di dati
+      url: task-managing-data-brokers.html
+  - title: Blog e comunità
+    links:
+    - title: Console NetApp
+      url: https://www.netapp.com/console
+    - title: Servizi dati NetApp
+      url: https://www.netapp.com/data-services/
+    - title: Comunità NetApp
+      url: https://community.netapp.com

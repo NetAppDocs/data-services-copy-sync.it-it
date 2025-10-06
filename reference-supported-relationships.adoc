@@ -1,0 +1,324 @@
+---
+sidebar: sidebar 
+permalink: reference-supported-relationships.html 
+keywords: supported sync relationships, support, supported target, supported source 
+summary: 'NetApp Copy and Sync consente di sincronizzare i dati da un"origine a una destinazione.  Questa è chiamata relazione di sincronizzazione.  Prima di iniziare, dovresti comprendere le relazioni supportate.' 
+---
+= Relazioni di sincronizzazione supportate in NetApp Copy and Sync
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Copy and Sync consente di sincronizzare i dati da un'origine a una destinazione.  Questa è chiamata relazione di sincronizzazione.  Prima di iniziare, dovresti comprendere le relazioni supportate.
+
+[cols="20,25"]
+|===
+| Posizione della fonte | Posizioni di destinazione supportate 
+
+
+| Amazon EFS  a| 
+* Amazon EFS
+* Amazon FSx per ONTAP
+* Amazon S3
+* Blob azzurro
+* Azure NetApp Files
+* Cloud Volumes ONTAP
+* Google Cloud Storage
+* IBM Cloud Object Storage
+* server NFS
+* Cluster ONTAP locale (NFS o SMB)
+* server SMB
+* StorageGRID
+
+
+
+
+| Amazon FSx per ONTAP  a| 
+* Amazon EFS
+* Amazon FSx per ONTAP
+* Amazon S3
+* Blob azzurro
+* Azure Data Lake Storage Gen2
+* Azure NetApp Files
+* Cloud Volumes ONTAP
+* Google Cloud Storage
+* IBM Cloud Object Storage
+* server NFS
+* Cluster ONTAP locale (NFS o SMB)
+* server SMB
+* StorageGRID
+
+
+
+
+| Amazon S3  a| 
+* Amazon EFS
+* Amazon FSx per ONTAP
+* Amazon S3
+* Blob azzurro
+* Azure Data Lake Storage Gen2
+* Azure NetApp Files
+* Casella ^1^
+* Cloud Volumes ONTAP
+* Google Cloud Storage
+* IBM Cloud Object Storage
+* server NFS
+* Cluster ONTAP locale (NFS o SMB)
+* Archiviazione ONTAP S3
+* server SMB
+* StorageGRID
+
+
+
+
+| Blob azzurro  a| 
+* Amazon EFS
+* Amazon FSx per ONTAP
+* Amazon S3
+* Blob azzurro
+* Azure NetApp Files
+* Cloud Volumes ONTAP
+* Google Cloud Storage
+* IBM Cloud Object Storage
+* server NFS
+* Cluster ONTAP locale (NFS o SMB)
+* server SMB
+* StorageGRID
+
+
+
+
+| Azure Data Lake Storage Gen2  a| 
+* Azure NetApp Files
+* Cloud Volumes ONTAP
+* FSx per ONTAP
+* IBM Cloud Object Storage
+* server NFS
+* ONTAP in sede
+* Archiviazione ONTAP S3
+* server SMB
+* StorageGRID
+
+
+
+
+| Azure NetApp Files  a| 
+* Amazon EFS
+* Amazon FSx per ONTAP
+* Amazon S3
+* Blob azzurro
+* Azure Data Lake Storage Gen2
+* Azure NetApp Files
+* Cloud Volumes ONTAP
+* Google Cloud Storage
+* IBM Cloud Object Storage
+* server NFS
+* Cluster ONTAP locale (NFS o SMB)
+* server SMB
+* StorageGRID
+
+
+
+
+| Casella ^1^  a| 
+* Amazon FSx per ONTAP
+* Amazon S3
+* Azure NetApp Files
+* Cloud Volumes ONTAP
+* IBM Cloud Object Storage
+* server NFS
+* server SMB
+* StorageGRID
+
+
+
+
+| Cloud Volumes ONTAP  a| 
+* Amazon EFS
+* Amazon FSx per ONTAP
+* Amazon S3
+* Blob azzurro
+* Azure Data Lake Storage Gen2
+* Azure NetApp Files
+* Cloud Volumes ONTAP
+* Google Cloud Storage
+* IBM Cloud Object Storage
+* server NFS
+* Cluster ONTAP locale (NFS o SMB)
+* server SMB
+* StorageGRID
+
+
+
+
+| Google Cloud Storage  a| 
+* Amazon EFS
+* Amazon FSx per ONTAP
+* Amazon S3
+* Blob azzurro
+* Azure NetApp Files
+* Cloud Volumes ONTAP
+* Google Cloud Storage
+* IBM Cloud Object Storage
+* server NFS
+* Cluster ONTAP locale (NFS o SMB)
+* Archiviazione ONTAP S3
+* server SMB
+* StorageGRID
+
+
+
+
+| Google Drive  a| 
+* server NFS
+* server SMB
+
+
+
+
+| IBM Cloud Object Storage  a| 
+* Amazon EFS
+* Amazon FSx per ONTAP
+* Amazon S3
+* Blob azzurro
+* Azure Data Lake Storage Gen2
+* Azure NetApp Files
+* Casella ^1^
+* Cloud Volumes ONTAP
+* Google Cloud Storage
+* IBM Cloud Object Storage
+* server NFS
+* Cluster ONTAP locale (NFS o SMB)
+* server SMB
+* StorageGRID
+
+
+
+
+| server NFS  a| 
+* Amazon EFS
+* Amazon FSx per ONTAP
+* Amazon S3
+* Blob azzurro
+* Azure Data Lake Storage Gen2
+* Azure NetApp Files
+* Cloud Volumes ONTAP
+* Google Cloud Storage
+* Google Drive
+* IBM Cloud Object Storage
+* server NFS
+* Cluster ONTAP locale (NFS o SMB)
+* Archiviazione ONTAP S3
+* server SMB
+* StorageGRID
+
+
+
+
+| Cluster ONTAP locale (NFS o SMB)  a| 
+* Amazon EFS
+* Amazon FSx per ONTAP
+* Amazon S3
+* Blob azzurro
+* Azure Data Lake Storage Gen2
+* Azure NetApp Files
+* Cloud Volumes ONTAP
+* Google Cloud Storage
+* IBM Cloud Object Storage
+* server NFS
+* Cluster ONTAP locale (NFS o SMB)
+* server SMB
+* StorageGRID
+
+
+
+
+| Archiviazione ONTAP S3  a| 
+* Amazon S3
+* Azure Data Lake Storage Gen2
+* Google Cloud Storage
+* server NFS
+* server SMB
+* StorageGRID
+* Archiviazione ONTAP S3
+
+
+
+
+| SFTP ^2^ | S3 
+
+
+| server SMB  a| 
+* Amazon EFS
+* Amazon FSx per ONTAP
+* Amazon S3
+* Blob azzurro
+* Azure Data Lake Storage Gen2
+* Azure NetApp Files
+* Cloud Volumes ONTAP
+* Google Cloud Storage
+* Google Drive
+* IBM Cloud Object Storage
+* server NFS
+* Cluster ONTAP locale (NFS o SMB)
+* Archiviazione ONTAP S3
+* server SMB
+* StorageGRID
+
+
+
+
+| StorageGRID  a| 
+* Amazon EFS
+* Amazon FSx per ONTAP
+* Amazon S3
+* Blob azzurro
+* Azure Data Lake Storage Gen2
+* Azure NetApp Files
+* Casella ^1^
+* Cloud Volumes ONTAP
+* Google Cloud Storage
+* IBM Cloud Object Storage
+* server NFS
+* Cluster ONTAP locale (NFS o SMB)
+* Archiviazione ONTAP S3
+* server SMB
+* StorageGRID
+
+
+|===
+Note:
+
+. Il supporto Box è disponibile in anteprima.
+. Le relazioni di sincronizzazione con questa origine/destinazione sono supportate solo tramite l'API Copia e sincronizzazione.
+. È possibile scegliere un livello di archiviazione BLOB di Azure specifico quando la destinazione è un contenitore BLOB:
++
+** Conservazione a caldo
+** Conservazione al fresco
+
+
+. [[storage-classes]]È possibile scegliere una classe di archiviazione S3 specifica quando Amazon S3 è la destinazione:
++
+** Standard (questa è la classe predefinita)
+** Intelligent-Tiering
+** Accesso standard-non frequente
+** Una zona - Accesso poco frequente
+** Archivio Glacier Deep
+** Recupero flessibile del ghiacciaio
+** Recupero istantaneo del ghiacciaio
+
+
+. Puoi scegliere una classe di archiviazione specifica quando la destinazione è un bucket di Google Cloud Storage:
++
+** Standard
+** Nearline
+** Coldline
+** Archivio
+
+
+

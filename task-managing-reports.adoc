@@ -1,0 +1,99 @@
+---
+sidebar: sidebar 
+permalink: task-managing-reports.html 
+keywords: reports, sync reports, NetApp Copy and Sync reports, report errors, path reports 
+summary: 'Crea e visualizza report per ottenere informazioni che puoi utilizzare con l"aiuto del personale NetApp per ottimizzare la configurazione di un broker di dati e migliorarne le prestazioni.' 
+---
+= Crea e visualizza report per ottimizzare la tua configurazione in NetApp Copy and Sync
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Crea e visualizza report in NetApp Copy and Sync per ottenere informazioni che puoi utilizzare con l'aiuto del personale NetApp per ottimizzare la configurazione di un broker di dati e migliorarne le prestazioni.
+
+Ogni report fornisce dettagli approfonditi su un percorso in una relazione di sincronizzazione.  Includerà il numero di directory, file e link simbolici presenti, la distribuzione delle dimensioni dei file, la profondità e la larghezza delle directory, l'ora di modifica e l'ora di accesso.  Ciò differisce dalle statistiche di sincronizzazione, che sono disponibili dalla dashboard dopo https://docs.netapp.com/us-en/bluexp-copy-sync/task-creating-relationships.html["creazione e completamento di una sincronizzazione riusciti"] .
+
+
+
+== Crea report
+
+Ogni volta che si crea un report, Copia e sincronizzazione analizza il percorso e quindi compila i dettagli in un report.
+
+.Passi
+. link:task-login-copyandsync.html["Accedi a Copia e Sincronizza"] .
+. Selezionare *Sincronizzazione > Report*.
++
+I percorsi (origine o destinazione) in ciascuna delle relazioni di sincronizzazione vengono visualizzati in una tabella.
+
+. Nella colonna *Azioni report*, vai a un percorso specifico e seleziona *Crea*, oppure seleziona il menu azioni e seleziona *Crea nuovo*.
+. Quando il report è pronto, seleziona il menu Azione e seleziona *Visualizza*.
++
+Ecco un esempio di report per un percorso del file system.
+
++
+image:screenshot_sync_report.gif["Un report che mostra la quantità di elementi di sincronizzazione, le dimensioni dei file, i valori massimi, l'ora di accesso, l'ora di modifica e l'ora di modifica."]
+
++
+Ed ecco un esempio di report per l'archiviazione di oggetti.
+
++
+image:screenshot_sync_report_object.gif["Un report che mostra il numero di elementi del percorso, le dimensioni degli oggetti, l'ora di modifica e la classe di archiviazione."]
+
+
+
+
+
+== Scarica i report
+
+È possibile scaricare un report in formato PDF per poterlo visualizzare offline o condividerlo.
+
+.Passi
+. link:task-login-copyandsync.html["Accedi a Copia e Sincronizza"] .
+. Selezionare *Sincronizzazione > Report*.
+. Nella colonna *Azioni report*, seleziona il menu azioni e seleziona *Visualizza*.
+. In alto a destra del report, seleziona il menu Azione e seleziona *Scarica PDF*.
++
+image:screenshot-sync-download-report.png["Uno screenshot dell'opzione Scarica PDF che appare dopo aver selezionato il menu Azione in un report."]
+
+
+
+
+
+== Visualizza gli errori del report
+
+La tabella Percorsi identifica se sono presenti errori nel report più recente.  Un errore identifica un problema riscontrato da Copia e sincronizzazione durante la scansione del percorso.
+
+Ad esempio, un report potrebbe contenere errori di autorizzazione negata.  Questo tipo di errore può compromettere la capacità di Copy and Sync di analizzare l'intero set di file e directory.
+
+Dopo aver visualizzato l'elenco degli errori, è possibile risolvere i problemi ed eseguire nuovamente il report.
+
+.Passi
+. link:task-login-copyandsync.html["Accedi a Copia e Sincronizza"] .
+. Selezionare *Sincronizzazione > Report*.
+. Nella colonna *Errori*, identifica se sono presenti errori in un report.
+. Se sono presenti errori, selezionare la freccia accanto al numero di errori.
++
+image:screenshot_sync_report_errors.gif["Uno screenshot della tabella Percorsi che mostra il numero di errori e una piccola freccia cliccabile nella colonna Errori."]
+
+. Utilizzare le informazioni contenute nell'errore per correggere il problema.
++
+Dopo aver risolto il problema, l'errore non dovrebbe più comparire la volta successiva che esegui il report.
+
+
+
+
+
+== Elimina i report
+
+Potresti eliminare un report se contiene un errore che hai corretto o se il report è correlato a una relazione di sincronizzazione che hai rimosso.
+
+.Passi
+. Selezionare *Sincronizzazione > Report*.
+. Nella colonna *Azioni report*, seleziona il menu azioni per un percorso e seleziona *Elimina ultimo report* o *Elimina tutti i report*.
+. Conferma che vuoi eliminare il report o i report.
+

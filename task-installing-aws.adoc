@@ -1,0 +1,131 @@
+---
+sidebar: sidebar 
+permalink: task-installing-aws.html 
+keywords: data broker, install, aws, networking, permissions, regions, install data broker in aws, install in aws, deploy in aws, deploy data broker in aws, cft, template, iam role, use your own iam role, regions, supported regions, networking requirements, port, ports, 443, port 443, ntp, network time protocol, permissions, iam role, iam permissions, aws data broker 
+summary: 'Quando crei un nuovo broker di dati, scegli l"opzione AWS Data Broker per distribuire il software del broker di dati su una nuova istanza EC2 in una VPC.  NetApp Copy and Sync ti guida attraverso il processo di installazione, ma i requisiti e i passaggi vengono ripetuti in questa pagina per aiutarti a preparare l"installazione.' 
+---
+= Crea un nuovo broker di dati in AWS per NetApp Copy and Sync
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Quando si crea un nuovo gruppo di broker di dati per NetApp Copy and Sync, scegliere Amazon Web Services per distribuire il software del broker di dati su una nuova istanza EC2 in una VPC.  NetApp Copy and Sync ti guida attraverso il processo di installazione, ma i requisiti e i passaggi vengono ripetuti in questa pagina per aiutarti a preparare l'installazione.
+
+Hai anche la possibilità di installare il data broker su un host Linux esistente nel cloud o nella tua sede. link:task-installing-linux.html["Saperne di più"] .
+
+
+
+== Regioni AWS supportate
+
+Sono supportate tutte le regioni, ad eccezione della Cina.
+
+
+
+== Privilegi di root
+
+Il software del broker di dati viene eseguito automaticamente come root sull'host Linux.  L'esecuzione come root è un requisito per le operazioni del broker di dati.  Ad esempio, per accumulare azioni.
+
+
+
+== Requisiti di rete
+
+* Il broker di dati necessita di una connessione Internet in uscita per poter interrogare Copy and Sync per le attività sulla porta 443.
++
+Quando Copy and Sync distribuisce il broker di dati in AWS, crea un gruppo di sicurezza che abilita la comunicazione in uscita richiesta.  Si noti che è possibile configurare il broker di dati in modo che utilizzi un server proxy durante il processo di installazione.
+
++
+Se è necessario limitare la connettività in uscita, vederelink:reference-networking.html["l'elenco degli endpoint contattati dal broker di dati"] .
+
+* NetApp consiglia di configurare l'origine, la destinazione e il broker di dati per utilizzare un servizio Network Time Protocol (NTP).  La differenza di tempo tra i tre componenti non deve superare i 5 minuti.
+
+
+
+
+== Autorizzazioni necessarie per distribuire il broker di dati in AWS
+
+L'account utente AWS utilizzato per distribuire il broker di dati deve disporre delle autorizzazioni incluse in https://s3.amazonaws.com/metadata.datafabric.io/docs/aws_iam_policy.json["questa politica fornita da NetApp"^] .
+
+
+
+== [[iam]]Requisiti per utilizzare il proprio ruolo IAM con AWS Data Broker
+
+Quando Copy and Sync distribuisce il broker di dati, crea un ruolo IAM per l'istanza del broker di dati. Se preferisci, puoi distribuire il data broker utilizzando il tuo ruolo IAM.  Potresti utilizzare questa opzione se la tua organizzazione ha rigide politiche di sicurezza.
+
+Il ruolo IAM deve soddisfare i seguenti requisiti:
+
+* Al servizio EC2 deve essere consentito di assumere il ruolo IAM come entità attendibile.
+* link:media/aws_iam_policy_data_broker.json["I permessi definiti in questo file JSON"^]deve essere associato al ruolo IAM affinché il broker di dati possa funzionare correttamente.
+
+
+Per specificare il ruolo IAM durante la distribuzione del broker di dati, seguire i passaggi indicati di seguito.
+
+
+
+== Creare il broker di dati
+
+Esistono diversi modi per creare un nuovo broker di dati.  Questi passaggi descrivono come installare un broker di dati in AWS durante la creazione di una relazione di sincronizzazione.
+
+.Passi
+. link:task-login-copyandsync.html["Accedi a Copia e Sincronizza"] .
+. Seleziona *Crea nuova sincronizzazione*.
+. Nella pagina *Definisci relazione di sincronizzazione*, scegli un'origine e una destinazione e seleziona *Continua*.
++
+Completa i passaggi fino a raggiungere la pagina *Data Broker Group*.
+
+. Nella pagina *Gruppo Data Broker*, seleziona *Crea Data Broker* e poi seleziona *Amazon Web Services*.
++
+image:screenshot-aws.png["Uno screenshot della pagina Data Broker che consente di scegliere tra un data broker AWS, Azure, Google Cloud e On-Prem."]
+
+. Inserisci un nome per il broker di dati e seleziona *Continua*.
+. Inserisci una chiave di accesso AWS in modo che Copy and Sync possa creare il broker di dati in AWS per tuo conto.
++
+Le chiavi non vengono salvate né utilizzate per altri scopi.
+
++
+Se preferisci non fornire le chiavi di accesso, seleziona il collegamento in fondo alla pagina per utilizzare invece un modello CloudFormation.  Quando si utilizza questa opzione, non è necessario fornire le credenziali perché si accede direttamente ad AWS.
+
++
+[[cft]]Il seguente video mostra come avviare l'istanza del broker dati utilizzando un modello CloudFormation:
+
++
+.Avviare un broker di dati da un modello AWS CloudFormation
+video::abaf0898-ea15-4f84-938e-b24c010b21e8[panopto]
+. Se hai immesso una chiave di accesso AWS, seleziona una posizione per l'istanza, seleziona una coppia di chiavi, scegli se abilitare un indirizzo IP pubblico e seleziona un ruolo IAM esistente oppure lascia il campo vuoto in modo che Copia e sincronizzazione crei il ruolo per te.  Hai anche la possibilità di crittografare il tuo data broker utilizzando una chiave KMS.
++
+Se scegli il tuo ruolo IAM,<<iam,dovrai fornire le autorizzazioni richieste>> .
+
++
+image:screenshot_aws_data_broker.png["Uno screenshot delle informazioni che è necessario fornire quando si distribuisce un data broker in AWS."]
+
+. Specificare una configurazione proxy, se è necessario un proxy per l'accesso a Internet nella VPC.
+. Una volta che il broker di dati è disponibile, seleziona *Continua* in Copia e sincronizza.
++
+L'immagine seguente mostra un'istanza distribuita correttamente in AWS:
+
++
+image:screenshot-data-broker-group-selected.png["Questa schermata mostra un'istanza distribuita correttamente.  L'interfaccia mostra i dettagli sull'istanza, inclusa la rete AWS."]
+
+. Completare le pagine della procedura guidata per creare la nuova relazione di sincronizzazione.
+
+
+.Risultato
+Hai distribuito un broker di dati in AWS e creato una nuova relazione di sincronizzazione.  È possibile utilizzare questo gruppo di broker di dati con relazioni di sincronizzazione aggiuntive.
+
+
+
+== Dettagli sull'istanza del broker di dati
+
+Copia e sincronizzazione crea un broker di dati in AWS utilizzando la seguente configurazione.
+
+Compatibilità con Node.js:: v21.2.0
+Tipo di istanza:: m5n.xlarge quando disponibile nella regione, altrimenti m5.xlarge
+vCPU:: 4
+Memoria RAM:: 16 GB
+Sistema operativo:: Amazon Linux 2023
+Dimensioni e tipo di disco:: SSD GP2 da 10 GB
+

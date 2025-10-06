@@ -1,0 +1,413 @@
+---
+sidebar: sidebar 
+permalink: faq.html 
+keywords: community, forums, help, support, videos, faq, getting help, permissions, access control lists, acls, preserve, preserving, troubleshooting, support, encryption, smb 
+summary: Puoi ottenere assistenza con NetApp Copy and Sync e trovare ulteriori informazioni tramite varie risorse, tra cui forum, servizi di chat e video. 
+---
+= Domande frequenti tecniche NetApp Copy and Sync
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Questa sezione FAQ può aiutarti se stai cercando una risposta rapida a una domanda.
+
+
+
+== Iniziare
+
+Le seguenti domande riguardano l'avvio di NetApp Copy and Sync.
+
+
+
+=== Come funziona NetApp Copy and Sync?
+
+Copy and Sync utilizza il software NetApp Data Broker per sincronizzare i dati da un'origine a una destinazione (questa è chiamata _relazione di sincronizzazione_).
+
+Un gruppo di broker di dati controlla le relazioni di sincronizzazione tra le origini e le destinazioni.  Dopo aver impostato una relazione di sincronizzazione, Copia e sincronizzazione analizza il sistema di origine e lo suddivide in più flussi di replica da inviare ai dati di destinazione selezionati.
+
+Dopo la copia iniziale, Copia e sincronizzazione sincronizza tutti i dati modificati in base alla pianificazione impostata.
+
+
+
+=== Come funziona la prova gratuita di 14 giorni?
+
+La prova gratuita di 14 giorni inizia quando ti registri a Copia e sincronizzazione.  Per 14 giorni non sarai soggetto ai costi NetApp per le relazioni di copia e sincronizzazione che crei.  Tuttavia, tutti i costi delle risorse per tutti i broker di dati distribuiti continueranno ad essere applicati.
+
+
+
+=== Quanto costa Copia e Sincronizzazione?
+
+L'utilizzo di Copia e sincronizzazione comporta due tipi di costi: costi di servizio e costi di risorse.
+
+*Spese di servizio*
+
+Per quanto riguarda i prezzi a consumo, i costi del servizio Copia e sincronizzazione sono orari e basati sul numero di relazioni di sincronizzazione create.
+
+* https://aws.amazon.com/marketplace/pp/B01LZV5DUJ["Visualizza i prezzi a consumo in AWS"^]
+* https://aws.amazon.com/marketplace/pp/B06XX5V3M2["Visualizza i prezzi annuali in AWS"^]
+* https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-sync-service?tab=PlansAndPrice["Visualizza i prezzi in Azure"^]
+
+
+Le licenze di copia e sincronizzazione sono disponibili anche tramite il tuo rappresentante NetApp .  Ogni licenza consente 20 relazioni di sincronizzazione per 12 mesi.
+
+link:concept-licensing.html["Scopri di più sulle licenze"] .
+
+
+NOTE: Le relazioni di copia e sincronizzazione sono gratuite per Azure NetApp Files.
+
+*Costi delle risorse*
+
+I costi delle risorse sono correlati ai costi di elaborazione e archiviazione per l'esecuzione del broker di dati nel cloud.
+
+
+
+=== Come viene fatturato Copy and Sync e come posso gestire il mio abbonamento?
+
+Al termine del periodo di prova gratuito di 14 giorni, è possibile pagare le relazioni di sincronizzazione in due modi.  La prima opzione è quella di abbonarsi ad AWS o Azure, che consente di pagare in base al consumo o annualmente.  La seconda opzione è quella di acquistare le licenze direttamente da NetApp.  In ogni caso, il tuo abbonamento verrà gestito tramite il marketplace del tuo provider e *non* tramite l'interfaccia utente Copia e Sincronizza.
+
+
+
+=== Posso usare Copia e Sincronizza al di fuori del cloud?
+
+Sì, puoi utilizzare Copia e sincronizzazione in un'architettura non cloud.  La sorgente e la destinazione possono risiedere in locale, così come il software del broker di dati.
+
+Tieni presente i seguenti punti chiave sull'utilizzo di Copia e sincronizzazione al di fuori del cloud:
+
+* Un gruppo di broker di dati necessita di una connessione Internet per comunicare con Copy and Sync.
+* Se non acquisti una licenza direttamente da NetApp, avrai bisogno di un account AWS o Azure per la fatturazione PAYGO Copy and Sync.
+
+
+
+
+=== Come posso accedere a Copia e Sincronizzazione?
+
+La funzione Copia e sincronizzazione è disponibile nella console NetApp .  Dal menu di navigazione a sinistra della Console, seleziona *Mobilità* > *Copia e sincronizza*.
+
+
+
+=== Cos'è un gruppo di broker di dati?
+
+Ogni broker di dati appartiene a un gruppo di broker di dati.  Raggruppare i broker di dati aiuta a migliorare le prestazioni delle relazioni di sincronizzazione.
+
+
+
+== Fonti e destinazioni supportate
+
+Le seguenti domande riguardano l'origine e le destinazioni supportate in una relazione di sincronizzazione.
+
+
+
+=== Quali origini e destinazioni supporta Copia e sincronizzazione?
+
+Copia e sincronizzazione supporta molti tipi diversi di relazioni di sincronizzazione. link:reference-supported-relationships.html["Visualizza l'elenco completo"] .
+
+
+
+=== Quali versioni di NFS e SMB sono supportate da Copy and Sync?
+
+Copia e sincronizzazione supporta NFS versione 3 e successive e SMB versione 1 e successive.
+
+link:reference-requirements.html["Scopri di più sui requisiti di sincronizzazione"] .
+
+
+
+=== Quando la destinazione è Amazon S3, i dati possono essere suddivisi in livelli in una specifica classe di storage S3?
+
+Sì, puoi scegliere una classe di archiviazione S3 specifica quando AWS S3 è la destinazione:
+
+* Standard (questa è la classe predefinita)
+* Intelligent-Tiering
+* Accesso standard-non frequente
+* Una zona - Accesso poco frequente
+* Archivio Glacier Deep
+* Recupero flessibile del ghiacciaio
+* Recupero istantaneo del ghiacciaio
+
+
+
+
+=== Che dire dei livelli di archiviazione per Azure Blob Storage?
+
+È possibile scegliere un livello di archiviazione BLOB di Azure specifico quando la destinazione è un contenitore BLOB:
+
+* Conservazione a caldo
+* Conservazione al fresco
+
+
+
+
+=== Supportate i livelli di archiviazione di Google Cloud?
+
+Sì, puoi scegliere una classe di archiviazione specifica quando la destinazione è un bucket di Google Cloud Storage:
+
+* Standard
+* Nearline
+* Coldline
+* Archivio
+
+
+
+
+== Networking
+
+Le seguenti domande riguardano i requisiti di rete per Copia e Sincronizzazione.
+
+
+
+=== Quali sono i requisiti di rete per Copia e sincronizzazione?
+
+L'ambiente Copia e sincronizzazione richiede che un gruppo di broker di dati sia connesso all'origine e alla destinazione tramite il protocollo selezionato o l'API di archiviazione degli oggetti (Amazon S3, Azure Blob, IBM Cloud Object Storage).
+
+Inoltre, un gruppo di broker di dati necessita di una connessione Internet in uscita sulla porta 443 per poter comunicare con Copy and Sync e contattare alcuni altri servizi e repository.
+
+Per maggiori dettagli,link:reference-networking.html["rivedere i requisiti di rete"] .
+
+
+
+=== Posso utilizzare un server proxy con il broker di dati?
+
+Sì.
+
+Copy and Sync supporta server proxy con o senza autenticazione di base.  Se si specifica un server proxy quando si distribuisce un broker di dati, tutto il traffico HTTP e HTTPS dal broker di dati viene instradato tramite il proxy.  Si noti che il traffico non HTTP, come NFS o SMB, non può essere instradato tramite un server proxy.
+
+L'unica limitazione del server proxy si verifica quando si utilizza la crittografia dei dati in transito con una relazione di sincronizzazione NFS o Azure NetApp Files .  I dati crittografati vengono inviati tramite HTTPS e non sono instradabili tramite un server proxy.
+
+
+
+== Sincronizzazione dei dati
+
+Le seguenti domande riguardano il funzionamento della sincronizzazione dei dati.
+
+
+
+=== Con quale frequenza avviene la sincronizzazione?
+
+La pianificazione predefinita è impostata sulla sincronizzazione giornaliera.  Dopo la sincronizzazione iniziale, puoi:
+
+* Modifica la pianificazione della sincronizzazione in base al numero desiderato di giorni, ore o minuti
+* Disabilita la pianificazione della sincronizzazione
+* Elimina la pianificazione della sincronizzazione (nessun dato verrà perso; verrà rimossa solo la relazione di sincronizzazione)
+
+
+
+
+=== Qual è la pianificazione minima di sincronizzazione?
+
+È possibile pianificare una relazione per sincronizzare i dati anche ogni minuto.
+
+
+
+=== Il gruppo Data Broker riprova quando un file non riesce a sincronizzarsi?  Oppure scade il tempo?
+
+Un gruppo di broker di dati non va in timeout quando un singolo file non riesce a essere trasferito.  Invece, il gruppo di broker di dati riprova 3 volte prima di ignorare il file.  Il valore di ripetizione è configurabile nelle impostazioni per una relazione di sincronizzazione.
+
+link:task-managing-relationships.html#change-the-settings-for-a-sync-relationship["Scopri come modificare le impostazioni per una relazione di sincronizzazione"] .
+
+
+
+=== Cosa succede se ho un set di dati molto grande?
+
+Se una singola directory contiene 600.000 file o più,link:task-get-help.html["contattaci"] in modo che possiamo aiutarti a configurare il gruppo di broker di dati per gestire il payload. Potrebbe essere necessario aggiungere ulteriore memoria al gruppo Data Broker.
+
+Tieni presente che non esiste alcun limite al numero totale di file nel punto di montaggio.  La memoria aggiuntiva è necessaria per directory di grandi dimensioni con 600.000 file o più, indipendentemente dal loro livello nella gerarchia (directory principale o sottodirectory).
+
+
+
+== Sicurezza
+
+Le seguenti domande riguardano la sicurezza.
+
+
+
+=== Copia e sincronizzazione è sicuro?
+
+Sì. Tutta la connettività di rete Copia e Sincronizzazione viene eseguita utilizzando https://aws.amazon.com/sqs/["Servizio di coda semplice di Amazon (SQS)"^] .
+
+Tutte le comunicazioni tra il gruppo di broker di dati e Amazon S3, Azure Blob, Google Cloud Storage e IBM Cloud Object Storage avvengono tramite il protocollo HTTPS.
+
+Se utilizzi Copia e sincronizzazione con sistemi locali (di origine o di destinazione), ecco alcune opzioni di connettività consigliate:
+
+* Una connessione AWS Direct Connect, Azure ExpressRoute o Google Cloud Interconnect, che non è instradata tramite Internet (e può comunicare solo con le reti cloud specificate)
+* Una connessione VPN tra il tuo dispositivo gateway locale e le tue reti cloud
+* Per un trasferimento dati più sicuro con bucket S3, Azure Blob Storage o Google Cloud Storage, è possibile stabilire un endpoint Amazon Private S3, endpoint del servizio Azure Virtual Network o Private Google Access.
+
+
+Ognuno di questi metodi stabilisce una connessione sicura tra i server NAS locali e un gruppo di broker di dati di copia e sincronizzazione.
+
+
+
+=== I dati vengono crittografati tramite Copia e Sincronizzazione?
+
+* Copia e sincronizzazione supporta la crittografia dei dati in transito tra i server NFS di origine e di destinazione. link:task-nfs-encryption.html["Saperne di più"] .
+* Per SMB, Copia e sincronizzazione supporta i dati SMB 3.0 e 3.11 crittografati sul lato server.  Copia e sincronizzazione copia i dati crittografati dall'origine alla destinazione, dove rimangono crittografati.
++
+Copia e sincronizzazione non possono crittografare autonomamente i dati SMB.
+
+* Quando un bucket Amazon S3 è la destinazione di una relazione di sincronizzazione, puoi scegliere se abilitare la crittografia dei dati utilizzando la crittografia AWS KMS o la crittografia AES-256.
+* Quando un bucket di Google Storage è la destinazione di una relazione di sincronizzazione, puoi scegliere se utilizzare la chiave di crittografia predefinita gestita da Google oppure la tua chiave KMS.
+
+
+
+
+== Permessi
+
+Le seguenti domande riguardano le autorizzazioni sui dati.
+
+
+
+=== Le autorizzazioni dei dati SMB sono sincronizzate con la posizione di destinazione?
+
+È possibile impostare Copia e sincronizzazione per preservare gli elenchi di controllo degli accessi (ACL) tra una condivisione SMB di origine e una condivisione SMB di destinazione e da una condivisione SMB di origine all'archiviazione di oggetti (ad eccezione di ONTAP S3).
+
+
+NOTE: Copia e sincronizzazione non supporta la copia degli ACL dall'archiviazione degli oggetti alle condivisioni SMB.
+
+link:task-copying-acls.html["Scopri come copiare gli ACL tra le condivisioni SMB"] .
+
+
+
+=== Le autorizzazioni dei dati NFS sono sincronizzate con la posizione di destinazione?
+
+Copia e sincronizzazione copia automaticamente le autorizzazioni NFS tra i server NFS come segue:
+
+* NFS versione 3: Copia e sincronizzazione copia le autorizzazioni e il proprietario del gruppo utenti.
+* NFS versione 4: Copia e sincronizzazione copia gli ACL.
+
+
+
+
+== Metadati di archiviazione degli oggetti
+
+
+
+=== Quali tipi di relazioni di sincronizzazione preservano i metadati di archiviazione degli oggetti?
+
+Copia e sincronizzazione copia i metadati di archiviazione degli oggetti dall'origine alla destinazione per i seguenti tipi di relazioni di sincronizzazione:
+
+* Amazon S3 -> Amazon S3 ^1^
+* Amazon S3 -> StorageGRID
+* StorageGRID -> Amazon S3
+* StorageGRID -> StorageGRID
+* StorageGRID -> Google Cloud Storage
+* Google Cloud Storage -> StorageGRID ^1^
+* Google Cloud Storage -> IBM Cloud Object Storage ^1^
+* Google Cloud Storage -> Amazon S3 ^1^
+* Amazon S3 -> Google Cloud Storage
+* IBM Cloud Object Storage -> Google Cloud Storage
+* StorageGRID -> IBM Cloud Object Storage
+* IBM Cloud Object Storage -> StorageGRID
+* IBM Cloud Object Storage -> IBM Cloud Object Storage
+
+
+^1^ Per queste relazioni di sincronizzazione, è necessariolink:task-creating-relationships.html["abilitare l'impostazione Copia per oggetti quando si crea la relazione di sincronizzazione"] .
+
+
+
+=== Quali tipi di metadati vengono replicati durante le sincronizzazioni in cui NFS o SMB sono l'origine?
+
+Metadati quali ID utente, ora di modifica, ora di accesso e GID vengono replicati per impostazione predefinita.  Gli utenti possono scegliere di replicare l'ACL dai CIF contrassegnandolo come obbligatorio durante la creazione di una relazione di sincronizzazione.
+
+
+
+== Prestazione
+
+Le seguenti domande riguardano le prestazioni di Copia e Sincronizzazione.
+
+
+
+=== Cosa rappresenta l'indicatore di avanzamento di una relazione di sincronizzazione?
+
+La relazione di sincronizzazione mostra la velocità effettiva della scheda di rete del gruppo Data Broker.  Se hai accelerato le prestazioni di sincronizzazione utilizzando più broker di dati, la velocità effettiva è la somma di tutto il traffico.  Questa capacità si aggiorna ogni 20 secondi.
+
+
+
+=== Sto riscontrando problemi di prestazioni.  Possiamo limitare il numero di trasferimenti contemporanei?
+
+Se si dispone di file molto grandi (ciascuno di diversi TiB), il completamento del processo di trasferimento potrebbe richiedere molto tempo e le prestazioni potrebbero risentirne.
+
+Può essere utile limitare il numero di trasferimenti contemporanei. link:task-get-help.html["Contattaci per assistenza"] .
+
+
+
+=== Perché riscontro prestazioni basse con Azure NetApp Files?
+
+Quando si sincronizzano dati da o verso Azure NetApp Files, potrebbero verificarsi errori e problemi di prestazioni se il livello di servizio del disco è Standard.
+
+Modifica il livello di servizio in Premium o Ultra per migliorare le prestazioni di sincronizzazione.
+
+https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-service-levels#throughput-limits["Scopri di più sui livelli di servizio e sulla velocità effettiva Azure NetApp Files"^] .
+
+
+
+=== Quanti broker di dati sono necessari in un gruppo?
+
+Quando si crea una nuova relazione, si inizia con un singolo broker di dati in un gruppo (a meno che non si selezioni un broker di dati esistente che appartiene a una relazione di sincronizzazione accelerata).  In molti casi, un singolo broker di dati può soddisfare i requisiti di prestazioni per una relazione di sincronizzazione.  In caso contrario, è possibile accelerare le prestazioni di sincronizzazione aggiungendo altri broker di dati al gruppo.  Ma prima dovresti controllare altri fattori che possono influire sulle prestazioni di sincronizzazione.
+
+Sono molteplici i fattori che possono influire sulle prestazioni del trasferimento dati.  Le prestazioni complessive di sincronizzazione potrebbero essere influenzate dalla larghezza di banda della rete, dalla latenza e dalla topologia della rete, nonché dalle specifiche della VM del broker dati e dalle prestazioni del sistema di archiviazione.  Ad esempio, un singolo broker di dati in un gruppo può raggiungere 100 MB/s, mentre la velocità di elaborazione del disco sulla destinazione potrebbe consentire solo 64 MB/s.  Di conseguenza, il gruppo di broker di dati continua a provare a copiare i dati, ma la destinazione non riesce a soddisfare le prestazioni del gruppo di broker di dati.
+
+Assicuratevi quindi di controllare le prestazioni della vostra rete e la velocità di trasmissione del disco sulla destinazione.
+
+Quindi puoi valutare di accelerare le prestazioni di sincronizzazione aggiungendo altri broker di dati a un gruppo per condividere il carico di tale relazione. link:task-managing-relationships.html#accelerate-sync-performance["Scopri come accelerare le prestazioni di sincronizzazione"] .
+
+
+
+== Eliminare cose
+
+Le seguenti domande riguardano l'eliminazione delle relazioni di sincronizzazione e dei dati dalle origini e dalle destinazioni.
+
+
+
+=== Cosa succede se elimino la mia relazione Copia e Sincronizza?
+
+L'eliminazione di una relazione interrompe tutte le future sincronizzazioni dei dati e interrompe il pagamento.  Tutti i dati sincronizzati con la destinazione rimangono così come sono.
+
+
+
+=== Cosa succede se elimino qualcosa dal mio server di origine?  Viene rimosso anche dal bersaglio?
+
+Per impostazione predefinita, se si dispone di una relazione di sincronizzazione attiva, l'elemento eliminato sul server di origine non viene eliminato dal server di destinazione durante la successiva sincronizzazione.  Tuttavia, nelle impostazioni di sincronizzazione per ogni relazione è disponibile un'opzione che consente di specificare che Copia e sincronizzazione eliminerà i file nella posizione di destinazione se sono stati eliminati dalla posizione di origine.
+
+link:task-managing-relationships.html#change-the-settings-for-a-sync-relationship["Scopri come modificare le impostazioni per una relazione di sincronizzazione"] .
+
+
+
+=== Cosa succede se elimino qualcosa dal mio target?  È stato rimosso anche dalla mia fonte?
+
+Se un elemento viene eliminato dalla destinazione, non verrà rimosso dalla sorgente.  La relazione è unidirezionale: dalla fonte al destinatario.  Nel ciclo di sincronizzazione successivo, Copia e sincronizzazione confronta l'origine con la destinazione, identifica che l'elemento è mancante e Copia e sincronizzazione lo copia nuovamente dall'origine alla destinazione.
+
+
+
+== Risoluzione dei problemi
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Cloud_Sync/Cloud_Sync_FAQ:_Support_and_Troubleshooting["Knowledgebase NetApp : Domande frequenti su Copia e Sincronizzazione: Supporto e risoluzione dei problemi"^]
+
+
+
+== Analisi approfondita del broker di dati
+
+La seguente domanda riguarda il broker di dati.
+
+
+
+=== Puoi spiegare l'architettura del data broker?
+
+Sicuro.  Ecco i punti più importanti:
+
+* Il broker di dati è un'applicazione node.js in esecuzione su un host Linux.
+* Copy and Sync distribuisce il broker di dati come segue:
++
+** AWS: da un modello AWS CloudFormation
+** Azure: da Azure Resource Manager
+** Google: da Google Cloud Deployment Manager
+** Se utilizzi il tuo host Linux, devi installare manualmente il software
+
+
+* Il software del broker di dati si aggiorna automaticamente alla versione più recente.
+* Il broker di dati utilizza AWS SQS come canale di comunicazione affidabile e sicuro e per il controllo e il monitoraggio.  SQS fornisce anche un livello di persistenza.
+* È possibile aggiungere altri broker di dati a un gruppo per aumentare la velocità di trasferimento e garantire un'elevata disponibilità.  Esiste una resilienza del servizio in caso di guasto di un broker di dati.
+

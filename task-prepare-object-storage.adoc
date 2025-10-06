@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: task-prepare-object-storage.html 
+keywords: prepare data broker, data broker, object storage, sync, scanner, configure scanner, bluexp, copy and sync 
+summary: 'Se si prevede di sincronizzare i dati da un archivio di oggetti all"altro (ad esempio, da Amazon S3 ad Azure Blob) utilizzando NetApp Copy and Sync, è necessario preparare il gruppo di broker di dati prima di creare la relazione di sincronizzazione.' 
+---
+= Preparare un broker di dati per sincronizzare i dati tra l'archiviazione degli oggetti in NetApp Copy e Sync
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Se si prevede di sincronizzare i dati da un archivio di oggetti all'altro (ad esempio, da Amazon S3 ad Azure Blob) in NetApp Copy and Sync, è necessario preparare il gruppo di broker di dati prima di creare la relazione di sincronizzazione.
+
+.Informazioni su questo compito
+Per preparare il gruppo di broker di dati, sarà necessario modificare la configurazione dello scanner.  Se non modifichi la configurazione, potresti riscontrare problemi di prestazioni per questa relazione di sincronizzazione.
+
+.Prima di iniziare
+Il gruppo di broker di dati utilizzato per sincronizzare i dati da un archivio di oggetti all'altro dovrebbe gestire solo questi tipi di relazioni di sincronizzazione.  Se il gruppo di broker di dati gestisce un tipo diverso di relazione di sincronizzazione (ad esempio, da NFS a NFS o da archiviazione di oggetti a SMB), le prestazioni di tali relazioni di sincronizzazione potrebbero essere influenzate negativamente.
+
+.Passi
+. link:task-login-copyandsync.html["Accedi a Copia e Sincronizza"] .
+. Da Copia e sincronizzazione, seleziona *Gestisci broker di dati*.
+. Selezionareimage:icon-settings.png["Uno screenshot dell'icona delle impostazioni"]
+. Aggiorna la configurazione dello scanner:
++
+.. Modificare *Scanner Concurrency* in *1*.
+.. Modificare *Limite processi scanner* in *1*.
+
+
+. Selezionare *Unifica configurazione*.
+
+
+.Risultato
+Copia e sincronizzazione aggiorna la configurazione del gruppo di broker di dati.
+
+.Cosa succederà ora?
+Ora puoi creare la relazione di sincronizzazione tra l'archiviazione degli oggetti utilizzando il gruppo di broker di dati appena configurato.

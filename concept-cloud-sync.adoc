@@ -1,0 +1,82 @@
+---
+sidebar: sidebar 
+permalink: concept-cloud-sync.html 
+keywords: NetApp Copy and Sync, overview, conceptual, how, data broker, service, cloudsync, bluexp, copy and sync 
+summary: NetApp Copy and Sync offre un modo semplice, sicuro e automatizzato per migrare i tuoi dati verso qualsiasi destinazione, nel cloud o in sede. 
+---
+= Scopri di più su NetApp Copy and Sync
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Copy and Sync offre un modo semplice, sicuro e automatizzato per migrare i tuoi dati verso qualsiasi destinazione, nel cloud o in sede.  Che si tratti di un set di dati NAS basato su file (NFS o SMB), di un formato di oggetto Amazon Simple Storage Service (S3), di un dispositivo NetApp StorageGRID o di qualsiasi altro archivio di oggetti di un provider cloud, Copy and Sync può convertirlo e spostarlo per te.
+
+
+
+== Console NetApp
+
+È possibile accedere a NetApp Copy and Sync tramite la console NetApp .
+
+NetApp Console offre una gestione centralizzata dei servizi di storage e dati NetApp in ambienti on-premise e cloud di livello aziendale. La console è necessaria per accedere e utilizzare i servizi dati NetApp . In quanto interfaccia di gestione, consente di gestire numerose risorse di archiviazione da un'unica interfaccia. Gli amministratori della console possono controllare l'accesso allo storage e ai servizi per tutti i sistemi all'interno dell'azienda.
+
+Per iniziare a utilizzare NetApp Console non è necessaria una licenza o un abbonamento e verranno addebitati costi solo quando sarà necessario distribuire gli agenti della console nel cloud per garantire la connettività ai sistemi di storage o ai servizi dati NetApp . Tuttavia, alcuni servizi dati NetApp accessibili dalla Console sono concessi in licenza o basati su abbonamento.
+
+Scopri di più su https://docs.netapp.com/us-en/bluexp-setup-admin/concept-overview.html["Console NetApp"] .
+
+
+
+== Come funziona NetApp Copy and Sync
+
+NetApp Copy and Sync è una piattaforma software-as-a-service (SaaS) composta da un gruppo di broker di dati, un'interfaccia basata su cloud disponibile tramite la console NetApp e un'origine e una destinazione.
+
+L'immagine seguente mostra la relazione tra i componenti Copia e Sincronizzazione:
+
+image:diagram_cloud_sync_overview.png["Immagine concettuale che mostra il flusso di dati da una sorgente a una destinazione.  Il software del broker di dati funge da mediatore e interroga Copia e Sincronizzazione per le attività."]
+
+Il software del broker di dati NetApp sincronizza i dati da un'origine a una destinazione (questa è chiamata _relazione di sincronizzazione_).  Puoi eseguire il broker di dati su AWS, Azure, Google Cloud Platform o in sede.  Un gruppo di broker di dati, composto da uno o più broker di dati, necessita di una connessione Internet in uscita sulla porta 443 per poter comunicare con Copy and Sync e contattare alcuni altri servizi e repository. link:reference-networking.html["Visualizza l'elenco degli endpoint"] .
+
+Dopo la copia iniziale, Copia e sincronizzazione sincronizza tutti i dati modificati in base alla pianificazione impostata.
+
+
+
+== Tipi di archiviazione supportati
+
+Copia e sincronizzazione supporta i seguenti tipi di archiviazione:
+
+* Qualsiasi server NFS
+* Qualsiasi server SMB
+* Amazon EFS
+* Amazon FSx per ONTAP
+* Amazon S3
+* Blob azzurro
+* Azure Data Lake Storage Gen2
+* Azure NetApp Files
+* Box (disponibile in anteprima)
+* Cloud Volumes ONTAP
+* Google Cloud Storage
+* Google Drive
+* IBM Cloud Object Storage
+* Cluster ONTAP on-premise
+* Archiviazione ONTAP S3
+* SFTP (utilizzando solo API)
+* StorageGRID
+
+
+link:reference-supported-relationships.html["Visualizza le relazioni di sincronizzazione supportate"] .
+
+
+
+== Costi
+
+L'utilizzo di Copia e sincronizzazione comporta due tipi di costi: costi delle risorse e costi del servizio.
+
+Costi delle risorse:: I costi delle risorse sono correlati ai costi di elaborazione e archiviazione per l'esecuzione di uno o più broker di dati nel cloud.
+Spese di servizio:: Al termine del periodo di prova gratuito di 14 giorni, è possibile pagare le relazioni di sincronizzazione in due modi.  La prima opzione è quella di abbonarsi ad AWS o Azure, che consente di pagare su base oraria o annuale.  La seconda opzione è quella di acquistare le licenze direttamente da NetApp.
+
+
+link:concept-licensing.html["Scopri come funziona la concessione delle licenze"] .
