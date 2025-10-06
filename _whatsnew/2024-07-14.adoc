@@ -6,4 +6,4 @@
 
 === Correzioni di bug
 
-Abbiamo aggiornato Copia e sincronizzazione e il broker dati per correggere alcuni bug.  La nuova versione del broker dati è 1.0.53.
+Abbiamo aggiornato Copia e sincronizzazione e il broker dati per correggere alcuni bug. La nuova versione del data broker è 1.0.53.

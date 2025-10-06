@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: api-sync.html 
 keywords: api, apis, rest, restful, authorization, getting started, body, header, token, reference, expired token, expires, expired, token expired, list apis, 202, https status code 202, status code 202, id, id field, box 
-summary: 'Le funzionalità di copia e sincronizzazione NetApp disponibili tramite l"interfaccia utente Web sono disponibili anche tramite le API RESTful.' 
+summary: 'Le funzionalità NetApp Copy and Sync disponibili tramite l"interfaccia utente Web sono disponibili anche tramite le API RESTful.' 
 ---
-= API di copia e sincronizzazione NetApp
+= API NetApp Copy and Sync
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,16 +14,16 @@ summary: 'Le funzionalità di copia e sincronizzazione NetApp disponibili tramit
 
 
 [role="lead"]
-Le funzionalità NetApp Copy e Sync disponibili tramite l'interfaccia utente Web sono disponibili anche tramite l'API RESTful.
+Le funzionalità NetApp Copy and Sync disponibili tramite l'interfaccia utente Web sono disponibili anche tramite l'API RESTful.
 
 
 
 == Iniziare
 
-Per iniziare a utilizzare l'API Copia e sincronizzazione, è necessario ottenere un token utente e l'ID dell'account NetApp Console.  Quando si effettuano chiamate API, sarà necessario aggiungere il token e l'ID account all'intestazione Authorization.
+Per iniziare a utilizzare l'API Copia e sincronizzazione, è necessario ottenere un token utente e l'ID dell'account NetApp Console .  Quando si effettuano chiamate API, sarà necessario aggiungere il token e l'ID account all'intestazione Authorization.
 
 .Passi
-. Ottieni un token utente dalla console NetApp .
+. Ottieni un token utente dalla NetApp Console.
 +
 [source, http]
 ----
@@ -43,7 +43,7 @@ Body:
 
 NOTE: Se si utilizza un account di posta elettronica personale senza ID client, è possibile utilizzare l'ID client predefinito "QC3AgHk6qdbmC7Yyr82ApBwaaJLwRrNO".
 
-. Ottieni l'ID del tuo account NetApp Console.
+. Ottieni l'ID del tuo account NetApp Console .
 +
 [source, http]
 ----

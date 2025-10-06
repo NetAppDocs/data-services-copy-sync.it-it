@@ -14,7 +14,7 @@ summary: Al termine del periodo di prova gratuito di 14 giorni, è possibile pag
 
 
 [role="lead"]
-Al termine del periodo di prova gratuito di 14 giorni, sono disponibili due modi per pagare le relazioni NetApp Copy and Sync.  La prima opzione è quella di abbonarsi ad AWS o Azure con pagamento in base al consumo o annuale.  La seconda opzione è quella di acquistare le licenze direttamente da NetApp.
+Al termine del periodo di prova gratuito di 14 giorni, sono disponibili due modi per pagare le relazioni NetApp Copy and Sync .  La prima opzione è quella di abbonarsi ad AWS o Azure con pagamento in base al consumo o annuale.  La seconda opzione è quella di acquistare le licenze direttamente da NetApp.
 
 Le licenze devono essere gestite tramite NetApp Copy and Sync o il sito Web applicabile e *non* tramite la NetApp Console.
 

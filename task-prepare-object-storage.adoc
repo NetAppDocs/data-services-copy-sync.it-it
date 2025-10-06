@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: task-prepare-object-storage.html 
 keywords: prepare data broker, data broker, object storage, sync, scanner, configure scanner, bluexp, copy and sync 
-summary: 'Se si prevede di sincronizzare i dati da un archivio di oggetti all"altro (ad esempio, da Amazon S3 ad Azure Blob) utilizzando NetApp Copy and Sync, è necessario preparare il gruppo di broker di dati prima di creare la relazione di sincronizzazione.' 
+summary: 'Se si prevede di sincronizzare i dati da un archivio oggetti all"altro (ad esempio, da Amazon S3 ad Azure Blob) utilizzando NetApp Copy and Sync, è necessario preparare il gruppo di broker dati prima di creare la relazione di sincronizzazione.' 
 ---
-= Preparare un broker di dati per sincronizzare i dati tra l'archiviazione degli oggetti in NetApp Copy e Sync
+= Preparare un broker di dati per sincronizzare i dati tra l'archiviazione degli oggetti in NetApp Copy and Sync
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

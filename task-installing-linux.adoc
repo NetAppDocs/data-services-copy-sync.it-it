@@ -14,7 +14,7 @@ summary: 'Quando si crea un nuovo broker di dati, scegliere l"opzione Broker di 
 
 
 [role="lead"]
-Quando si crea un nuovo gruppo di data broker per NetApp Copy and Sync, scegliere l'opzione On-Prem Data Broker per installare il software del data broker su un host Linux locale o su un host Linux esistente nel cloud.  NetApp Copy and Sync ti guida attraverso il processo di installazione, ma i requisiti e i passaggi vengono ripetuti in questa pagina per aiutarti a preparare l'installazione.
+Quando si crea un nuovo gruppo di broker di dati per NetApp Copy and Sync, scegliere l'opzione On-Prem Data Broker per installare il software del broker di dati su un host Linux locale o su un host Linux esistente nel cloud.  NetApp Copy and Sync ti guida attraverso il processo di installazione, ma i requisiti e i passaggi vengono ripetuti in questa pagina per aiutarti a preparare l'installazione.
 
 
 
@@ -143,7 +143,7 @@ La pagina delle istruzioni verrà caricata tra poco.  Dovrai seguire queste istr
 .. Seleziona un'opzione di installazione: *Nessun proxy*, *Usa server proxy* o *Usa server proxy con autenticazione*.
 +
 
-NOTE: L'utente deve essere un utente locale.  Gli utenti di dominio non sono supportati.
+NOTE: L'utente deve essere un utente locale. Gli utenti di dominio non sono supportati.
 
 .. Utilizzare i comandi per scaricare e installare il broker di dati.
 +

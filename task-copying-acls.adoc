@@ -37,7 +37,7 @@ Questa funzionalità funziona con _qualsiasi_ tipo di broker di dati: AWS, Azure
 . Nella pagina *Server SMB*:
 +
 .. Inserisci un nuovo server SMB oppure seleziona un server esistente e seleziona *Continua*.
-.. Inserisci le credenziali per il server SMB.
+.. Immettere le credenziali per il server SMB.
 .. Scegliere *Copia solo file*, *Copia solo ACL* o *Copia file e ACL* e selezionare *Continua*.
 +
 image:screenshot_acl_support.png["Uno screenshot che mostra l'opzione per abilitare la copia degli elenchi di controllo degli accessi nella destinazione."]

@@ -299,7 +299,7 @@ Quando si imposta una relazione di sincronizzazione che include https://docs.net
 +
 I membri del gruppo Backup Operators sono supportati con un server SMB di origine.
 
-** Per un server SMB di destinazione sono necessarie le seguenti autorizzazioni: elenco, lettura e scrittura.
+** Per un server SMB di destinazione sono richieste le seguenti autorizzazioni: elenco, lettura e scrittura.
 
 
 * Il file server deve consentire a un host del broker di dati di accedere alle esportazioni tramite le porte richieste.

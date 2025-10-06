@@ -68,7 +68,7 @@ Copia e sincronizzazione aggiunge il nuovo broker di dati al gruppo.  Le prestaz
 L'aggiornamento delle credenziali è supportato con qualsiasi origine o destinazione per cui Copy and Sync richiede credenziali: server Azure Blob, Box, IBM Cloud Object Storage, StorageGRID, ONTAP S3 Storage, SFTP e SMB.
 
 .Passi
-. Dalla *Dashboard di sincronizzazione*, vai a una relazione di sincronizzazione che richiede credenziali e seleziona *Aggiorna credenziali*.
+. Dalla *Dashboard di sincronizzazione*, vai a una relazione di sincronizzazione che richiede credenziali e quindi seleziona *Aggiorna credenziali*.
 +
 image:screenshot_sync_update_credentials.png["Uno screenshot che mostra l'opzione Aggiorna credenziali nella pagina Relazioni di sincronizzazione, subito sotto il nome dell'origine o della destinazione."]
 
@@ -90,7 +90,7 @@ Copia e sincronizzazione aggiorna le credenziali sul broker di dati.  Potrebbero
 
 Un'impostazione *Notifiche* per ogni relazione di sincronizzazione consente di scegliere se ricevere notifiche di copia e sincronizzazione nel Centro notifiche della console NetApp .  È possibile abilitare le notifiche per le sincronizzazioni dei dati riuscite, non riuscite e annullate.
 
-image:https://raw.githubusercontent.com/NetAppDocs/bluexp-copy-sync/main/media/screenshot-notification-center.png["Uno screenshot che mostra il Centro notifiche nella console NetApp ."]
+image:https://raw.githubusercontent.com/NetAppDocs/bluexp-copy-sync/main/media/screenshot-notification-center.png["Uno screenshot che mostra il Centro notifiche nella NetApp Console."]
 
 Inoltre, puoi ricevere notifiche anche via e-mail.
 
@@ -186,20 +186,20 @@ Escludi estensioni di file:: Specificare l'espressione regolare o le estensioni 
 .Escludere le estensioni dei file per una relazione di sincronizzazione
 video::7f957dbf-9215-41ea-a705-b24c010b2212[panopto]
 
-NOTE: Le espressioni regolari (regex) sono diverse dai caratteri jolly o dalle espressioni glob.  Questa funzionalità funziona *solo* con le espressioni regolari.
+NOTE: Le espressioni regolari (o regex) sono diverse dai caratteri jolly o dalle espressioni glob.  Questa funzionalità funziona *solo* con le espressioni regolari.
 
 --
 Escludi directory:: Specificare un massimo di 15 espressioni regolari o directory da escludere dalla sincronizzazione digitandone il nome o il percorso completo della directory e premendo *Invio*.  Le directory .copy-offload, .snapshot, ~snapshot sono escluse per impostazione predefinita.
 +
 --
 
-NOTE: Le espressioni regolari (regex) sono diverse dai caratteri jolly o dalle espressioni glob.  Questa funzionalità funziona *solo* con le espressioni regolari.
+NOTE: Le espressioni regolari (o regex) sono diverse dai caratteri jolly o dalle espressioni glob.  Questa funzionalità funziona *solo* con le espressioni regolari.
 
 --
 Dimensione del file:: Scegli di sincronizzare tutti i file, indipendentemente dalle loro dimensioni, oppure solo i file che rientrano in un intervallo di dimensioni specifico.
 Data di modifica:: Seleziona tutti i file indipendentemente dalla data dell'ultima modifica, i file modificati dopo una data specifica, prima di una data specifica o in un intervallo di tempo.
 Data di creazione:: Quando l'origine è un server SMB, questa impostazione consente di sincronizzare i file creati dopo una data specifica, prima di una data specifica o in un intervallo di tempo specifico.
-ACL - Elenco di controllo degli accessi:: È possibile copiare solo gli ACL, solo i file o ACL e file da un server SMB abilitando un'impostazione quando si crea una relazione o dopo averla creata.
+ACL - Elenco di controllo degli accessi:: Copia solo ACL, solo file o ACL e file da un server SMB abilitando un'impostazione quando crei una relazione o dopo averla creata.
 
 
 . Selezionare *Salva impostazioni*.

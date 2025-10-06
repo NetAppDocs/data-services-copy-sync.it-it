@@ -47,7 +47,7 @@ Se preferisci sincronizzare i dati più frequentemente,link:task-managing-relati
 == Versioni NFS supportate
 
 * Per i server NFS, la crittografia dei dati in transito è supportata con le versioni NFS 3, 4.0, 4.1 e 4.2.
-* Per Azure NetApp Files, la crittografia dei dati in transito è supportata con NFS versioni 3 e 4.1.
+* Per Azure NetApp Files, la crittografia dei dati in transito è supportata con le versioni NFS 3 e 4.1.
 
 
 

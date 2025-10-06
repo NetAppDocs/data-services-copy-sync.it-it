@@ -24,7 +24,7 @@ link:concept-licensing.html["Scopri di più su come funzionano le licenze"] .
 
 Se non paghi subito dopo la scadenza del periodo di prova gratuito, non potrai creare ulteriori relazioni.  Le relazioni esistenti non vengono eliminate, ma non è possibile apportare modifiche finché non si sottoscrive un abbonamento o si immette una licenza.
 
-Le licenze devono essere gestite tramite NetApp Copy and Sync o il sito Web applicabile e *non* tramite gli abbonamenti alla console NetApp .
+Le licenze devono essere gestite tramite NetApp Copy and Sync o il sito Web applicabile e *non* tramite gli abbonamenti alla NetApp Console .
 
 
 
@@ -33,7 +33,7 @@ Le licenze devono essere gestite tramite NetApp Copy and Sync o il sito Web appl
 AWS consente di pagare in base al consumo o annualmente.
 
 .Passaggi per pagare in base al consumo
-. Dal menu di navigazione della console NetApp , selezionare *Mobilità > Copia e sincronizzazione*.
+. Dal menu di navigazione NetApp Console , selezionare *Mobilità > Copia e sincronizzazione*.
 . Selezionare *Licenza*.
 . Selezionare *AWS*.
 . Seleziona *Iscriviti* e poi *Continua*.
@@ -62,7 +62,7 @@ Azure consente di pagare in base al consumo o annualmente.
 Un account utente di Azure che dispone delle autorizzazioni di Collaboratore o Proprietario nella sottoscrizione pertinente.
 
 .Passi
-. Dal menu di navigazione della console NetApp , selezionare *Mobilità > Copia e sincronizzazione*.
+. Dal menu di navigazione NetApp Console , selezionare *Mobilità > Copia e sincronizzazione*.
 . Selezionare *Licenza*.
 . Selezionare *Azure*.
 . Seleziona *Iscriviti* e poi *Continua*.
@@ -98,7 +98,7 @@ Avrai bisogno del numero di serie della tua licenza e del nome utente e della pa
 .. Inserisci il numero di serie.
 .. Seleziona l'account del sito di supporto NetApp associato alla licenza che stai aggiungendo:
 +
-*** Se il tuo account è già stato aggiunto alla console NetApp , selezionalo dall'elenco a discesa.
+*** Se il tuo account è già stato aggiunto alla NetApp Console, selezionalo dall'elenco a discesa.
 *** Se il tuo account non è ancora stato aggiunto, seleziona *Aggiungi credenziali NSS*, inserisci il nome utente e la password, seleziona *Registrati*, quindi selezionalo dall'elenco a discesa.
 
 
@@ -111,10 +111,10 @@ Avrai bisogno del numero di serie della tua licenza e del nome utente e della pa
 
 == Aggiornare una licenza
 
-Se hai esteso una licenza Copy and Sync acquistata da NetApp, la nuova data di scadenza non verrà aggiornata automaticamente in Copy and Sync.  È necessario aggiungere nuovamente la licenza per aggiornare la data di scadenza.  Le licenze devono essere gestite tramite Copia e sincronizzazione o il sito Web applicabile e *non* tramite gli abbonamenti alla console NetApp .
+Se hai esteso una licenza Copy and Sync acquistata da NetApp, la nuova data di scadenza non verrà aggiornata automaticamente in Copy and Sync.  È necessario aggiungere nuovamente la licenza per aggiornare la data di scadenza.  Le licenze devono essere gestite tramite Copia e sincronizzazione o il sito Web applicabile e *non* tramite gli abbonamenti NetApp Console .
 
 .Passi
-. Dal menu di navigazione della console NetApp , selezionare *Mobilità > Copia e sincronizzazione*.
+. Dal menu di navigazione NetApp Console , selezionare *Mobilità > Copia e sincronizzazione*.
 . Selezionare *Licenza*.
 . Seleziona *Aggiungi licenza* e aggiungi le informazioni richieste:
 +

@@ -30,9 +30,9 @@ La BlueXP copy and sync è stata rinominata NetApp Copy and Sync.
 
 === BlueXP è ora NetApp Console
 
-NetApp Console, basata sulle fondamenta BlueXP migliorate e ristrutturate, offre una gestione centralizzata dello storage NetApp e dei NetApp Data Services in ambienti on-premise e cloud di livello aziendale, offrendo informazioni in tempo reale, flussi di lavoro più rapidi e un'amministrazione semplificata, il tutto in modo altamente sicuro e conforme.
+NetApp Console, basata sulle fondamenta BlueXP migliorate e ristrutturate, offre una gestione centralizzata dello storage NetApp e NetApp Data Services in ambienti on-premise e cloud di livello aziendale, offrendo informazioni in tempo reale, flussi di lavoro più rapidi e un'amministrazione semplificata, il tutto in modo altamente sicuro e conforme.
 
-Per i dettagli su cosa è cambiato, vederelink:https://docs.netapp.com/us-en/bluexp-relnotes/index.html["Note sulla versione della console NetApp"] .
+Per i dettagli su cosa è cambiato, vederelink:https://docs.netapp.com/us-en/bluexp-relnotes/index.html["Note sulla versione NetApp Console"] .
 
 
 
@@ -54,7 +54,7 @@ https://docs.netapp.com/us-en/bluexp-copy-sync/task-installing-linux.html#linux-
 
 === Correzioni di bug
 
-Abbiamo aggiornato NetApp Copy and Sync e il broker di dati per correggere alcuni bug.  La nuova versione del data broker è 1.0.56.
+Abbiamo aggiornato NetApp Copy and Sync e il broker di dati per correggere alcuni bug. La nuova versione del data broker è 1.0.56.
 
 
 
@@ -64,7 +64,7 @@ Abbiamo aggiornato NetApp Copy and Sync e il broker di dati per correggere alcun
 
 === Correzioni di bug
 
-Abbiamo aggiornato NetApp Copy and Sync e il broker di dati per correggere alcuni bug.  La nuova versione del data broker è 1.0.55.
+Abbiamo aggiornato NetApp Copy and Sync e il broker di dati per correggere alcuni bug. La nuova versione del data broker è 1.0.55.
 
 
 
@@ -74,7 +74,7 @@ Abbiamo aggiornato NetApp Copy and Sync e il broker di dati per correggere alcun
 
 === Correzioni di bug
 
-Abbiamo aggiornato NetApp Copy and Sync e il broker di dati per correggere alcuni bug.  La nuova versione del data broker è 1.0.54.
+Abbiamo aggiornato NetApp Copy and Sync e il broker di dati per correggere alcuni bug. La nuova versione del data broker è 1.0.54.
 
 
 
@@ -84,7 +84,7 @@ Abbiamo aggiornato NetApp Copy and Sync e il broker di dati per correggere alcun
 
 === Correzioni di bug
 
-Abbiamo aggiornato Copia e sincronizzazione e il broker dati per correggere alcuni bug.  La nuova versione del broker dati è 1.0.53.
+Abbiamo aggiornato Copia e sincronizzazione e il broker dati per correggere alcuni bug. La nuova versione del data broker è 1.0.53.
 
 
 
@@ -94,7 +94,7 @@ Abbiamo aggiornato Copia e sincronizzazione e il broker dati per correggere alcu
 
 === Correzioni di bug
 
-NetApp Copy and Sync è stato aggiornato per correggere alcuni bug.  Anche il broker di dati è stato aggiornato per applicare gli aggiornamenti di sicurezza.  La nuova versione del data broker è 1.0.52.
+NetApp Copy and Sync è stato aggiornato per correggere alcuni bug.  Anche il broker di dati è stato aggiornato per applicare gli aggiornamenti di sicurezza. La nuova versione del data broker è 1.0.52.
 
 
 
@@ -162,7 +162,7 @@ https://docs.netapp.com/us-en/bluexp-copy-sync/task-creating-relationships.html#
 
 === Aggiungere chiavi S3 durante la creazione di Azure Data Broker
 
-Gli utenti possono ora aggiungere chiavi di accesso e chiavi segrete AWS S3 durante la creazione di un broker di dati Azure.
+Gli utenti possono ora aggiungere chiavi di accesso e chiavi segrete AWS S3 durante la creazione di un broker di dati di Azure.
 
 https://docs.netapp.com/us-en/bluexp-copy-sync/task-installing-azure.html#creating-the-data-broker["Scopri di più sulla creazione di un broker di dati in Azure."]
 
@@ -465,7 +465,7 @@ https://docs.netapp.com/us-en/bluexp-copy-sync/task-creating-relationships.html#
 
 Ora puoi ricevere le notifiche di Cloud Sync tramite e-mail.
 
-Per ricevere le notifiche via e-mail, è necessario abilitare l'impostazione *Notifiche* nella relazione di sincronizzazione e quindi configurare le impostazioni Avvisi e Notifiche nella console NetApp .
+Per ricevere le notifiche via e-mail, è necessario abilitare l'impostazione *Notifiche* nella relazione di sincronizzazione e quindi configurare le impostazioni Avvisi e Notifiche nella NetApp Console.
 
 https://docs.netapp.com/us-en/bluexp-copy-sync/task-managing-relationships.html#setting-up-notifications["Scopri come impostare le notifiche"] .
 
@@ -508,7 +508,7 @@ Abbiamo aggiunto ulteriori modi per impostare relazioni di sincronizzazione dire
 
 Ora puoi impostare una relazione di sincronizzazione dalla pagina Sistemi trascinando e rilasciando un sistema sopra l'altro.
 
-image:https://raw.githubusercontent.com/NetAppDocs/bluexp-copy-sync/main/media/screenshot-enable-drag-and-drop.png["Uno screenshot che mostra il Centro notifiche nella console NetApp ."]
+image:https://raw.githubusercontent.com/NetAppDocs/bluexp-copy-sync/main/media/screenshot-enable-drag-and-drop.png["Uno screenshot che mostra il Centro notifiche nella NetApp Console."]
 
 
 
@@ -516,7 +516,7 @@ image:https://raw.githubusercontent.com/NetAppDocs/bluexp-copy-sync/main/media/s
 
 Ora puoi impostare una relazione di sincronizzazione per Azure Blob Storage o per Google Cloud Storage selezionando il sistema dalla pagina Sistemi e quindi selezionando l'opzione di sincronizzazione dal pannello di destra.
 
-image:https://raw.githubusercontent.com/NetAppDocs/bluexp-copy-sync/main/media/screenshot-enable-panel.png["Uno screenshot che mostra il Centro notifiche nella console NetApp ."]
+image:https://raw.githubusercontent.com/NetAppDocs/bluexp-copy-sync/main/media/screenshot-enable-panel.png["Uno screenshot che mostra il Centro notifiche nella NetApp Console."]
 
 
 
@@ -538,7 +538,7 @@ https://docs.netapp.com/us-en/bluexp-copy-sync/reference-supported-relationships
 
 L'impostazione di sincronizzazione continua è ora supportata da un bucket di Google Cloud Storage di origine a un bucket di archiviazione cloud di destinazione.
 
-Dopo la sincronizzazione iniziale dei dati, Cloud Sync ascolta le modifiche sul bucket Google Cloud Storage di origine e sincronizza continuamente tutte le modifiche con quello di destinazione non appena si verificano.  Questa impostazione è disponibile durante la sincronizzazione da un bucket di Google Cloud Storage a S3, Google Cloud Storage, Azure Blob Storage, StorageGRID o IBM Storage.
+Dopo la sincronizzazione iniziale dei dati, Cloud Sync ascolta le modifiche sul bucket Google Cloud Storage di origine e sincronizza continuamente eventuali modifiche con quello di destinazione non appena si verificano.  Questa impostazione è disponibile durante la sincronizzazione da un bucket di Google Cloud Storage a S3, Google Cloud Storage, Azure Blob Storage, StorageGRID o IBM Storage.
 
 Per utilizzare questa impostazione, l'account di servizio associato al tuo broker di dati necessita delle seguenti autorizzazioni:
 
@@ -637,7 +637,7 @@ https://docs.netapp.com/us-en/bluexp-copy-sync/task-managing-relationships.html#
 
 È ora disponibile una nuova impostazione *Notifiche* per le relazioni di sincronizzazione.  Questa impostazione consente di scegliere se ricevere le notifiche di Cloud Sync nel Centro notifiche della console NetApp .  È possibile abilitare le notifiche per le sincronizzazioni dei dati riuscite, non riuscite e annullate.
 
-image:https://raw.githubusercontent.com/NetAppDocs/bluexp-copy-sync/main/media/screenshot-notification-center.png["Uno screenshot che mostra il Centro notifiche nella console NetApp ."]
+image:https://raw.githubusercontent.com/NetAppDocs/bluexp-copy-sync/main/media/screenshot-notification-center.png["Uno screenshot che mostra il Centro notifiche nella NetApp Console."]
 
 https://docs.netapp.com/us-en/bluexp-copy-sync/task-managing-relationships.html#change-the-settings-for-a-sync-relationship["Scopri di più sulla modifica delle impostazioni per una relazione di sincronizzazione"] .
 
@@ -651,9 +651,9 @@ https://docs.netapp.com/us-en/bluexp-copy-sync/task-managing-relationships.html#
 
 Abbiamo apportato diversi miglioramenti ai gruppi di broker di dati:
 
-* Ora puoi spostare un broker di dati in un gruppo nuovo o esistente.
+* Ora puoi spostare un data broker in un gruppo nuovo o esistente.
 * Ora puoi aggiornare la configurazione proxy per un broker di dati.
-* Infine, è anche possibile eliminare i gruppi di broker di dati.
+* Infine, puoi anche eliminare i gruppi di broker di dati.
 
 
 https://docs.netapp.com/us-en/bluexp-copy-sync/task-managing-data-brokers.html["Scopri come gestire i gruppi di broker di dati"] .
@@ -682,7 +682,7 @@ image:https://raw.githubusercontent.com/NetAppDocs/bluexp-copy-sync/main/media/s
 
 === Miglioramento dell'integrazione di Data Sense
 
-Nella versione precedente abbiamo introdotto l'integrazione di Cloud Sync con Cloud Data Sense.  In questo aggiornamento abbiamo migliorato l'integrazione semplificando la creazione della relazione di sincronizzazione.  Dopo aver avviato una sincronizzazione dei dati da Cloud Data Sense, tutte le informazioni di origine vengono raccolte in un unico passaggio e richiedono solo l'inserimento di alcuni dettagli chiave.
+Nella versione precedente abbiamo introdotto l'integrazione di Cloud Sync con Cloud Data Sense.  In questo aggiornamento abbiamo migliorato l'integrazione semplificando la creazione della relazione di sincronizzazione.  Dopo aver avviato una sincronizzazione dei dati da Cloud Data Sense, tutte le informazioni di origine vengono contenute in un unico passaggio e richiedono solo l'inserimento di alcuni dettagli chiave.
 
 image:https://raw.githubusercontent.com/NetAppDocs/bluexp-copy-sync/main/media/screenshot-sync-data-sense.png["Uno screenshot che mostra la pagina di integrazione di Data Sense che appare dopo aver avviato una nuova sincronizzazione direttamente da Cloud Data Sense."]
 
@@ -700,7 +700,7 @@ Ad esempio, quando si crea una nuova relazione di sincronizzazione, si seleziona
 
 image:https://raw.githubusercontent.com/NetAppDocs/bluexp-copy-sync/main/media/screenshot-sync-select-data-broker-group.png["Uno screenshot della procedura guidata Relazione di sincronizzazione che mostra la selezione del gruppo di broker di dati."]
 
-Nella scheda *Gestisci broker dati*, mostriamo anche il numero di relazioni di sincronizzazione gestite da un gruppo di broker dati.
+Nella scheda *Gestisci Data Broker*, mostriamo anche il numero di relazioni di sincronizzazione gestite da un gruppo di Data Broker.
 
 image:https://raw.githubusercontent.com/NetAppDocs/bluexp-copy-sync/main/media/screenshot-sync-group-relationships.png["Uno screenshot della pagina Gestisci broker di dati che mostra un gruppo di broker di dati e i dettagli su tale gruppo, incluso il numero di relazioni che gestisce."]
 
@@ -740,7 +740,7 @@ image:screenshot-sync-relationship-edit-name.png["Uno screenshot di una relazion
 
 === Collegamenti privati S3
 
-Quando sincronizzi i dati da o verso Amazon S3, puoi scegliere se utilizzare un collegamento privato S3.  Quando il broker di dati copia i dati dalla sorgente alla destinazione, la copia avviene tramite il collegamento privato.
+Quando sincronizzi i dati da o verso Amazon S3, puoi scegliere se utilizzare un collegamento privato S3.  Quando il broker di dati copia i dati dalla sorgente alla destinazione, questi passano attraverso il collegamento privato.
 
 Tieni presente che il ruolo IAM associato al tuo broker di dati necessiterà della seguente autorizzazione per utilizzare questa funzionalità:
 
@@ -1002,9 +1002,9 @@ link:task-managing-relationships.html#change-the-settings-for-a-sync-relationshi
 
 === Il servizio Cloud Sync autonomo è stato ritirato
 
-Il servizio autonomo Cloud Sync è stato ritirato.  Ora dovresti accedere a Cloud Sync direttamente dalla console NetApp , dove sono disponibili tutte le stesse funzionalità.
+Il servizio autonomo Cloud Sync è stato ritirato.  Ora dovresti accedere a Cloud Sync direttamente dalla NetApp Console, dove sono disponibili tutte le stesse funzionalità.
 
-Dopo aver effettuato l'accesso alla console NetApp , puoi passare alla scheda Sincronizzazione in alto e visualizzare le tue relazioni, proprio come prima.
+Dopo aver effettuato l'accesso alla NetApp Console, puoi passare alla scheda Sincronizzazione in alto e visualizzare le tue relazioni, proprio come prima.
 
 
 

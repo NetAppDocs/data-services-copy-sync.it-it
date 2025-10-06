@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-external-vault.html 
 keywords: hashicorp, vault, credentials, secrets, API 
-summary: 'Quando si crea una relazione di sincronizzazione che richiede credenziali Amazon S3, Azure o Google Cloud, è necessario specificare tali credenziali tramite l"interfaccia utente o l"API NetApp Copy and Sync.  Un"alternativa è quella di configurare il broker di dati in modo che acceda alle credenziali direttamente da un HashiCorp Vault esterno.' 
+summary: 'Quando si crea una relazione di sincronizzazione che richiede credenziali Amazon S3, Azure o Google Cloud, è necessario specificare tali credenziali tramite l"interfaccia utente o l"API NetApp Copy and Sync .  Un"alternativa è quella di configurare il broker di dati in modo che acceda alle credenziali direttamente da un HashiCorp Vault esterno.' 
 ---
 = Impostare un gruppo di broker di dati per utilizzare un HashiCorp Vault esterno in NetApp Copy and Sync
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 'Quando si crea una relazione di sincronizzazione che richiede credenzi
 
 
 [role="lead"]
-Quando si crea una relazione di sincronizzazione che richiede credenziali Amazon S3, Azure o Google Cloud, è necessario specificare tali credenziali tramite l'interfaccia utente o l'API NetApp Copy and Sync.  Un'alternativa è quella di configurare il gruppo del broker di dati per accedere alle credenziali (o _segreti_) direttamente da un HashiCorp Vault esterno.
+Quando si crea una relazione di sincronizzazione che richiede credenziali Amazon S3, Azure o Google Cloud, è necessario specificare tali credenziali tramite l'interfaccia utente o l'API NetApp Copy and Sync .  Un'alternativa è quella di configurare il gruppo del broker di dati per accedere alle credenziali (o _segreti_) direttamente da un HashiCorp Vault esterno.
 
 Questa funzionalità è supportata tramite l'API Copia e sincronizzazione con relazioni di sincronizzazione che richiedono credenziali Amazon S3, Azure o Google Cloud.
 
@@ -43,7 +43,7 @@ L'URL deve essere impostato come segue:
 Sentiero:: Il percorso prefisso per raggiungere il segreto.  Può trattarsi di qualsiasi valore che sia unico per te.
 ID richiesta:: Un ID richiesta che devi generare.  Quando crei la relazione di sincronizzazione, dovrai fornire l'ID in una delle intestazioni della richiesta API POST.
 Protocollo endpoint:: Uno dei seguenti protocolli, come definito https://api.cloudsync.netapp.com/docs/#/Relationships-v2/post_relationships_v2["nella documentazione post relazione v2"^] : S3, AZURE o GCP (ognuno deve essere in maiuscolo).
-Credenziali:: L'URL deve terminare con _Creds_.
+Crediti:: L'URL deve terminare con _Creds_.
 
 
 
@@ -229,7 +229,7 @@ x-netapp-external-request-id-src: request ID as part of path for source credenti
 x-netapp-external-request-id-trg: request ID as part of path for target credentials
 Body: post relationship v2 body
 ....
-* Per ottenere un token utente e l'ID dell'account NetApp Console,link:api-sync.html["fare riferimento a questa pagina nella documentazione"] .
+* Per ottenere un token utente e l'ID dell'account NetApp Console ,link:api-sync.html["fare riferimento a questa pagina nella documentazione"] .
 * Per costruire un corpo per la tua relazione post, https://api.cloudsync.netapp.com/docs/#/Relationships-v2/post_relationships_v2["fare riferimento alla chiamata API relationships-v2"^] .
 
 

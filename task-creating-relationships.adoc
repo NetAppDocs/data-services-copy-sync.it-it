@@ -16,7 +16,7 @@ summary: 'Quando si crea una relazione di sincronizzazione, NetApp Copy and Sync
 [role="lead"]
 Quando si crea una relazione di sincronizzazione, NetApp Copy and Sync copia i file dall'origine alla destinazione.  Dopo la copia iniziale, la funzione Copia e sincronizzazione sincronizza tutti i dati modificati ogni 24 ore.
 
-Prima di poter creare alcuni tipi di relazioni di sincronizzazione, è necessario creare un sistema nella console NetApp .
+Prima di poter creare alcuni tipi di relazioni di sincronizzazione, è necessario creare un sistema nella NetApp Console.
 
 
 
@@ -58,7 +58,7 @@ image:screenshot_sync_we.gif["Uno screenshot che mostra le azioni disponibili da
 
 Utilizzare questi passaggi per sincronizzare i dati da o verso un tipo di archiviazione supportato diverso da Amazon FSx for ONTAP, Azure NetApp Files, Cloud Volumes ONTAP o cluster ONTAP locali.  I passaggi seguenti forniscono un esempio che mostra come impostare una relazione di sincronizzazione da un server NFS a un bucket S3.
 
-. Nella console NetApp , seleziona *Sincronizza*.
+. Nella NetApp Console, seleziona *Sincronizza*.
 . Nella pagina *Definisci relazione di sincronizzazione*, seleziona un'origine e una destinazione.
 +
 I passaggi seguenti forniscono un esempio di come creare una relazione di sincronizzazione da un server NFS a un bucket S3.
@@ -111,7 +111,7 @@ Programma:: Scegli una pianificazione ricorrente per le sincronizzazioni future 
 Timeout di sincronizzazione:: Definisci se Copia e sincronizzazione deve annullare una sincronizzazione dei dati se la sincronizzazione non è stata completata entro il numero specificato di minuti, ore o giorni.
 Notifiche:: Consente di scegliere se ricevere notifiche di copia e sincronizzazione nel Centro notifiche della console NetApp .  È possibile abilitare le notifiche per le sincronizzazioni dei dati riuscite, non riuscite e annullate.
 Nuovi tentativi:: Definisci il numero di volte in cui Copia e sincronizzazione devono riprovare a sincronizzare un file prima di saltarlo.
-Sincronizzazione continua:: Dopo la sincronizzazione iniziale dei dati, Copy and Sync ascolta le modifiche nel bucket S3 di origine o nel bucket Google Cloud Storage e sincronizza continuamente tutte le modifiche con la destinazione non appena si verificano.  Non è necessario ripetere la scansione della sorgente a intervalli programmati.
+Sincronizzazione continua:: Dopo la sincronizzazione iniziale dei dati, Copy and Sync ascolta le modifiche sul bucket S3 di origine o sul bucket Google Cloud Storage e sincronizza continuamente tutte le modifiche con la destinazione non appena si verificano.  Non è necessario ripetere la scansione della sorgente a intervalli programmati.
 +
 --
 Questa impostazione è disponibile solo quando si crea una relazione di sincronizzazione e quando si sincronizzano i dati da un bucket S3 o Google Cloud Storage ad Azure Blob Storage, CIFS, Google Cloud Storage, IBM Cloud Object Storage, NFS, S3 e StorageGRID *oppure* da Azure Blob Storage ad Azure Blob Storage, CIFS, Google Cloud Storage, IBM Cloud Object Storage, NFS e StorageGRID.
@@ -218,20 +218,20 @@ Escludi estensioni di file:: Specificare l'espressione regolare o le estensioni 
 .Escludere le estensioni dei file per una relazione di sincronizzazione
 video::7f957dbf-9215-41ea-a705-b24c010b2212[panopto]
 
-NOTE: Le espressioni regolari (regex) sono diverse dai caratteri jolly o dalle espressioni glob.  Questa funzionalità funziona *solo* con le espressioni regolari.
+NOTE: Le espressioni regolari (o regex) sono diverse dai caratteri jolly o dalle espressioni glob.  Questa funzionalità funziona *solo* con le espressioni regolari.
 
 --
 Escludi directory:: Specificare un massimo di 15 espressioni regolari o directory da escludere dalla sincronizzazione digitandone il nome o il percorso completo della directory e premendo *Invio*.  Le directory .copy-offload, .snapshot, ~snapshot sono escluse per impostazione predefinita.
 +
 --
 
-NOTE: Le espressioni regolari (regex) sono diverse dai caratteri jolly o dalle espressioni glob.  Questa funzionalità funziona *solo* con le espressioni regolari.
+NOTE: Le espressioni regolari (o regex) sono diverse dai caratteri jolly o dalle espressioni glob.  Questa funzionalità funziona *solo* con le espressioni regolari.
 
 --
 Dimensione del file:: Scegli di sincronizzare tutti i file, indipendentemente dalle loro dimensioni, oppure solo i file che rientrano in un intervallo di dimensioni specifico.
 Data di modifica:: Seleziona tutti i file indipendentemente dalla data dell'ultima modifica, i file modificati dopo una data specifica, prima di una data specifica o in un intervallo di tempo.
 Data di creazione:: Quando l'origine è un server SMB, questa impostazione consente di sincronizzare i file creati dopo una data specifica, prima di una data specifica o in un intervallo di tempo specifico.
-ACL - Elenco di controllo degli accessi:: È possibile copiare solo gli ACL, solo i file o ACL e file da un server SMB abilitando un'impostazione quando si crea una relazione o dopo averla creata.
+ACL - Elenco di controllo degli accessi:: Copia solo ACL, solo file o ACL e file da un server SMB abilitando un'impostazione quando crei una relazione o dopo averla creata.
 
 
 . Nella pagina *Tag/Metadati*, scegli se salvare una coppia chiave-valore come tag su tutti i file trasferiti al bucket S3 oppure assegnare una coppia chiave-valore di metadati a tutti i file.
@@ -253,10 +253,10 @@ Copia e sincronizzazione avvia la sincronizzazione dei dati tra l'origine e la d
 
 == Crea relazioni di sincronizzazione da NetApp Data Classification
 
-Copia e sincronizzazione sono integrate con NetApp Data Classification.  Da NetApp Data Classification, puoi selezionare i file sorgente che desideri sincronizzare con una posizione di destinazione utilizzando Copia e sincronizzazione.
+Copia e sincronizzazione sono integrati con NetApp Data Classification.  Da NetApp Data Classification, puoi selezionare i file di origine che desideri sincronizzare con una posizione di destinazione utilizzando Copia e sincronizzazione.
 
-Dopo aver avviato una sincronizzazione dei dati da NetApp Data Classification, tutte le informazioni di origine vengono contenute in un unico passaggio e richiedono solo l'inserimento di alcuni dettagli chiave.  Quindi scegli la posizione di destinazione per la nuova relazione di sincronizzazione.
+Dopo aver avviato una sincronizzazione dei dati da NetApp Data Classification, tutte le informazioni sulla fonte sono contenute in un unico passaggio e richiedono solo l'immissione di alcuni dettagli chiave.  Quindi scegli la posizione di destinazione per la nuova relazione di sincronizzazione.
 
-image:screenshot-sync-data-sense.png["Uno screenshot che mostra la pagina di integrazione di NetApp Data Classification visualizzata dopo aver avviato una nuova sincronizzazione direttamente da NetApp Data Classification."]
+image:screenshot-sync-data-sense.png["Uno screenshot che mostra la pagina di integrazione NetApp Data Classification visualizzata dopo aver avviato una nuova sincronizzazione direttamente da NetApp Data Classification."]
 
 https://docs.netapp.com/us-en/bluexp-classification/task-managing-highlights.html#copying-and-synchronizing-source-files-to-a-target-system["Scopri come avviare una relazione di sincronizzazione da NetApp Data Classification"^] .

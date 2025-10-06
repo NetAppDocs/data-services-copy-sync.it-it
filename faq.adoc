@@ -24,7 +24,7 @@ Le seguenti domande riguardano l'avvio di NetApp Copy and Sync.
 
 
 
-=== Come funziona NetApp Copy and Sync?
+=== Come funziona NetApp Copy and Sync ?
 
 Copy and Sync utilizza il software NetApp Data Broker per sincronizzare i dati da un'origine a una destinazione (questa è chiamata _relazione di sincronizzazione_).
 
@@ -86,7 +86,7 @@ Tieni presente i seguenti punti chiave sull'utilizzo di Copia e sincronizzazione
 
 === Come posso accedere a Copia e Sincronizzazione?
 
-La funzione Copia e sincronizzazione è disponibile nella console NetApp .  Dal menu di navigazione a sinistra della Console, seleziona *Mobilità* > *Copia e sincronizza*.
+Copia e sincronizzazione sono disponibili nella NetApp Console.  Dal menu di navigazione a sinistra della Console, seleziona *Mobilità* > *Copia e sincronizza*.
 
 
 

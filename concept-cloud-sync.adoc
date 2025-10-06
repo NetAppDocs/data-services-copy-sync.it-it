@@ -18,21 +18,21 @@ NetApp Copy and Sync offre un modo semplice, sicuro e automatizzato per migrare 
 
 
 
-== Console NetApp
+== NetApp Console
 
-È possibile accedere a NetApp Copy and Sync tramite la console NetApp .
+È possibile accedere a NetApp Copy and Sync tramite la NetApp Console.
 
 NetApp Console offre una gestione centralizzata dei servizi di storage e dati NetApp in ambienti on-premise e cloud di livello aziendale. La console è necessaria per accedere e utilizzare i servizi dati NetApp . In quanto interfaccia di gestione, consente di gestire numerose risorse di archiviazione da un'unica interfaccia. Gli amministratori della console possono controllare l'accesso allo storage e ai servizi per tutti i sistemi all'interno dell'azienda.
 
 Per iniziare a utilizzare NetApp Console non è necessaria una licenza o un abbonamento e verranno addebitati costi solo quando sarà necessario distribuire gli agenti della console nel cloud per garantire la connettività ai sistemi di storage o ai servizi dati NetApp . Tuttavia, alcuni servizi dati NetApp accessibili dalla Console sono concessi in licenza o basati su abbonamento.
 
-Scopri di più su https://docs.netapp.com/us-en/bluexp-setup-admin/concept-overview.html["Console NetApp"] .
+Scopri di più su https://docs.netapp.com/us-en/bluexp-setup-admin/concept-overview.html["NetApp Console"] .
 
 
 
 == Come funziona NetApp Copy and Sync
 
-NetApp Copy and Sync è una piattaforma software-as-a-service (SaaS) composta da un gruppo di broker di dati, un'interfaccia basata su cloud disponibile tramite la console NetApp e un'origine e una destinazione.
+NetApp Copy and Sync è una piattaforma software-as-a-service (SaaS) composta da un gruppo di broker di dati, un'interfaccia basata su cloud disponibile tramite la NetApp Console e un'origine e una destinazione.
 
 L'immagine seguente mostra la relazione tra i componenti Copia e Sincronizzazione:
 
