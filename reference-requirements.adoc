@@ -55,6 +55,9 @@ PMI:: Le credenziali SMB immesse durante la configurazione di una relazione di s
 NOTE: Per impostazione predefinita, il broker di dati ignora le seguenti directory: .snapshot, ~snapshot, .copy-offload
 
 
+NOTE: Quando si copiano dati SMB in Cloud Volumes ONTAP tramite Copia e sincronizzazione, la proprietà di file e cartelle dal sistema di origine non viene preservata.  Questo comportamento si verifica perché Copy and Sync utilizza un client SMB Linux, che assegna la proprietà all'utente o all'account di servizio utilizzato per autenticare il trasferimento.  Sebbene gli elenchi di controllo degli accessi possano essere conservati, le informazioni sulla proprietà e sull'audit possono differire da quelle del sistema di origine. Questo è un comportamento previsto.
+
+
 
 == [[s3]]Requisiti del bucket Amazon S3
 
