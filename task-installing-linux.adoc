@@ -20,7 +20,7 @@ Quando si crea un nuovo gruppo di broker di dati per NetApp Copy and Sync, scegl
 
 == Requisiti host Linux
 
-* *Compatibilità con Node.js*: v21.2.0
+* *Compatibilità con Node.js*: v25.x
 * *Sistema operativo*:
 +
 ** CentOS 8.0 e 8.5
@@ -35,7 +35,7 @@ CentOS Stream non è supportato.
 Il comando `yum update` deve essere eseguito sull'host prima di installare il broker di dati.
 
 +
-Un sistema Red Hat Enterprise Linux deve essere registrato presso Red Hat Subscription Management.  Se non è registrato, il sistema non può accedere ai repository per aggiornare il software di terze parti richiesto durante l'installazione.
+Un sistema Red Hat Enterprise Linux deve essere registrato con Red Hat Subscription Management. Se non è registrato, il sistema non può accedere ai repository per aggiornare il software di terze parti necessario durante l'installazione.
 
 
 
@@ -121,11 +121,11 @@ L'accesso ad Azure viene definito per relazione fornendo un account di archiviaz
 .Passi
 . link:task-login-copyandsync.html["Accedi a Copia e Sincronizza"] .
 . Seleziona *Crea nuova sincronizzazione*.
-. Nella pagina *Definisci relazione di sincronizzazione*, scegli un'origine e una destinazione e seleziona *Continua*.
+. Nella pagina *Definisci relazione di sincronizzazione*, scegli un'origine e una destinazione, quindi seleziona *Continua*.
 +
 Completa i passaggi fino a raggiungere la pagina *Data Broker Group*.
 
-. Nella pagina *Gruppo Data Broker*, seleziona *Crea Data Broker* e poi seleziona *Data Broker locale*.
+. Nella pagina *Data Broker Group*, selezionare *Create Data Broker* e quindi selezionare *On-Prem Data Broker*.
 +
 image:screenshot-on-prem.png["Uno screenshot della pagina Data Broker che consente di scegliere tra un data broker AWS, Azure, Google Cloud e On-Prem."]
 
@@ -133,13 +133,13 @@ image:screenshot-on-prem.png["Uno screenshot della pagina Data Broker che consen
 
 NOTE: Anche se l'opzione è etichettata *_On-Prem_ Data Broker*, si applica a un host Linux in sede o nel cloud.
 
-. Inserisci un nome per il broker di dati e seleziona *Continua*.
+. Inserisci un nome per il data broker, quindi seleziona *Continua*.
 +
-La pagina delle istruzioni verrà caricata tra poco.  Dovrai seguire queste istruzioni: includono un collegamento univoco per scaricare il programma di installazione.
+Una volta caricata la pagina delle istruzioni, segui le istruzioni che includono un link univoco per scaricare il programma di installazione.
 
 . Nella pagina delle istruzioni:
 +
-.. Seleziona se abilitare l'accesso ad *AWS*, *Google Cloud* o entrambi.
+.. Scegli se abilitare l'accesso ad *AWS*, *Google Cloud* o entrambi.
 .. Seleziona un'opzione di installazione: *Nessun proxy*, *Usa server proxy* o *Usa server proxy con autenticazione*.
 +
 
