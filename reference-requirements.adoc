@@ -18,6 +18,7 @@ Verificare che l'origine e le destinazioni soddisfino i seguenti requisiti in Ne
 
 
 
+[[networking]]
 == Networking
 
 * L'origine e la destinazione devono disporre di una connessione di rete al gruppo del broker dati.
@@ -29,12 +30,14 @@ Ad esempio, se un server NFS si trova nel tuo data center e un broker di dati si
 
 
 
+[[target-directory]]
 == Directory di destinazione
 
 Quando si crea una relazione di sincronizzazione, Copia e sincronizzazione consente di selezionare una directory di destinazione esistente e quindi, facoltativamente, di creare una nuova cartella all'interno di tale directory.  Assicuratevi quindi che la directory di destinazione preferita esista già.
 
 
 
+[[permissions-to-read-directories]]
 == Permessi per leggere le directory
 
 Per visualizzare ogni directory o cartella in un'origine o in una destinazione, Copia e sincronizzazione necessita di autorizzazioni di lettura sulla directory o sulla cartella.
@@ -59,12 +62,14 @@ NOTE: Quando si copiano dati SMB in Cloud Volumes ONTAP tramite Copia e sincroni
 
 
 
+[[s3amazon-s3-bucket-requirements]]
 == [[s3]]Requisiti del bucket Amazon S3
 
 Assicurati che il tuo bucket Amazon S3 soddisfi i seguenti requisiti.
 
 
 
+[[supported-data-broker-locations-for-amazon-s3]]
 === Posizioni dei broker di dati supportati per Amazon S3
 
 Le relazioni di sincronizzazione che includono l'archiviazione S3 richiedono un broker di dati distribuito in AWS o presso la tua sede.  In entrambi i casi, durante l'installazione, Copia e sincronizzazione richiede di associare il broker di dati a un account AWS.
@@ -75,12 +80,14 @@ Le relazioni di sincronizzazione che includono l'archiviazione S3 richiedono un 
 
 
 
+[[supported-aws-regions]]
 === Regioni AWS supportate
 
 Sono supportate tutte le regioni, ad eccezione della Cina.
 
 
 
+[[permissions-required-for-s3-buckets-in-other-aws-accounts]]
 === Autorizzazioni richieste per i bucket S3 in altri account AWS
 
 Quando si imposta una relazione di sincronizzazione, è possibile specificare un bucket S3 che risiede in un account AWS non associato a un broker di dati.
@@ -106,24 +113,28 @@ image:screenshot_iam_role_arn.gif["Uno screenshot della console AWS IAM che most
 
 
 
+[[blobazure-blob-storage-requirements]]
 == [[blob]]Requisiti di archiviazione BLOB di Azure
 
 Assicurati che l'archiviazione BLOB di Azure soddisfi i seguenti requisiti.
 
 
 
+[[supported-data-broker-locations-for-azure-blob]]
 === Posizioni dei broker di dati supportati per Azure Blob
 
 Un broker di dati può risiedere in qualsiasi posizione quando una relazione di sincronizzazione include l'archiviazione BLOB di Azure.
 
 
 
+[[supported-azure-regions]]
 === Regioni di Azure supportate
 
 Sono supportate tutte le regioni, ad eccezione di Cina, Governo degli Stati Uniti e Dipartimento della Difesa degli Stati Uniti.
 
 
 
+[[connection-string-for-relationships-that-include-azure-blob-and-nfssmb]]
 === Stringa di connessione per relazioni che includono Azure Blob e NFS/SMB
 
 Quando si crea una relazione di sincronizzazione tra un contenitore BLOB di Azure e un server NFS o SMB, è necessario fornire a Copia e Sincronizzazione la stringa di connessione dell'account di archiviazione:
@@ -145,12 +156,14 @@ NOTE: Se si sceglie di implementare una relazione di sincronizzazione continua c
 
 
 
+[[azure-data-lake-storage-gen2]]
 == Azure Data Lake Storage Gen2
 
 Quando si crea una relazione di sincronizzazione che include Azure Data Lake, è necessario fornire Copia e Sincronizzazione con la stringa di connessione dell'account di archiviazione.  Deve essere una stringa di connessione normale, non una firma di accesso condiviso (SAS).
 
 
 
+[[azure-netapp-files-requirement]]
 == Requisito Azure NetApp Files
 
 Utilizzare il livello di servizio Premium o Ultra quando si sincronizzano i dati da o verso Azure NetApp Files.  Se il livello di servizio del disco è Standard, potrebbero verificarsi errori e problemi di prestazioni.
@@ -162,6 +175,7 @@ https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-ser
 
 
 
+[[box-requirements]]
 == Requisiti della scatola
 
 * Per creare una relazione di sincronizzazione che includa Box, dovrai fornire le seguenti credenziali:
@@ -189,12 +203,14 @@ link:task-managing-data-brokers.html#set-up-a-unified-configuration["Scopri come
 
 
 
+[[googlegoogle-cloud-storage-bucket-requirements]]
 == [[google]]Requisiti del bucket di Google Cloud Storage
 
 Assicurati che il tuo bucket Google Cloud Storage soddisfi i seguenti requisiti.
 
 
 
+[[supported-data-broker-locations-for-google-cloud-storage]]
 === Posizioni dei broker di dati supportati per Google Cloud Storage
 
 Le relazioni di sincronizzazione che includono Google Cloud Storage richiedono un broker di dati distribuito in Google Cloud o in sede.  Copia e sincronizzazione ti guida attraverso il processo di installazione del broker dati quando crei una relazione di sincronizzazione.
@@ -205,32 +221,37 @@ Le relazioni di sincronizzazione che includono Google Cloud Storage richiedono u
 
 
 
+[[supported-google-cloud-regions]]
 === Regioni Google Cloud supportate
 
 Sono supportate tutte le regioni.
 
 
 
+[[permissions-for-buckets-in-other-google-cloud-projects]]
 === Autorizzazioni per i bucket in altri progetti Google Cloud
 
 Quando si imposta una relazione di sincronizzazione, è possibile scegliere tra i bucket di Google Cloud in progetti diversi, se si forniscono le autorizzazioni necessarie all'account di servizio del broker di dati. link:task-installing-gcp.html["Scopri come configurare l'account di servizio"] .
 
 
 
+[[permissions-for-a-snapmirror-destination]]
 === Autorizzazioni per una destinazione SnapMirror
 
 Se l'origine di una relazione di sincronizzazione è una destinazione SnapMirror (di sola lettura), le autorizzazioni "lettura/elenco" sono sufficienti per sincronizzare i dati dall'origine a una destinazione.
 
 
 
+[[encrypting-a-google-cloud-bucket]]
 === Crittografia di un bucket Google Cloud
 
 È possibile crittografare un bucket Google Cloud di destinazione con una chiave KMS gestita dal cliente o con la chiave predefinita gestita da Google.  Se al bucket è già stata aggiunta una crittografia KMS, questa sovrascriverà la crittografia predefinita gestita da Google.
 
-Per aggiungere una chiave KMS gestita dal cliente, sarà necessario utilizzare un broker di dati con https://docs.netapp.com/us-en/bluexp-copy-sync/task-installing-gcp.html#permissions-required-for-the-service-account["permessi corretti"] e la chiave deve trovarsi nella stessa regione del bucket.
+Per aggiungere una chiave KMS gestita dal cliente, devi utilizzare un broker con il link:task-installing-gcp.html#permissions-required-for-the-service-account["permessi corretti"], e la chiave deve trovarsi nella stessa regione del bucket.
 
 
 
+[[google-drive]]
 == Google Drive
 
 Quando imposti una relazione di sincronizzazione che include Google Drive, dovrai fornire quanto segue:
@@ -254,6 +275,7 @@ Quando modifichi il campo Ambiti OAuth, immetti i seguenti ambiti:
 
 
 
+[[nfs-server-requirements]]
 == Requisiti del server NFS
 
 * Il server NFS può essere un sistema NetApp o un sistema non NetApp .
@@ -277,12 +299,14 @@ NOTE: L'impostazione predefinita per showmount è _enabled_ a partire da ONTAP 9
 
 
 
+[[ontap-requirements]]
 == Requisiti ONTAP
 
 Se la relazione di sincronizzazione include Cloud Volumes ONTAP o un cluster ONTAP locale e hai selezionato NFSv4 o versione successiva, dovrai abilitare gli ACL NFSv4 sul sistema ONTAP .  Ciò è necessario per copiare gli ACL.
 
 
 
+[[ontap-s3-storage-requirements]]
 == Requisiti di archiviazione ONTAP S3
 
 Quando si imposta una relazione di sincronizzazione che include https://docs.netapp.com/us-en/ontap/object-storage-management/index.html["Archiviazione ONTAP S3"^] , dovrai fornire quanto segue:
@@ -293,6 +317,7 @@ Quando si imposta una relazione di sincronizzazione che include https://docs.net
 
 
 
+[[smb-server-requirements]]
 == Requisiti del server SMB
 
 * Il server SMB può essere un sistema NetApp o un sistema non NetApp .
@@ -321,12 +346,14 @@ Se non si concede questa autorizzazione, il broker di dati potrebbe non disporre
 
 
 
+[[smb-limitation-for-hidden-directories-and-files]]
 === Limitazione SMB per directory e file nascosti
 
 Una limitazione SMB riguarda le directory e i file nascosti durante la sincronizzazione dei dati tra server SMB.  Se una qualsiasi delle directory o dei file sul server SMB di origine è stata nascosta tramite Windows, l'attributo nascosto non viene copiato sul server SMB di destinazione.
 
 
 
+[[smb-sync-behavior-due-to-case-insensitivity-limitation]]
 === Comportamento di sincronizzazione SMB dovuto alla limitazione della non distinzione tra maiuscole e minuscole
 
 Il protocollo SMB non distingue tra maiuscole e minuscole, il che significa che le lettere maiuscole e minuscole vengono trattate come se fossero uguali.  Questo comportamento può causare errori di sovrascrittura dei file e di copia delle directory, se una relazione di sincronizzazione include un server SMB e i dati sono già presenti sulla destinazione.

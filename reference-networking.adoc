@@ -18,12 +18,14 @@ La rete per NetApp Copy and Sync include la connettività tra il gruppo di broke
 
 
 
+[[data-broker-location]]
 == Posizione del broker di dati
 
 Un gruppo di broker di dati è costituito da uno o più broker di dati installati nel cloud o presso la tua sede.
 
 
 
+[[data-broker-in-the-cloud]]
 === Broker di dati nel cloud
 
 L'immagine seguente mostra un broker di dati in esecuzione nel cloud, in AWS, Google Cloud o Azure.  La sorgente e la destinazione possono trovarsi in qualsiasi posizione, purché ci sia una connessione al broker di dati.  Ad esempio, potresti avere una connessione VPN dal tuo data center al tuo provider cloud.
@@ -35,6 +37,7 @@ image:diagram_networking_cloud2.png["Un diagramma che mostra Copy and Sync, il b
 
 
 
+[[data-broker-on-your-premises]]
 === Broker di dati presso la tua sede
 
 L'immagine seguente mostra il broker di dati in esecuzione in locale in un data center.  Anche in questo caso, la sorgente e la destinazione possono trovarsi in qualsiasi posizione, purché ci sia una connessione al broker di dati.
@@ -43,6 +46,7 @@ image:diagram_networking_onprem.png["Un diagramma che mostra Copia e sincronizza
 
 
 
+[[networking-requirements]]
 == Requisiti di rete
 
 * L'origine e la destinazione devono disporre di una connessione di rete al gruppo del broker dati.
@@ -55,12 +59,14 @@ Ad esempio, se un server NFS si trova nel tuo data center e un broker di dati si
 
 
 
+[[networking-endpoints]]
 == Endpoint di rete
 
 Il broker di dati NetApp necessita di un accesso Internet in uscita sulla porta 443 per comunicare con Copy and Sync e per contattare alcuni altri servizi e repository.  Anche il browser web locale richiede l'accesso agli endpoint per determinate azioni.  Se è necessario limitare la connettività in uscita, fare riferimento al seguente elenco di endpoint durante la configurazione del firewall per il traffico in uscita.
 
 
 
+[[data-broker-endpoints]]
 === Endpoint del broker di dati
 
 Un broker di dati contatta i seguenti endpoint:
@@ -116,6 +122,7 @@ Un broker di dati contatta i seguenti endpoint:
 |===
 
 
+[[web-browser-endpoints]]
 === Endpoint del browser Web
 
 Il tuo browser web ha bisogno di accedere al seguente endpoint per scaricare i registri a scopo di risoluzione dei problemi:

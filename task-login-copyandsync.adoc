@@ -16,11 +16,11 @@ summary: Utilizzare la NetApp Console per accedere a NetApp Copy and Sync.
 [role="lead"]
 Utilizzare la NetApp Console per accedere a NetApp Copy and Sync.
 
-Per accedere alla Console, puoi utilizzare le credenziali del sito di supporto NetApp oppure registrarti per un accesso cloud NetApp utilizzando il tuo indirizzo email e una password. https://docs.netapp.com/us-en/bluexp-setup-admin/task-logging-in.html["Scopri di più sull'accesso"^] .
+Per accedere alla Console, puoi utilizzare le tue credenziali del sito di supporto NetApp oppure registrarti per un cloud login NetApp utilizzando il tuo indirizzo email e una password. https://docs.netapp.com/us-en/console-setup-admin/task-logging-in.html["Scopri di più sull'accesso"^].
 
 NetApp Copy and Sync utilizza la gestione dell'accesso alle identità per gestire l'accesso di ciascun utente ad azioni specifiche.
 
-*Ruolo NetApp Console obbligatorio* Ruolo di amministratore dell'organizzazione. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Scopri di più sui ruoli di accesso NetApp Console"^] .
+*Ruolo richiesto NetApp Console* Ruolo di amministratore dell'organizzazione. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["Scopri di più sui ruoli di accesso NetApp Console"^]
 
 .Passi
 . Apri un browser web e vai su https://console.netapp.com/["NetApp Console"^] .

@@ -20,18 +20,21 @@ Hai anche la possibilità di installare il data broker su un host Linux esistent
 
 
 
+[[supported-google-cloud-regions]]
 == Regioni Google Cloud supportate
 
 Sono supportate tutte le regioni.
 
 
 
+[[root-privileges]]
 == Privilegi di root
 
 Il software del broker di dati viene eseguito automaticamente come root sull'host Linux.  L'esecuzione come root è un requisito per le operazioni del broker di dati.  Ad esempio, per accumulare azioni.
 
 
 
+[[networking-requirements]]
 == Requisiti di rete
 
 * Il broker di dati necessita di una connessione Internet in uscita per poter interrogare Copy and Sync per le attività sulla porta 443.
@@ -46,6 +49,7 @@ Se è necessario limitare la connettività in uscita, vederelink:reference-netwo
 
 
 
+[[permissions-required-to-deploy-the-data-broker-in-google-cloud]]
 == Autorizzazioni necessarie per distribuire il broker di dati in Google Cloud
 
 Assicurarsi che l'utente di Google Cloud che distribuisce il broker di dati disponga delle seguenti autorizzazioni:
@@ -61,6 +65,7 @@ Assicurarsi che l'utente di Google Cloud che distribuisce il broker di dati disp
 ----
 
 
+[[permissions-required-for-the-service-account]]
 == Autorizzazioni richieste per l'account di servizio
 
 Quando si distribuisce il broker di dati, è necessario selezionare un account di servizio che disponga delle seguenti autorizzazioni:
@@ -101,6 +106,7 @@ Note:
 
 
 
+[[create-the-data-broker]]
 == Creare il broker di dati
 
 Esistono diversi modi per creare un nuovo broker di dati.  Questi passaggi descrivono come installare un broker di dati in Google Cloud quando si crea una relazione di sincronizzazione.
@@ -144,6 +150,7 @@ Hai distribuito un data broker in Google Cloud e creato una nuova relazione di s
 
 
 
+[[provide-permissions-to-use-buckets-in-other-google-cloud-projects]]
 == Fornire autorizzazioni per utilizzare i bucket in altri progetti Google Cloud
 
 Quando crei una relazione di sincronizzazione e scegli Google Cloud Storage come origine o destinazione, Copia e sincronizzazione ti consente di scegliere tra i bucket che l'account di servizio del broker di dati è autorizzato a utilizzare.  Per impostazione predefinita, sono inclusi i bucket che si trovano nello _stesso_ progetto dell'account del servizio Data Broker.  Ma puoi scegliere bucket da _altri_ progetti se fornisci le autorizzazioni richieste.
@@ -163,6 +170,7 @@ Quando imposti una relazione di sincronizzazione, ora puoi scegliere quel bucket
 
 
 
+[[details-about-the-data-broker-vm-instance]]
 == Dettagli sull'istanza VM del broker dati
 
 Copia e sincronizzazione crea un broker di dati in Google Cloud utilizzando la seguente configurazione.

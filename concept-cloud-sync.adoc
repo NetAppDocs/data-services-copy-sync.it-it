@@ -18,6 +18,7 @@ NetApp Copy and Sync offre un modo semplice, sicuro e automatizzato per migrare 
 
 
 
+[[netapp-console]]
 == NetApp Console
 
 È possibile accedere a NetApp Copy and Sync tramite la NetApp Console.
@@ -26,10 +27,11 @@ NetApp Console offre una gestione centralizzata dei servizi di storage e dati Ne
 
 Per iniziare a utilizzare NetApp Console non è necessaria una licenza o un abbonamento e verranno addebitati costi solo quando sarà necessario distribuire gli agenti della console nel cloud per garantire la connettività ai sistemi di storage o ai servizi dati NetApp . Tuttavia, alcuni servizi dati NetApp accessibili dalla Console sono concessi in licenza o basati su abbonamento.
 
-Scopri di più su https://docs.netapp.com/us-en/bluexp-setup-admin/concept-overview.html["NetApp Console"] .
+Scopri di più su  https://docs.netapp.com/us-en/console-setup-admin/concept-overview.html["NetApp Console"].
 
 
 
+[[how-netapp-copy-and-sync-works]]
 == Come funziona NetApp Copy and Sync
 
 NetApp Copy and Sync è una piattaforma software-as-a-service (SaaS) composta da un gruppo di broker di dati, un'interfaccia basata su cloud disponibile tramite la NetApp Console e un'origine e una destinazione.
@@ -44,6 +46,7 @@ Dopo la copia iniziale, Copia e sincronizzazione sincronizza tutti i dati modifi
 
 
 
+[[supported-storage-types]]
 == Tipi di archiviazione supportati
 
 Copia e sincronizzazione supporta i seguenti tipi di archiviazione:
@@ -71,6 +74,7 @@ link:reference-supported-relationships.html["Visualizza le relazioni di sincroni
 
 
 
+[[costs]]
 == Costi
 
 L'utilizzo di Copia e sincronizzazione comporta due tipi di costi: costi delle risorse e costi del servizio.

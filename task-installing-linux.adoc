@@ -18,6 +18,7 @@ Quando si crea un nuovo gruppo di broker di dati per NetApp Copy and Sync, scegl
 
 
 
+[[linux-host-requirements]]
 == Requisiti host Linux
 
 * *Compatibilità con Node.js*: v25.x
@@ -50,12 +51,14 @@ SELinux applica una policy che blocca gli aggiornamenti del software del broker 
 
 
 
+[[root-privileges]]
 == Privilegi di root
 
 Il software del broker di dati viene eseguito automaticamente come root sull'host Linux.  L'esecuzione come root è un requisito per le operazioni del broker di dati.  Ad esempio, per accumulare azioni.
 
 
 
+[[networking-requirements]]
 == Requisiti di rete
 
 * L'host Linux deve avere una connessione con la sorgente e la destinazione.
@@ -66,6 +69,7 @@ Il software del broker di dati viene eseguito automaticamente come root sull'hos
 
 
 
+[[enable-access-to-aws]]
 == Abilita l'accesso ad AWS
 
 Se si prevede di utilizzare il broker di dati con una relazione di sincronizzazione che include un bucket S3, è necessario preparare l'host Linux per l'accesso ad AWS. Quando installi il broker di dati, dovrai fornire le chiavi AWS per un utente AWS che dispone di accesso programmatico e autorizzazioni specifiche.
@@ -86,6 +90,7 @@ Assicurati di copiare le chiavi AWS perché dovrai specificarle quando installi 
 
 
 
+[[enable-access-to-google-cloud]]
 == Abilita l'accesso a Google Cloud
 
 Se si prevede di utilizzare il broker di dati con una relazione di sincronizzazione che include un bucket di Google Cloud Storage, è necessario preparare l'host Linux per l'accesso a Google Cloud. Quando installi il broker di dati, dovrai fornire una chiave per un account di servizio che abbia autorizzazioni specifiche.
@@ -108,12 +113,14 @@ NOTE: Quando crei una chiave, il file viene generato e scaricato sul tuo compute
 
 
 
+[[enable-access-to-microsoft-azure]]
 == Abilita l'accesso a Microsoft Azure
 
 L'accesso ad Azure viene definito per relazione fornendo un account di archiviazione e una stringa di connessione nella procedura guidata Relazione di sincronizzazione.
 
 
 
+[[install-the-data-broker]]
 == Installa il broker di dati
 
 È possibile installare un data broker su un host Linux quando si crea una relazione di sincronizzazione.

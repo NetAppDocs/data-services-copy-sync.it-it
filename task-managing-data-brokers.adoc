@@ -18,12 +18,14 @@ Un gruppo di broker di dati in NetApp Copy and Sync sincronizza i dati da una po
 
 
 
+[[how-data-broker-groups-work]]
 == Come funzionano i gruppi di broker di dati
 
 Un gruppo di broker di dati può includere uno o più broker di dati.  Raggruppare i broker di dati può aiutare a migliorare le prestazioni delle relazioni di sincronizzazione.
 
 
 
+[[groups-can-manage-several-relationships]]
 === I gruppi possono gestire più relazioni
 
 Un gruppo di broker di dati può gestire una o più relazioni di sincronizzazione contemporaneamente.
@@ -39,12 +41,14 @@ Per accelerare le prestazioni della relazione 1, si aggiunge un nuovo broker di 
 
 
 
+[[number-of-data-brokers-in-a-group]]
 === Numero di broker di dati in un gruppo
 
 In molti casi, un singolo broker di dati può soddisfare i requisiti di prestazioni per una relazione di sincronizzazione.  In caso contrario, è possibile accelerare le prestazioni di sincronizzazione aggiungendo altri broker di dati al gruppo.  Ma prima dovresti controllare altri fattori che possono influire sulle prestazioni di sincronizzazione. link:faq.html#how-many-data-brokers-are-required-in-a-group["Scopri di più su come determinare quando sono necessari più broker di dati"] .
 
 
 
+[[security-recommendations]]
 == Raccomandazioni di sicurezza
 
 Per garantire la sicurezza del tuo data broker, NetApp consiglia quanto segue:
@@ -59,6 +63,7 @@ Questi consigli di sicurezza possono aiutare a prevenire connessioni non autoriz
 
 
 
+[[add-a-new-data-broker-to-a-group]]
 == Aggiungi un nuovo broker di dati a un gruppo
 
 Esistono diversi modi per creare un nuovo broker di dati:
@@ -118,6 +123,7 @@ Per assistenza, consultare le seguenti pagine:
 
 
 
+[[edit-a-groups-name]]
 == Modificare il nome di un gruppo
 
 È possibile modificare il nome di un gruppo di broker di dati in qualsiasi momento.
@@ -137,6 +143,7 @@ Copia e sincronizzazione aggiorna il nome del gruppo di broker di dati.
 
 
 
+[[set-up-a-unified-configuration]]
 == Impostare una configurazione unificata
 
 Se una relazione di sincronizzazione riscontra errori durante il processo di sincronizzazione, unificare la concorrenza del gruppo di broker di dati può contribuire a ridurre il numero di errori di sincronizzazione.  Tieni presente che le modifiche alla configurazione del gruppo possono influire sulle prestazioni rallentando il trasferimento.
@@ -166,6 +173,7 @@ Notare quanto segue:
 
 
 
+[[move-data-brokers-between-groups]]
 == Spostare i broker di dati tra i gruppi
 
 Spostare un broker di dati da un gruppo a un altro se è necessario accelerare le prestazioni del gruppo di broker di dati di destinazione.
@@ -195,6 +203,7 @@ Copia e sincronizzazione sposta il broker di dati in un gruppo di broker di dati
 
 
 
+[[update-proxy-configuration]]
 == Aggiorna la configurazione del proxy
 
 Aggiorna la configurazione proxy per un broker di dati aggiungendo dettagli su una nuova configurazione proxy o modificando la configurazione proxy esistente.
@@ -213,6 +222,7 @@ Copy and Sync aggiorna il broker di dati per utilizzare la configurazione proxy 
 
 
 
+[[view-a-data-brokers-configuration]]
 == Visualizza la configurazione di un broker di dati
 
 Potresti voler visualizzare i dettagli di un broker di dati per identificare elementi quali il nome host, l'indirizzo IP, la CPU e la RAM disponibili e altro ancora.
@@ -242,6 +252,7 @@ image:screenshot_sync_data_broker_details.gif["Uno screenshot delle informazioni
 
 
 
+[[address-issues-with-a-data-broker]]
 == Risolvere i problemi con un broker di dati
 
 Copia e sincronizzazione visualizza uno stato per ciascun broker di dati che può aiutarti a risolvere i problemi.
@@ -261,6 +272,7 @@ Ad esempio, potrebbe essere necessario riavviare semplicemente il broker di dati
 
 
 
+[[remove-a-data-broker-from-a-group]]
 == Rimuovere un broker di dati da un gruppo
 
 È possibile rimuovere un broker di dati da un gruppo se non è più necessario o se la distribuzione iniziale non è riuscita.  Questa azione elimina solo il broker di dati dai record di Copia e sincronizzazione.  Sarà necessario eliminare manualmente il broker di dati e tutte le risorse cloud aggiuntive.
@@ -286,6 +298,7 @@ Copia e sincronizzazione rimuove il broker di dati dal gruppo.
 
 
 
+[[delete-a-data-broker-group]]
 == Elimina un gruppo di broker di dati
 
 Se un gruppo di broker di dati non gestisce più alcuna relazione di sincronizzazione, è possibile eliminare il gruppo, rimuovendo così tutti i broker di dati da Copia e sincronizzazione.

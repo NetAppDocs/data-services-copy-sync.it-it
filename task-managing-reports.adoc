@@ -16,10 +16,11 @@ summary: 'Crea e visualizza report per ottenere informazioni che puoi utilizzare
 [role="lead"]
 Crea e visualizza report in NetApp Copy and Sync per ottenere informazioni che puoi utilizzare con l'aiuto del personale NetApp per ottimizzare la configurazione di un broker di dati e migliorarne le prestazioni.
 
-Ogni report fornisce dettagli approfonditi su un percorso in una relazione di sincronizzazione.  Includerà il numero di directory, file e link simbolici presenti, la distribuzione delle dimensioni dei file, la profondità e la larghezza delle directory, l'ora di modifica e l'ora di accesso.  Ciò differisce dalle statistiche di sincronizzazione, che sono disponibili dalla dashboard dopo https://docs.netapp.com/us-en/bluexp-copy-sync/task-creating-relationships.html["creazione e completamento di una sincronizzazione riusciti"] .
+Ogni report fornisce dettagli approfonditi su un percorso in una relazione di sincronizzazione. Include il numero di directory, file e collegamenti simbolici presenti, la distribuzione delle dimensioni dei file, la profondità e l'ampiezza delle directory, l'ora di modifica e l'ora di accesso. Questo differisce dalle statistiche di sincronizzazione, che sono disponibili dalla dashboard dopo link:task-creating-relationships.html["creazione e completamento di una sincronizzazione riusciti"].
 
 
 
+[[create-reports]]
 == Crea report
 
 Ogni volta che si crea un report, Copia e sincronizzazione analizza il percorso e quindi compila i dettagli in un report.
@@ -48,6 +49,7 @@ image:screenshot_sync_report_object.gif["Un report che mostra il numero di eleme
 
 
 
+[[download-reports]]
 == Scarica i report
 
 È possibile scaricare un report in formato PDF per poterlo visualizzare offline o condividerlo.
@@ -64,6 +66,7 @@ image:screenshot-sync-download-report.png["Uno screenshot dell'opzione Scarica P
 
 
 
+[[view-report-errors]]
 == Visualizza gli errori del report
 
 La tabella Percorsi identifica se sono presenti errori nel report più recente.  Un errore identifica un problema riscontrato da Copia e sincronizzazione durante la scansione del percorso.
@@ -88,6 +91,7 @@ Dopo aver risolto il problema, l'errore non dovrebbe più comparire la volta suc
 
 
 
+[[delete-reports]]
 == Elimina i report
 
 Potresti eliminare un report se contiene un errore che hai corretto o se il report è correlato a una relazione di sincronizzazione che hai rimosso.

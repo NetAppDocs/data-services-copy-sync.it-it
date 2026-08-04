@@ -20,18 +20,21 @@ Hai anche la possibilità di installare il data broker su un host Linux esistent
 
 
 
+[[supported-aws-regions]]
 == Regioni AWS supportate
 
 Sono supportate tutte le regioni, ad eccezione della Cina.
 
 
 
+[[root-privileges]]
 == Privilegi di root
 
 Il software del broker di dati viene eseguito automaticamente come root sull'host Linux.  L'esecuzione come root è un requisito per le operazioni del broker di dati.  Ad esempio, per accumulare azioni.
 
 
 
+[[networking-requirements]]
 == Requisiti di rete
 
 * Il broker di dati necessita di una connessione Internet in uscita per poter interrogare Copy and Sync per le attività sulla porta 443.
@@ -46,12 +49,14 @@ Se è necessario limitare la connettività in uscita, vederelink:reference-netwo
 
 
 
+[[permissions-required-to-deploy-the-data-broker-in-aws]]
 == Autorizzazioni necessarie per distribuire il broker di dati in AWS
 
 L'account utente AWS utilizzato per distribuire il broker di dati deve disporre delle autorizzazioni incluse in https://s3.amazonaws.com/metadata.datafabric.io/docs/aws_iam_policy.json["questa politica fornita da NetApp"^] .
 
 
 
+[[iamrequirements-to-use-your-own-iam-role-with-the-aws-data-broker]]
 == [[iam]]Requisiti per utilizzare il proprio ruolo IAM con AWS Data Broker
 
 Quando Copy and Sync distribuisce il broker di dati, crea un ruolo IAM per l'istanza del broker di dati. Se preferisci, puoi distribuire il data broker utilizzando il tuo ruolo IAM.  Potresti utilizzare questa opzione se la tua organizzazione ha rigide politiche di sicurezza.
@@ -66,6 +71,7 @@ Per specificare il ruolo IAM durante la distribuzione del broker di dati, seguir
 
 
 
+[[create-the-data-broker]]
 == Creare il broker di dati
 
 Esistono diversi modi per creare un nuovo broker di dati.  Questi passaggi descrivono come installare un broker di dati in AWS durante la creazione di una relazione di sincronizzazione.
@@ -118,6 +124,7 @@ Hai distribuito un broker di dati in AWS e creato una nuova relazione di sincron
 
 
 
+[[details-about-the-data-broker-instance]]
 == Dettagli sull'istanza del broker di dati
 
 Copia e sincronizzazione crea un broker di dati in AWS utilizzando la seguente configurazione.

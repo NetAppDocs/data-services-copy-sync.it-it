@@ -20,6 +20,7 @@ Le licenze devono essere gestite tramite NetApp Copy and Sync o il sito Web appl
 
 
 
+[[marketplace-subscription]]
 == Abbonamento al Marketplace
 
 L'abbonamento a Copy and Sync da AWS o Azure consente di pagare una tariffa oraria o annuale. link:task-licensing.html["Puoi abbonarti tramite AWS o Azure"] , a seconda di dove desideri ricevere la fatturazione.
@@ -31,6 +32,7 @@ Copy and Sync supporta solo gli abbonamenti Marketplace di **AWS** e **Azure**. 
 ====
 
 
+[[hourly-subscription]]
 === Abbonamento orario
 
 Con un abbonamento orario a consumo, l'addebito avviene su base oraria in base al numero di relazioni di sincronizzazione create.
@@ -41,6 +43,7 @@ Con un abbonamento orario a consumo, l'addebito avviene su base oraria in base a
 
 
 
+[[annual-subscription]]
 === Abbonamento annuale
 
 Un abbonamento annuale fornisce una licenza per 20 relazioni di sincronizzazione, pagate in anticipo.  Se superi le 20 relazioni di sincronizzazione e hai sottoscritto un abbonamento tramite AWS, pagherai le relazioni aggiuntive a ore.
@@ -49,6 +52,7 @@ https://aws.amazon.com/marketplace/pp/B06XX5V3M2["Visualizza i prezzi annuali in
 
 
 
+[[licenses-from-netapp]]
 == Licenze di NetApp
 
 Un altro modo per pagare in anticipo le relazioni di sincronizzazione è acquistare le licenze direttamente da NetApp.  Ogni licenza consente di creare fino a 20 relazioni di sincronizzazione.
@@ -59,6 +63,7 @@ link:task-licensing.html["Scopri come acquistare le licenze e aggiungerle a NetA
 
 
 
+[[license-terms]]
 === Termini di licenza
 
 I clienti che acquistano una licenza Bring Your Own License (BYOL) per Copy and Sync devono essere consapevoli delle limitazioni associate al diritto di licenza.

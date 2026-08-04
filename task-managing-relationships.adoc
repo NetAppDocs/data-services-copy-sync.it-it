@@ -18,6 +18,7 @@ summary: Puoi gestire le relazioni di sincronizzazione in qualsiasi momento sinc
 
 
 
+[[perform-an-immediate-data-sync]]
 == Eseguire una sincronizzazione immediata dei dati
 
 Invece di attendere la successiva sincronizzazione programmata, puoi sincronizzare immediatamente i dati tra l'origine e la destinazione.
@@ -33,6 +34,7 @@ Copia e sincronizza avvia il processo di sincronizzazione dei dati per la relazi
 
 
 
+[[accelerate-sync-performance]]
 == Accelerare le prestazioni di sincronizzazione
 
 Accelera le prestazioni di una relazione di sincronizzazione aggiungendo un ulteriore broker di dati al gruppo che gestisce la relazione.  Il broker di dati aggiuntivo deve essere un _nuovo_ broker di dati.
@@ -61,6 +63,7 @@ Copia e sincronizzazione aggiunge il nuovo broker di dati al gruppo.  Le prestaz
 
 
 
+[[update-credentials]]
 == Aggiorna le credenziali
 
 È possibile aggiornare il broker di dati con le credenziali più recenti dell'origine o della destinazione in una relazione di sincronizzazione esistente.  L'aggiornamento delle credenziali può essere utile se le tue policy di sicurezza richiedono di aggiornarle periodicamente.
@@ -86,11 +89,10 @@ Copia e sincronizzazione aggiorna le credenziali sul broker di dati.  Potrebbero
 
 
 
+[[set-up-notifications]]
 == Imposta le notifiche
 
 Un'impostazione *Notifiche* per ogni relazione di sincronizzazione consente di scegliere se ricevere notifiche di copia e sincronizzazione nel Centro notifiche della console NetApp .  È possibile abilitare le notifiche per le sincronizzazioni dei dati riuscite, non riuscite e annullate.
-
-image:https://raw.githubusercontent.com/NetAppDocs/bluexp-copy-sync/main/media/screenshot-notification-center.png["Uno screenshot che mostra il Centro notifiche nella NetApp Console."]
 
 Inoltre, puoi ricevere notifiche anche via e-mail.
 
@@ -117,6 +119,7 @@ Ora riceverai le notifiche di Copia e Sincronizzazione nel Centro notifiche dell
 
 
 
+[[change-the-settings-for-a-sync-relationship]]
 == Modificare le impostazioni per una relazione di sincronizzazione
 
 Modifica le impostazioni che definiscono il modo in cui i file e le cartelle di origine vengono sincronizzati e gestiti nella posizione di destinazione.
@@ -210,12 +213,14 @@ Copia e sincronizza modifica la relazione di sincronizzazione con le nuove impos
 
 
 
+[[delete-relationships]]
 == Eliminare le relazioni
 
 È possibile eliminare una relazione di sincronizzazione se non è più necessario sincronizzare i dati tra l'origine e la destinazione.  Questa azione non elimina il gruppo di data broker (o le singole istanze di data broker) e non elimina i dati dalla destinazione.
 
 
 
+[[option-1-delete-a-single-sync-relationship]]
 === Opzione 1: Elimina una singola relazione di sincronizzazione
 
 .Passi
@@ -228,6 +233,7 @@ Copia e sincronizza elimina la relazione di sincronizzazione.
 
 
 
+[[option-2-delete-multiple-sync-relationships]]
 === Opzione 2: Elimina più relazioni di sincronizzazione
 
 .Passi

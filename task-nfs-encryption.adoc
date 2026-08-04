@@ -20,6 +20,7 @@ Ad esempio, potresti voler sincronizzare i dati tra due server NFS che si trovan
 
 
 
+[[how-data-in-flight-encryption-works]]
 == Come funziona la crittografia dei dati in transito
 
 La crittografia dei dati in transito crittografa i dati NFS quando vengono inviati in rete tra due broker di dati.  L'immagine seguente mostra una relazione tra due server NFS e due broker di dati:
@@ -44,6 +45,7 @@ Se preferisci sincronizzare i dati più frequentemente,link:task-managing-relati
 
 
 
+[[supported-nfs-versions]]
 == Versioni NFS supportate
 
 * Per i server NFS, la crittografia dei dati in transito è supportata con le versioni NFS 3, 4.0, 4.1 e 4.2.
@@ -52,12 +54,14 @@ Se preferisci sincronizzare i dati più frequentemente,link:task-managing-relati
 
 
 
+[[proxy-server-limitation]]
 == Limitazione del server proxy
 
 Se si crea una relazione di sincronizzazione crittografata, i dati crittografati vengono inviati tramite HTTPS e non sono instradabili tramite un server proxy.
 
 
 
+[[what-youll-need-to-get-started]]
 == Cosa ti servirà per iniziare
 
 Assicuratevi di avere quanto segue:
@@ -85,6 +89,7 @@ Se non hai ancora implementato un broker di dati, rivedi i requisiti del broker 
 
 
 
+[[sync-nfs-data-using-data-in-flight-encryption]]
 == Sincronizza i dati NFS utilizzando la crittografia dei dati in transito
 
 Creare una nuova relazione di sincronizzazione tra due server NFS o tra Azure NetApp Files, abilitare l'opzione di crittografia in corso e seguire le istruzioni.

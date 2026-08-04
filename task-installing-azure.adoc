@@ -20,18 +20,21 @@ Hai anche la possibilità di installare il data broker su un host Linux esistent
 
 
 
+[[supported-azure-regions]]
 == Regioni di Azure supportate
 
 Sono supportate tutte le regioni, ad eccezione di Cina, Governo degli Stati Uniti e Dipartimento della Difesa degli Stati Uniti.
 
 
 
+[[root-privileges]]
 == Privilegi di root
 
 Il software del broker di dati viene eseguito automaticamente come root sull'host Linux.  L'esecuzione come root è un requisito per le operazioni del broker di dati.  Ad esempio, per accumulare azioni.
 
 
 
+[[networking-requirements]]
 == Requisiti di rete
 
 * Il broker di dati necessita di una connessione Internet in uscita per poter interrogare il servizio Copia e sincronizzazione per le attività sulla porta 443.
@@ -46,64 +49,15 @@ Se è necessario limitare la connettività in uscita, vederelink:reference-netwo
 
 
 
+[[permissions-required-to-deploy-the-data-broker-in-azure]]
 == Autorizzazioni necessarie per distribuire il broker di dati in Azure
 
 Assicurarsi che l'account utente di Azure utilizzato per distribuire il broker dati disponga delle seguenti autorizzazioni:
 
-[source, json]
-----
-{
-    "Name": "Azure Data Broker",
-    "Actions": [
-					"Microsoft.Resources/subscriptions/read",
-                    "Microsoft.Resources/deployments/operationstatuses/read",
-                    "Microsoft.Resources/subscriptions/locations/read",
-                    "Microsoft.Network/networkInterfaces/read",
-                    "Microsoft.Network/virtualNetworks/subnets/read",
-                    "Microsoft.Resources/subscriptions/resourceGroups/write",
-                    "Microsoft.Resources/subscriptions/resourceGroups/delete",
-                    "Microsoft.Resources/deployments/write",
-                    "Microsoft.Resources/deployments/validate/action",
-                    "Microsoft.Resources/deployments/operationStatuses/read",
-                    "Microsoft.Resources/deployments/cancel/action",
-                    "Microsoft.Compute/virtualMachines/read",
-                    "Microsoft.Compute/virtualMachines/delete",
-                    "Microsoft.Compute/disks/delete",
-                    "Microsoft.Network/networkInterfaces/delete",
-                    "Microsoft.Network/publicIPAddresses/delete",
-                    "Microsoft.Network/networkSecurityGroups/securityRules/delete",
-                    "Microsoft.Resources/subscriptions/resourceGroups/write",
-                    "Microsoft.Compute/virtualMachines/delete",
-                    "Microsoft.Network/networkSecurityGroups/write",
-                    "Microsoft.Network/networkSecurityGroups/join/action",
-                    "Microsoft.Compute/disks/write",
-                    "Microsoft.Network/networkInterfaces/write",
-                    "Microsoft.Network/virtualNetworks/read",
-                    "Microsoft.Network/publicIPAddresses/write",
-                    "Microsoft.Compute/virtualMachines/write",
-                    "Microsoft.Compute/virtualMachines/extensions/write",
-                    "Microsoft.Resources/deployments/read",
-                    "Microsoft.Network/networkSecurityGroups/read",
-                    "Microsoft.Network/publicIPAddresses/read",
-                    "Microsoft.Network/virtualNetworks/subnets/join/action",
-                    "Microsoft.Network/publicIPAddresses/join/action",
-                    "Microsoft.Network/networkInterfaces/join/action",
-                    "Microsoft.Storage/storageAccounts/read",
-                    "Microsoft.EventGrid/systemTopics/eventSubscriptions/write",
-                    "Microsoft.EventGrid/systemTopics/eventSubscriptions/read",
-                    "Microsoft.EventGrid/systemTopics/eventSubscriptions/delete",
-                    "Microsoft.EventGrid/systemTopics/eventSubscriptions/getFullUrl/action",
-                    "Microsoft.EventGrid/systemTopics/eventSubscriptions/getDeliveryAttributes/action",
-                    "Microsoft.EventGrid/systemTopics/read",
-                    "Microsoft.EventGrid/systemTopics/write",
-                    "Microsoft.EventGrid/systemTopics/delete",
-                    "Microsoft.EventGrid/eventSubscriptions/write",
-                    "Microsoft.Storage/storageAccounts/write"
-                    "Microsoft.MarketplaceOrdering/offertypes/publishers/offers/plans/agreements/read"
-                    "Microsoft.MarketplaceOrdering/offertypes/publishers/offers/plans/agreements/write"
-                    "Microsoft.Network/networkSecurityGroups/securityRules/read",
-        	        "Microsoft.Network/networkSecurityGroups/read",
-----
+[]
+====
+{ "Name": "Azure Data Broker", "Actions": [ "Microsoft.Resources/subscriptions/read", "Microsoft.Resources/deployments/operationstatuses/read", "Microsoft.Resources/subscriptions/locations/read", "Microsoft.Network//read", "Microsoft.Network//subnets/read", "Microsoft.Resources/subscriptions//write", "Microsoft.Resources/subscriptions//delete", "Microsoft.Resources/deployments/write", "Microsoft.Resources/deployments/validate/action", "Microsoft.Resources/deployments//read", "Microsoft.Resources/deployments/cancel/action", "Microsoft.Compute//read", "Microsoft.Compute//delete", "Microsoft.Compute/disks/delete", "Microsoft.Network//delete", "Microsoft.Network/publicIPAddresses/delete", "Microsoft.Network///delete", "Microsoft.Resources/subscriptions//write", "Microsoft.Compute//delete", "Microsoft.Network//write", "Microsoft.Network//join/action", "Microsoft.Compute/disks/write", "Microsoft.Network//write", "Microsoft.Network//read", "Microsoft.Network/publicIPAddresses/write", "Microsoft.Compute//write", "Microsoft.Compute//extensions/write", "Microsoft.Resources/deployments/read", "Microsoft.Network//read", "Microsoft.Network/publicIPAddresses/read", "Microsoft.Network//subnets/join/action", "Microsoft.Network/publicIPAddresses/join/action", "Microsoft.Network//join/action", "Microsoft.Storage//read", "Microsoft.///write", "Microsoft.///read", "Microsoft.///delete", "Microsoft.////action", "Microsoft.////action", "Microsoft.//read", "Microsoft.//write", "Microsoft.//delete", "Microsoft.//write", "Microsoft.Storage//write", "Microsoft./offertypes/publishers/offers/plans/agreements/read", "Microsoft./offertypes/publishers/offers/plans/agreements/write", "Microsoft.Network///read", "Microsoft.Network//read",networkInterfacesvirtualNetworksresourceGroupsresourceGroupsoperationStatusesvirtualMachinesvirtualMachinesnetworkInterfacesnetworkSecurityGroupssecurityRulesresourceGroupsvirtualMachinesnetworkSecurityGroupsnetworkSecurityGroupsnetworkInterfacesvirtualNetworksvirtualMachinesvirtualMachinesnetworkSecurityGroupsvirtualNetworksnetworkInterfacesstorageAccountsEventGridsystemTopicseventSubscriptionsEventGridsystemTopicseventSubscriptionsEventGridsystemTopicseventSubscriptionsEventGridsystemTopicseventSubscriptionsgetFullUrlEventGridsystemTopicseventSubscriptionsgetDeliveryAttributesEventGridsystemTopicsEventGridsystemTopicsEventGridsystemTopicsEventGrideventSubscriptionsstorageAccountsMarketplaceOrderingMarketplaceOrderingnetworkSecurityGroupssecurityRulesnetworkSecurityGroups
+
 ....
     ],
     "NotActions": [],
@@ -112,44 +66,42 @@ Assicurarsi che l'account utente di Azure utilizzato per distribuire il broker d
     "IsCustom": "true"
 }
 ....
-Nota:
+====
+Le seguenti autorizzazioni sono necessarie solo se vuoi abilitare la link:task-creating-relationships.html["Impostazione di sincronizzazione continua"] su una relazione di sincronizzazione da Azure a un'altra posizione di cloud storage:
 
-. Le seguenti autorizzazioni sono necessarie solo se si prevede di abilitare https://docs.netapp.com/us-en/bluexp-copy-sync/task-creating-relationships.html#settings["Impostazione di sincronizzazione continua"] su una relazione di sincronizzazione da Azure a un'altra posizione di archiviazione cloud:
-+
-** 'Microsoft.Storage/storageAccounts/read',
-** 'Microsoft.EventGrid/systemTopics/eventSubscriptions/write',
-** 'Microsoft.EventGrid/systemTopics/eventSubscriptions/read',
-** 'Microsoft.EventGrid/systemTopics/eventSubscriptions/delete',
-** 'Microsoft.EventGrid/systemTopics/eventSubscriptions/getFullUrl/action',
-** 'Microsoft.EventGrid/systemTopics/eventSubscriptions/getDeliveryAttributes/action',
-** 'Microsoft.EventGrid/systemTopics/read',
-** 'Microsoft.EventGrid/systemTopics/write',
-** 'Microsoft.EventGrid/systemTopics/delete',
-** 'Microsoft.EventGrid/eventSubscriptions/write',
-** 'Microsoft.Storage/storageAccounts/write'
+* 'Microsoft.Storage/storageAccounts/read',
+* 'Microsoft.EventGrid/systemTopics/eventSubscriptions/write',
+* 'Microsoft.EventGrid/systemTopics/eventSubscriptions/read',
+* 'Microsoft.EventGrid/systemTopics/eventSubscriptions/delete',
+* 'Microsoft.EventGrid/systemTopics/eventSubscriptions/getFullUrl/action',
+* 'Microsoft.EventGrid/systemTopics/eventSubscriptions/getDeliveryAttributes/action',
+* 'Microsoft.EventGrid/systemTopics/read',
+* 'Microsoft.EventGrid/systemTopics/write',
+* 'Microsoft.EventGrid/systemTopics/delete',
+* 'Microsoft.EventGrid/eventSubscriptions/write',
+* 'Microsoft.Storage/storageAccounts/write'
 
 
-+
-Inoltre, l'ambito assegnabile deve essere impostato sull'ambito della sottoscrizione e *non* sull'ambito del gruppo di risorse se si prevede di implementare la sincronizzazione continua in Azure.
+Se vuoi implementare la sincronizzazione continua in Azure, l'ambito assegnabile deve essere impostato su ambito di sottoscrizione e *non* su ambito di gruppo di risorse.
 
-. Le seguenti autorizzazioni sono necessarie solo se si intende scegliere una propria sicurezza per la creazione del broker di dati:
-+
-** "Microsoft.Network/networkSecurityGroups/securityRules/read"
-** "Microsoft.Network/networkSecurityGroups/read"
+Le seguenti autorizzazioni sono necessarie solo se si intende scegliere una propria sicurezza per la creazione del broker di dati:
+
+* 'Microsoft.Network/networkSecurityGroups/securityRules/read'
+* 'Microsoft.Network/networkSecurityGroups/read'
 
 
 
 
-
-
+[[authentication-method]]
 == Metodo di autenticazione
 
-Quando distribuisci il broker di dati, dovrai scegliere un metodo di autenticazione per la macchina virtuale: una password o una coppia di chiavi pubblica-privata SSH.
+Quando distribuisci il broker, devi scegliere un metodo di autenticazione per la macchina virtuale: una password o una coppia di chiavi SSH pubblica-privata.
 
-Per assistenza nella creazione di una coppia di chiavi, fare riferimento a https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys["Documentazione di Azure: creare e utilizzare una coppia di chiavi pubblica-privata SSH per le VM Linux in Azure"^] .
+Per assistenza nella creazione di una coppia di chiavi, consulta link:https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys["Documentazione di Azure: creare e utilizzare una coppia di chiavi pubblica-privata SSH per le VM Linux in Azure"^].
 
 
 
+[[create-the-data-broker]]
 == Creare il broker di dati
 
 Esistono diversi modi per creare un nuovo broker di dati.  In questa procedura viene descritto come installare un broker di dati in Azure quando si crea una relazione di sincronizzazione.
@@ -211,6 +163,7 @@ Come mostrato nell'URL, l'URL della nostra app è https://cloudsync.netapp.com e
 ****
 
 
+[[details-about-the-data-broker-vm]]
 == Dettagli sulla VM del broker di dati
 
 Copia e sincronizzazione crea un broker di dati in Azure utilizzando la seguente configurazione.

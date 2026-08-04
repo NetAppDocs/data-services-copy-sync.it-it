@@ -32,6 +32,7 @@ Ora che tutto è impostato, puoi inviare una chiamata API per creare una relazio
 
 
 
+[[prepare-the-vault]]
 == Preparare la cassaforte
 
 Dovrai fornire a Copia e Sincronizza l'URL dei segreti nel tuo vault.  Preparare il vault impostando tali URL.  È necessario impostare gli URL per le credenziali per ogni origine e destinazione nelle relazioni di sincronizzazione che si intende creare.
@@ -48,6 +49,7 @@ Crediti:: L'URL deve terminare con _Creds_.
 
 
 
+[[examples]]
 === Esempi
 
 Gli esempi seguenti mostrano gli URL dei segreti.
@@ -68,6 +70,7 @@ Il percorso del prefisso è _/my-path/all-secrets/_, l'ID della richiesta è _n3
 
 
 
+[[prepare-the-data-broker-group]]
 == Preparare il gruppo di broker di dati
 
 Preparare il gruppo di broker di dati a recuperare le credenziali dal vault esterno modificando il file di configurazione locale per ciascun broker di dati nel gruppo.
@@ -152,6 +155,7 @@ Spazio dei nomi::
 
 
 
+[[example-for-aws-role-authentication]]
 === Esempio di autenticazione aws-role
 
 [source, json]
@@ -173,6 +177,7 @@ Spazio dei nomi::
 ----
 
 
+[[example-for-gcp-iam-authentication]]
 === Esempio di autenticazione gcp-iam
 
 [source, json]
@@ -202,6 +207,7 @@ Spazio dei nomi::
 ----
 
 
+[[set-up-permissions-when-using-gcp-iam-authentication]]
 === Impostare le autorizzazioni quando si utilizza l'autenticazione gcp-iam
 
 Se si utilizza il metodo di autenticazione _gcp-iam_, il broker di dati deve disporre della seguente autorizzazione GCP:
@@ -214,6 +220,7 @@ link:task-installing-gcp.html#permissions-required-for-the-service-account["Scop
 
 
 
+[[creating-a-new-sync-relationship-using-secrets-from-the-vault]]
 == Creazione di una nuova relazione di sincronizzazione utilizzando i segreti del vault
 
 Ora che tutto è impostato, puoi inviare una chiamata API per creare una relazione di sincronizzazione che utilizzi il tuo vault per ottenere i segreti.
@@ -235,6 +242,7 @@ Body: post relationship v2 body
 
 
 
+[[example]]
 === Esempio
 
 Esempio per la richiesta POST:
