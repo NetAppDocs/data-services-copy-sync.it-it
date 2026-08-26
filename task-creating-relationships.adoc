@@ -109,7 +109,17 @@ image:screenshot_bucket_setup.gif["Questa schermata mostra la pagina Configurazi
 
 . [[impostazioni]]Nella pagina *Impostazioni*, definisci come i file e le cartelle di origine vengono sincronizzati e mantenuti nella posizione di destinazione:
 +
-Programma:: Scegli una pianificazione ricorrente per le sincronizzazioni future oppure disattiva la pianificazione della sincronizzazione.  È possibile pianificare una relazione per sincronizzare i dati anche ogni minuto.
+Programma:: Scegli una pianificazione ricorrente per le sincronizzazioni future oppure disattiva la pianificazione della sincronizzazione. Puoi pianificare una relazione per sincronizzare i dati anche ogni 1 minuto. Le pianificazioni possono essere impostate anche con frequenza oraria e giornaliera.
++
+--
+
+IMPORTANT: Quando imposti la pianificazione, devi inserire un valore per quando *La prossima sincronizzazione verrà avviata automaticamente*. Copy and Sync utilizza *UTC*, non l'ora locale. Pianifica di conseguenza quando imposti l'orario programmato.
+
+--
+
+
+
+
 Timeout di sincronizzazione:: Definisci se Copia e sincronizzazione deve annullare una sincronizzazione dei dati se la sincronizzazione non è stata completata entro il numero specificato di minuti, ore o giorni.
 Notifiche:: Consente di scegliere se ricevere notifiche di copia e sincronizzazione nel Centro notifiche della console NetApp .  È possibile abilitare le notifiche per le sincronizzazioni dei dati riuscite, non riuscite e annullate.
 Nuovi tentativi:: Definisci il numero di volte in cui Copia e sincronizzazione devono riprovare a sincronizzare un file prima di saltarlo.
@@ -120,17 +130,17 @@ Questa impostazione è disponibile solo quando si crea una relazione di sincroni
 
 Se si attiva questa impostazione, verranno influenzate anche altre funzionalità come segue:
 
-** La pianificazione della sincronizzazione è disabilitata.
-** Le seguenti impostazioni vengono ripristinate ai valori predefiniti: Timeout sincronizzazione, File modificati di recente e Data di modifica.
-** Se S3 è l'origine, il filtro per dimensione sarà attivo solo sugli eventi di copia (non sugli eventi di eliminazione).
-** Dopo aver creato la relazione, puoi solo accelerarla o eliminarla.  Non è possibile interrompere le sincronizzazioni, modificare le impostazioni o visualizzare i report.
+* La pianificazione della sincronizzazione è disabilitata.
+* Le seguenti impostazioni vengono ripristinate ai valori predefiniti: Timeout sincronizzazione, File modificati di recente e Data di modifica.
+* Se S3 è l'origine, il filtro per dimensione sarà attivo solo sugli eventi di copia (non sugli eventi di eliminazione).
+* Dopo aver creato la relazione, puoi solo accelerarla o eliminarla.  Non è possibile interrompere le sincronizzazioni, modificare le impostazioni o visualizzare i report.
 +
 È possibile creare una relazione di sincronizzazione continua con un bucket esterno.  Per farlo, segui questi passaggi:
 
 +
-... Vai alla console Google Cloud per il progetto del bucket esterno.
-... Vai su *Cloud Storage > Impostazioni > Account del servizio di archiviazione cloud*.
-... Aggiorna il file local.json:
+.. Vai alla console Google Cloud per il progetto del bucket esterno.
+.. Vai su *Cloud Storage > Impostazioni > Account del servizio di archiviazione cloud*.
+.. Aggiorna il file local.json:
 +
 [source, json]
 ----
@@ -142,13 +152,13 @@ Se si attiva questa impostazione, verranno influenzate anche altre funzionalità
 }
 }
 ----
-... Riavviare il broker di dati:
+.. Riavviare il broker di dati:
 +
-.... sudo pm2 stop all
-.... sudo pm2 avvia tutto
+... sudo pm2 stop all
+... sudo pm2 avvia tutto
 
 
-... Creare una relazione di sincronizzazione continua con il bucket esterno pertinente.
+.. Creare una relazione di sincronizzazione continua con il bucket esterno pertinente.
 +
 
 NOTE: Un broker di dati utilizzato per creare una relazione di sincronizzazione continua con un bucket esterno non sarà in grado di creare un'altra relazione di sincronizzazione continua con un bucket nel suo progetto.
@@ -165,8 +175,8 @@ Anche se deselezioni questi attributi, Copia e sincronizzazione confronta comunq
 
 È possibile scegliere di abilitare o disabilitare Copia e sincronizzazione per confrontare i seguenti attributi:
 
-** *mtime*: Ora dell'ultima modifica di un file.  Questo attributo non è valido per le directory.
-** *uid*, *gid* e *mode*: flag di autorizzazione per Linux.
+* *mtime*: Ora dell'ultima modifica di un file.  Questo attributo non è valido per le directory.
+* *uid*, *gid* e *mode*: flag di autorizzazione per Linux.
 
 
 --
@@ -179,11 +189,11 @@ La copia dei tag è supportata con relazioni di sincronizzazione che includono A
 
 La copia dei metadati è supportata con relazioni "cloud-to-cloud" tra uno qualsiasi dei seguenti endpoint:
 
-** AWS S3
-** Blob azzurro
-** Google Cloud Storage
-** IBM Cloud Object Storage
-** StorageGRID
+* AWS S3
+* Blob azzurro
+* Google Cloud Storage
+* IBM Cloud Object Storage
+* StorageGRID
 
 
 --
@@ -234,8 +244,8 @@ Dimensione del file:: Scegli di sincronizzare tutti i file, indipendentemente da
 Data di modifica:: Seleziona tutti i file indipendentemente dalla data dell'ultima modifica, i file modificati dopo una data specifica, prima di una data specifica o in un intervallo di tempo.
 Data di creazione:: Quando l'origine è un server SMB, questa impostazione consente di sincronizzare i file creati dopo una data specifica, prima di una data specifica o in un intervallo di tempo specifico.
 ACL - Elenco di controllo degli accessi:: Copia solo ACL, solo file o ACL e file da un server SMB abilitando un'impostazione quando crei una relazione o dopo averla creata.
-
-
++
+--
 . Nella pagina *Tag/Metadati*, scegli se salvare una coppia chiave-valore come tag su tutti i file trasferiti al bucket S3 oppure assegnare una coppia chiave-valore di metadati a tutti i file.
 +
 image:screenshot_relationship_tags.png["Uno screenshot che mostra la pagina Tag/Metadati durante la creazione di una relazione di sincronizzazione con Amazon S3."]
@@ -245,6 +255,9 @@ image:screenshot_relationship_tags.png["Uno screenshot che mostra la pagina Tag/
 TIP: La stessa funzionalità è disponibile quando si sincronizzano i dati con StorageGRID e IBM Cloud Object Storage.  Per Azure e Google Cloud Storage è disponibile solo l'opzione metadati.
 
 . Esaminare i dettagli della relazione di sincronizzazione, quindi selezionare *Crea relazione*.
+
+
+--
 
 
 *Risultato*

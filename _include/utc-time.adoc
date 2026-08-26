@@ -1,0 +1,6 @@
+= 
+:allow-uri-read: 
+
+
+
+IMPORTANT: Quando imposti la pianificazione, devi inserire un valore per quando *La prossima sincronizzazione verrà avviata automaticamente*. Copy and Sync utilizza *UTC*, non l'ora locale. Pianifica di conseguenza quando imposti l'orario programmato.
