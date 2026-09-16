@@ -4,7 +4,7 @@ permalink: task-managing-reports.html
 keywords: reports, sync reports, NetApp Copy and Sync reports, report errors, path reports 
 summary: 'Crea e visualizza report per ottenere informazioni che puoi utilizzare con l"aiuto del personale NetApp per ottimizzare la configurazione di un broker di dati e migliorarne le prestazioni.' 
 ---
-= Crea e visualizza report per ottimizzare la tua configurazione in NetApp Copy and Sync
+= Crea e visualizza report in NetApp Copy and Sync
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

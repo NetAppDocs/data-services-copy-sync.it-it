@@ -4,7 +4,7 @@ permalink: task-external-vault.html
 keywords: hashicorp, vault, credentials, secrets, API 
 summary: 'Quando si crea una relazione di sincronizzazione che richiede credenziali Amazon S3, Azure o Google Cloud, è necessario specificare tali credenziali tramite l"interfaccia utente o l"API NetApp Copy and Sync .  Un"alternativa è quella di configurare il broker di dati in modo che acceda alle credenziali direttamente da un HashiCorp Vault esterno.' 
 ---
-= Impostare un gruppo di broker di dati per utilizzare un HashiCorp Vault esterno in NetApp Copy and Sync
+= Configura HashiCorp Vault per un gruppo di data broker NetApp Copy and Sync
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

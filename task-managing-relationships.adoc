@@ -4,7 +4,7 @@ permalink: task-managing-relationships.html
 keywords: sync, immediate, now, schedule, minutes, hours, on, off, delete, group, accelerate, accelerating, grouping, multiple data brokers, sync now, turn off, turn on, sync schedule, settings, change settings, recently modified files, delete files on target, retries, retry, file types, exclude file type, include file type, delete relationship 
 summary: Puoi gestire le relazioni di sincronizzazione in qualsiasi momento sincronizzando immediatamente i dati, modificando le pianificazioni e altro ancora. 
 ---
-= Gestione delle relazioni di sincronizzazione in NetApp Copy and Sync
+= Gestisci le relazioni di sincronizzazione in NetApp Copy and Sync
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

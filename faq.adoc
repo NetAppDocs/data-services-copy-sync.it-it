@@ -4,7 +4,7 @@ permalink: faq.html
 keywords: community, forums, help, support, videos, faq, getting help, permissions, access control lists, acls, preserve, preserving, troubleshooting, support, encryption, smb 
 summary: Puoi ottenere assistenza con NetApp Copy and Sync e trovare ulteriori informazioni tramite varie risorse, tra cui forum, servizi di chat e video. 
 ---
-= Domande frequenti tecniche NetApp Copy and Sync
+= Domande frequenti tecniche su NetApp Copy and Sync
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

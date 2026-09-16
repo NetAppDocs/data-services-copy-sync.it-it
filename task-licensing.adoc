@@ -4,7 +4,7 @@ permalink: task-licensing.html
 keywords: license, subscription, registering, subscribing, subscribing in aws, subscribing in azure, subscribing to aws, subscribing to azure, aws marketplace, azure marketplace, netapp license, byol license, purchase a license, license settings, pay for relationships, paygo, annual, pay-as-you-go 
 summary: Al termine del periodo di prova gratuito di 14 giorni, è possibile pagare le relazioni di sincronizzazione in due modi.  La prima opzione è quella di pagare a consumo.  La seconda opzione è quella di acquistare le licenze direttamente da NetApp. 
 ---
-= Paga per le relazioni di sincronizzazione dopo la fine della prova gratuita NetApp Copy and Sync
+= Paga per le relazioni di sincronizzazione in NetApp Copy and Sync
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
