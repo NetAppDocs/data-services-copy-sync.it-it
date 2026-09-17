@@ -54,7 +54,7 @@ Per quanto riguarda i prezzi a consumo, i costi del servizio Copia e sincronizza
 
 * https://aws.amazon.com/marketplace/pp/B01LZV5DUJ["Visualizza i prezzi a consumo in AWS"^]
 * https://aws.amazon.com/marketplace/pp/B06XX5V3M2["Visualizza i prezzi annuali in AWS"^]
-* https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-sync-service?tab=PlansAndPrice["Visualizza i prezzi in Azure"^]
+* https://marketplace.microsoft.com/en-us/product/netapp.cloud-sync-service?tab=PlansAndPrice["Visualizza i prezzi in Azure"^]
 
 
 Le licenze di copia e sincronizzazione sono disponibili anche tramite il tuo rappresentante NetApp .  Ogni licenza consente 20 relazioni di sincronizzazione per 12 mesi.

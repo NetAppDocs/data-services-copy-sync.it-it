@@ -262,7 +262,7 @@ TIP: La stessa funzionalità è disponibile quando si sincronizzano i dati con S
 
 *Risultato*
 
-Copia e sincronizza avvia la sincronizzazione dei dati tra l'origine e la destinazione. Le statistiche di sincronizzazione sulla durata della sincronizzazione, su eventuali interruzioni e sul numero di file copiati, scansionati o eliminati sono disponibili. Puoi quindi gestire i tuoi link:task-managing-relationships.html["relazioni di sincronizzazione"], link:task-managing-data-brokers.html["gestisci i tuoi broker di dati"] o link:task-managing-reports.html#creating-reports["creare report per ottimizzare le prestazioni e la configurazione"].
+Copia e sincronizza avvia la sincronizzazione dei dati tra l'origine e la destinazione. Le statistiche di sincronizzazione sulla durata della sincronizzazione, su eventuali interruzioni e sul numero di file copiati, scansionati o eliminati sono disponibili. Puoi quindi gestire i tuoi link:task-managing-relationships.html["relazioni di sincronizzazione"], link:task-managing-data-brokers.html["gestisci i tuoi broker di dati"] o link:task-managing-reports.html["creare report per ottimizzare le prestazioni e la configurazione"].
 
 
 
